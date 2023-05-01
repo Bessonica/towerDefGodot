@@ -1,14 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://cg1jr4lkfv1sg"]
+[gd_scene load_steps=11 format=3 uid="uid://cg1jr4lkfv1sg"]
 
 [ext_resource type="PackedScene" uid="uid://derfquytmjf53" path="res://player.tscn" id="1_1rdeo"]
 [ext_resource type="PackedScene" uid="uid://doskifusi1l4t" path="res://enemyPath.tscn" id="2_763cq"]
-[ext_resource type="PackedScene" uid="uid://41gew7l4ojmx" path="res://enemy.tscn" id="2_uvtbv"]
 [ext_resource type="Resource" uid="uid://cyxo6k0qlteo2" path="res://custom wave resources/wave/waveTest02.tres" id="4_ymddc"]
+[ext_resource type="Script" path="res://SpawnerController.gd" id="5_acseo"]
+[ext_resource type="Resource" uid="uid://v6vtdcxvr1k2" path="res://custom wave resources/waveArray/waveArrayTest01.tres" id="6_nroaw"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_vfbs8"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qqjbg"]
 size = Vector2(20, 15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yx3jq"]
+albedo_color = Color(0.576471, 0.266667, 0.294118, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k5u7h"]
+material = SubResource("StandardMaterial3D_yx3jq")
 
 [sub_resource type="Curve3D" id="Curve3D_7gmmw"]
 _data = {
@@ -16,12 +23,6 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 10
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yx3jq"]
-albedo_color = Color(0.576471, 0.266667, 0.294118, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_k5u7h"]
-material = SubResource("StandardMaterial3D_yx3jq")
 
 [node name="Node3D" type="Node3D"]
 
@@ -35,15 +36,6 @@ mesh = SubResource("PlaneMesh_qqjbg")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_1rdeo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44706, 0)
-
-[node name="Path3D" parent="." instance=ExtResource("2_763cq")]
-curve = SubResource("Curve3D_7gmmw")
-timeToSpawn = null
-waveArrayResource = ExtResource("4_ymddc")
-
-[node name="Enemy2" parent="." instance=ExtResource("2_uvtbv")]
-transform = Transform3D(-0.0302889, 0, 0.999529, 0, 1, 0, -0.999529, 0, -0.0302889, -5.59924, 0, -4.60894)
-visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.977791, 0.209584, 0, -0.209584, 0.977791, 0, 5.4291, 8.89926)
@@ -62,3 +54,11 @@ mesh = SubResource("BoxMesh_k5u7h")
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="pathLine"]
 transform = Transform3D(-4.88513, 0, 0.000653333, 0, 1, 0, -0.0317178, 0, -0.100625, 6.78629, 0, 2.28933)
 mesh = SubResource("BoxMesh_k5u7h")
+
+[node name="SpawnerController" type="Node3D" parent="."]
+script = ExtResource("5_acseo")
+waveArray = ExtResource("6_nroaw")
+
+[node name="Path3D" parent="SpawnerController" instance=ExtResource("2_763cq")]
+curve = SubResource("Curve3D_7gmmw")
+waveArrayResource = ExtResource("4_ymddc")

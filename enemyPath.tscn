@@ -14,4 +14,3 @@ point_count = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65764, 0.0533761, -4.57108)
 curve = SubResource("Curve3D_tcnox")
 script = ExtResource("1_6yl8c")
-timeToSpawn = null

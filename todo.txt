@@ -9,8 +9,11 @@ signals
 resources
 .tres files
 
+mesh instance/rigidbody3d/primitiveMesh/csgMesh/
+	what is the difference?
+
 ==
-array of waves saved
+creat pairs of amount and of enemy type
 ==
 	ПЕРЕНЕСТИ СТАТ СКОРОСТЬ ИЗ pathfollow3d в enemy
 		неудобно. если enemy имеет эту переменную но ее использует pathfollow, 
@@ -34,18 +37,14 @@ DONE	movement input
 enemy
 	state machine							TODO NEXT
 DONE	he can move towards some point
-	he can stop at any point				TODO NEXT
+DONE	he can stop at any point				TODO NEXT
 	he can change his speed
 	when he dies he sends signal (start event, take helth etc)
 	he can change his path/behaiviour/destination
 
-they dont move perfectly, we can find the shortest path. but it wouldnt look believeable
 
-
-		idea
-	path3d node where we specify enemy we want to spawn and it just spawns it.
 	
-	pathFollow3d should react to enemy State (move when enemy state "move", stop when enemy state "stop")
+	
 
 first person
 	interaction system
@@ -56,5 +55,4 @@ first person
 pc view/tower defence screen
 
 
-mesh instance/rigidbody3d/primitiveMesh/csgMesh/
-	what is the difference?
+
