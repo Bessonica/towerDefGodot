@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="waveArray" load_steps=3 format=3 uid="uid://v6vtdcxvr1k2"]
+
+[ext_resource type="Script" path="res://waveArray.gd" id="1_v8f04"]
+[ext_resource type="Resource" uid="uid://cyxo6k0qlteo2" path="res://custom wave resources/wave/waveTest02.tres" id="2_p26t1"]
+
+[resource]
+script = ExtResource("1_v8f04")
+waveArray = Array[Resource("res://wave.gd")]([ExtResource("2_p26t1")])

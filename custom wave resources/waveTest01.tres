@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="waveTest" load_steps=2 format=3 uid="uid://c5hpsnsnxpyh6"]
+
+[ext_resource type="Script" path="res://waveTest.gd" id="1_fcp0g"]
+
+[resource]
+script = ExtResource("1_fcp0g")
+enemyAmount = 4
+testFile = "res://enemyPathFollow3D.tscn"

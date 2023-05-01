@@ -1,0 +1,60 @@
+
+KISS
+keep data and logic together
+composition over inheritance
+think about using interfaces (interaction system for exmpl)
+
+signals
+@onread, @export etc
+resources
+.tres files
+
+==
+array of waves saved
+==
+	ПЕРЕНЕСТИ СТАТ СКОРОСТЬ ИЗ pathfollow3d в enemy
+		неудобно. если enemy имеет эту переменную но ее использует pathfollow, 
+		тогда ее не видно в редакторе и я пока не знаю как ее менять
+-
+
+first person
+DONE	camera
+DONE		camera control   
+DONE	movement input 
+	first person/tower defence  change
+		camera change
+		controls change, add/hide mouse
+
+------------------
+		EnemyPathFollow that handles moving
+			enemy node that has state machine. send it state to enemyPathFollow
+			enemyPathFollow script handles movement, depending on state.
+
+
+enemy
+	state machine							TODO NEXT
+DONE	he can move towards some point
+	he can stop at any point				TODO NEXT
+	he can change his speed
+	when he dies he sends signal (start event, take helth etc)
+	he can change his path/behaiviour/destination
+
+they dont move perfectly, we can find the shortest path. but it wouldnt look believeable
+
+
+		idea
+	path3d node where we specify enemy we want to spawn and it just spawns it.
+	
+	pathFollow3d should react to enemy State (move when enemy state "move", stop when enemy state "stop")
+
+first person
+	interaction system
+		simple way to have interface to interact with different objects
+		press and hold functionality
+	change camera view, controls etc
+	
+pc view/tower defence screen
+
+
+mesh instance/rigidbody3d/primitiveMesh/csgMesh/
+	what is the difference?
