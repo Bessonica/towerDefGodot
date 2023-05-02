@@ -20,11 +20,24 @@ creat pairs of amount and of enemy type
 турель, стреляет. настраиваемая. можем менять свое состояние. начиная от кул дауна, заканчивая
 визуальніми еффектами
 
+	base turret: keep track of enemies in its radius
+
 --
 	ПЕРЕНЕСТИ СТАТ СКОРОСТЬ ИЗ pathfollow3d в enemy
 		неудобно. если enemy имеет эту переменную но ее использует pathfollow, 
 		тогда ее не видно в редакторе и я пока не знаю как ее менять
--
+		
+
+
+player move state	done
+
+interactable ccomponent
+
+raycast player camera interactor
+
+--
+
+
 
 first person
 DONE	camera

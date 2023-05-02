@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://derfquytmjf53"]
+[gd_scene load_steps=5 format=3 uid="uid://derfquytmjf53"]
 
 [ext_resource type="Script" path="res://movement.gd" id="1_7vmmm"]
+[ext_resource type="PackedScene" uid="uid://ce8uyseg8gccl" path="res://Interaction/Interactor/player/player_interactor.tscn" id="2_xwn7w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ich7s"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5r7ea"]
 
@@ -8,10 +11,21 @@
 script = ExtResource("1_7vmmm")
 
 [node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.515838, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.479254, -0.334698)
 current = true
+
+[node name="PlayerInteractor" parent="CameraPivot" node_paths=PackedStringArray("player") instance=ExtResource("2_xwn7w")]
+player = NodePath("../..")
+
+[node name="CollisionShape3D" parent="CameraPivot/PlayerInteractor" index="0"]
+shape = SubResource("BoxShape3D_ich7s")
+
+[node name="RayCast3D" parent="CameraPivot/PlayerInteractor" index="1"]
+target_position = Vector3(0, 0, -2)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_5r7ea")
+
+[editable path="CameraPivot/PlayerInteractor"]

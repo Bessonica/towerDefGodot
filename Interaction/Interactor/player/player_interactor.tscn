@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce8uyseg8gccl"]
+
+[ext_resource type="PackedScene" uid="uid://bdll1j7rnu5xv" path="res://Interaction/Interactor/interactor.tscn" id="1_iyy6m"]
+[ext_resource type="Script" path="res://Interaction/Interactor/player/PlayerInteractor.gd" id="2_02rvd"]
+[ext_resource type="Script" path="res://Interaction/Interactor/player/RayCast3DInteract.gd" id="3_06gpe"]
+
+[node name="PlayerInteractor" instance=ExtResource("1_iyy6m")]
+script = ExtResource("2_02rvd")
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="1"]
+target_position = Vector3(0, 0, -4)
+collision_mask = 2
+collide_with_areas = true
+script = ExtResource("3_06gpe")
