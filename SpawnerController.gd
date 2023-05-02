@@ -17,14 +17,15 @@ func _ready():
 func _process(delta):
 	pass
 	timer = timer + delta
-	if(timer>= 20):
-		stopAllPath()
+	if(timer>= 4):
+		startWave(0, waveArray.waveArray[0])
 		timer = 0
 
 
 func startWave(enemyPathIndex, waveResource):
 	enemyPath = get_child(enemyPathIndex)
-	enemyPath.currentSpawnState = enemyPath.spawnState.startSpawn
+	#enemyPath.currentSpawnState = enemyPath.spawnState.startSpawn
+	enemyPath.startSpawning(waveResource)
 	
 func stopWave(enemyPathIndex):
 	enemyPath = get_child(enemyPathIndex)

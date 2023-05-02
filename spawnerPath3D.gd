@@ -21,7 +21,7 @@ var currentSpawnState
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	currentSpawnState = spawnState.startSpawn
+	currentSpawnState = spawnState.stopSpawn
 	timer = 0
 	gameStartTime = Time.get_ticks_msec()
 	print("game started: ", Time.get_ticks_msec())
@@ -67,5 +67,14 @@ func spawnWave(amount, enemyToSpawn):
 		await get_tree().create_timer(timerVar, false).timeout
 	
 
+func startSpawning(waveResource):
+	makeCurrentWave(waveResource)
+	currentSpawnState = spawnState.startSpawn
 
-
+func makeCurrentWave(waveResource):
+	waveArrayResource = waveResource
+	
+# get all children and "say" them to change speed
+func changeSpeed(newSpeed):
+	pass
+	
