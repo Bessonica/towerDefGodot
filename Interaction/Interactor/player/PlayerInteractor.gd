@@ -20,8 +20,34 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#print("collision is going")
+	choosenInteractable = activateRayCast()
+	if choosenInteractable != null:
+		focus(choosenInteractable)
+		#print("found interactable!")
+		#interact(choosenInteractable)
+		pass
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed('interact'):
+		if choosenInteractable != null:
+			interact(choosenInteractable)
+	
+
+
+func activateRayCast() -> Interactable:
+	var interactObject: Interactable = null
+	var collidedObject: Area3D
+	
 	if rayCast.is_colliding():
-		print("collision")
+		#	поулчаем колайдер
+		
+		interactObject = rayCast.get_collider() as Interactable
+	return interactObject
 
 
+#		TODO 	if object has no callable for signal gives error.
+#	if i dont need these signals, i still need to make empty callable. messy
+#			get_signal_connection_list, or get_signal_list   function could help
+func checkIfSignalCallExists(interactableObject: Interactable):
+	pass
+	

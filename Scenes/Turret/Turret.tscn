@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://vde0htpdxyqt"]
+
+[ext_resource type="Script" path="res://Scripts/Turrets/Turret.gd" id="1_oitth"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_q431m"]
+
+[node name="Area3D" type="Area3D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_oitth")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_q431m")

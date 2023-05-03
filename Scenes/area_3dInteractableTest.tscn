@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbnrpll6gnkqf"]
+
+[ext_resource type="Script" path="res://Interaction/test/TestArea3D.gd" id="1_ppebq"]
+[ext_resource type="PackedScene" uid="uid://dw7dv6ece23mk" path="res://Interactable.tscn" id="2_o08j0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x8iyy"]
+
+[node name="Area3D" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.567, 0, 6.23084)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_ppebq")
+
+[node name="Interactable" parent="." instance=ExtResource("2_o08j0")]
+
+[node name="CollisionShape3D" parent="Interactable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 3.87446, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_x8iyy")
+
+[connection signal="focused" from="Interactable" to="." method="_on_interactable_focused"]
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+
+[editable path="Interactable"]

@@ -1,4 +1,6 @@
-
+game design ideas
+	game should have several values. it should not be one-two things. example of good value system - first deus ex
+_______
 KISS
 keep data and logic together
 composition over inheritance
@@ -31,9 +33,13 @@ creat pairs of amount and of enemy type
 
 player move state	done
 
-interactable ccomponent
+interactable ccomponent done 
 
-raycast player camera interactor
+raycast player camera interactor done
+
+instantiate turret as  achild of building platform
+	turret should have states
+	raycast for debugging purposes
 
 --
 

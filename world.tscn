@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://cyxo6k0qlteo2" path="res://custom wave resources/wave/waveTest02.tres" id="4_ymddc"]
 [ext_resource type="Script" path="res://SpawnerController.gd" id="5_acseo"]
 [ext_resource type="Resource" uid="uid://v6vtdcxvr1k2" path="res://custom wave resources/waveArray/waveArrayTest01.tres" id="6_nroaw"]
+[ext_resource type="PackedScene" uid="uid://bbnrpll6gnkqf" path="res://Scenes/area_3dInteractableTest.tscn" id="6_vvpp1"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_vfbs8"]
 
@@ -24,9 +25,6 @@ _data = {
 }
 point_count = 10
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_3bggk"]
-size = Vector3(1, 2.56001, 1)
-
 [node name="Node3D" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
@@ -39,9 +37,6 @@ mesh = SubResource("PlaneMesh_qqjbg")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_1rdeo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54285, 0)
-
-[node name="CameraPivot" parent="CharacterBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.515838, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.977791, 0.209584, 0, -0.209584, 0.977791, 0, 5.4291, 8.89926)
@@ -69,16 +64,7 @@ waveArray = ExtResource("6_nroaw")
 curve = SubResource("Curve3D_7gmmw")
 waveArrayResource = ExtResource("4_ymddc")
 
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.00979, 0, 6.68329)
-
-[node name="Area3D" type="Area3D" parent="Node3D"]
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
-transform = Transform3D(2.48356, 0, 0, 0, 2.03376, 0, 0, 0, 1.92658, 0, 0, 0)
-shape = SubResource("BoxShape3D_3bggk")
+[node name="Area3D" parent="." instance=ExtResource("6_vvpp1")]
 
 [editable path="CharacterBody3D"]
 [editable path="CharacterBody3D/CameraPivot/PlayerInteractor"]
