@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://derfquytmjf53"]
+[gd_scene load_steps=5 format=3 uid="uid://cbu12ermeprmd"]
 
-[ext_resource type="Script" path="res://movement.gd" id="1_7vmmm"]
+[ext_resource type="Script" path="res://Scripts/Player/movement.gd" id="1_vb2kb"]
 [ext_resource type="PackedScene" uid="uid://ce8uyseg8gccl" path="res://Interaction/Interactor/player/player_interactor.tscn" id="2_xwn7w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ich7s"]
@@ -8,7 +8,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5r7ea"]
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
-script = ExtResource("1_7vmmm")
+script = ExtResource("1_vb2kb")
 
 [node name="CameraPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.515838, 0)

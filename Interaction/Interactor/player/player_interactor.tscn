@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ce8uyseg8gccl"]
 
-[ext_resource type="PackedScene" uid="uid://bdll1j7rnu5xv" path="res://Interaction/Interactor/interactor.tscn" id="1_iyy6m"]
+[ext_resource type="PackedScene" uid="uid://us5worof2kh1" path="res://Interaction/Interactor/interactor.tscn" id="1_iyy6m"]
 [ext_resource type="Script" path="res://Interaction/Interactor/player/PlayerInteractor.gd" id="2_02rvd"]
 [ext_resource type="Script" path="res://Interaction/Interactor/player/RayCast3DInteract.gd" id="3_06gpe"]
 

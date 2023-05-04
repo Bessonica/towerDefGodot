@@ -18,11 +18,22 @@ mesh instance/rigidbody3d/primitiveMesh/csgMesh/
 creat pairs of amount and of enemy type
 турели, установка туреллей.
 ==
+				TODOD
+
+tres wave file assign hp at initialization(enemy health has set health method)
+
+clean project structure
 
 турель, стреляет. настраиваемая. можем менять свое состояние. начиная от кул дауна, заканчивая
 визуальніми еффектами
 
 	base turret: keep track of enemies in its radius
+
+instantiate turret as  achild of building platform
+	turret should have states
+	raycast for debugging purposes
+
+
 
 --
 	ПЕРЕНЕСТИ СТАТ СКОРОСТЬ ИЗ pathfollow3d в enemy
@@ -30,16 +41,6 @@ creat pairs of amount and of enemy type
 		тогда ее не видно в редакторе и я пока не знаю как ее менять
 		
 
-
-player move state	done
-
-interactable ccomponent done 
-
-raycast player camera interactor done
-
-instantiate turret as  achild of building platform
-	turret should have states
-	raycast for debugging purposes
 
 --
 

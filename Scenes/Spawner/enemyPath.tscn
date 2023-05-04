@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://doskifusi1l4t"]
+[gd_scene load_steps=3 format=3 uid="uid://d28v5jcm8gwcu"]
 
-[ext_resource type="Script" path="res://spawnerPath3D.gd" id="1_6yl8c"]
+[ext_resource type="Script" path="res://Scripts/Spawner/path3D/spawnerPath3D.gd" id="1_2pxxc"]
 
 [sub_resource type="Curve3D" id="Curve3D_tcnox"]
 resource_local_to_scene = true
@@ -13,4 +13,4 @@ point_count = 8
 [node name="Path3D" type="Path3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65764, 0.0533761, -4.57108)
 curve = SubResource("Curve3D_tcnox")
-script = ExtResource("1_6yl8c")
+script = ExtResource("1_2pxxc")

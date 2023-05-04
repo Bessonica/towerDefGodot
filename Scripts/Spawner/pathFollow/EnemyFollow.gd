@@ -3,7 +3,8 @@ extends PathFollow3D
 @onready var enemyChild = get_node("Enemy")
 
 
-@export var movementSpeed := 5
+@export var movementSpeed: float
+@export var health: int
 @onready var enemyState = enemyChild.enemyCurrentState
 
 var progressRatio = 0
@@ -31,10 +32,13 @@ func _process(delta):
 			pass
 	
 func killEnemy():
-	enemyChild.killItself()
+	enemyChild.enemyGotKilled()
 	queue_free()
 	
 	
 func setSpeed(amount):
 	movementSpeed = amount
+	
+func setHealth(amount):
+	health = amount
 	

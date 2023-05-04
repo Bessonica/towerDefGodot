@@ -1,9 +1,9 @@
 extends Path3D
 
 
-var follower = preload("res://enemyPathFollow3D.tscn")
+#var follower = preload("res://enemyPathFollow3D.tscn")
 var timer = 0
-@export var timeToSpawn = 5
+var timeToSpawn = 5
 
 
 @export var waveArrayResource: Resource
@@ -26,7 +26,7 @@ func _ready():
 	gameStartTime = Time.get_ticks_msec()
 	print("game started: ", Time.get_ticks_msec())
 	
-	timeToSpawn = waveArrayResource.timeToSpawn
+	#timeToSpawn = waveArrayResource.timeToSpawn
 
 #	pass # Replace with function body.
 
@@ -55,14 +55,18 @@ func _process(delta):
 
 
 # has enemypathfollow object their
-func spawnEnemy(enemyToSpawn):
+func spawnEnemyAndSetUpValues(enemyToSpawn):
 	var enemyToAdd = enemyToSpawn.instantiate()
+	
+	enemyToAdd.setSpeed(waveArrayResource.enemySpeed)
+	enemyToAdd.setHealth(waveArrayResource.enemySpeed)
+	
 	add_child(enemyToAdd)
 
 func spawnWave(amount, enemyToSpawn):
 	for x in amount:
 		var timerVar = randf_range(0.2, 0.7)
-		spawnEnemy(enemyToSpawn)
+		spawnEnemyAndSetUpValues(enemyToSpawn)
 		print("enemy number: ", x)
 		await get_tree().create_timer(timerVar, false).timeout
 	
@@ -73,7 +77,9 @@ func startSpawning(waveResource):
 
 func makeCurrentWave(waveResource):
 	waveArrayResource = waveResource
-	
+	timeToSpawn = waveResource.timeToSpawn
+
+
 # get all children and "say" them to change speed
 func changeSpeed(newSpeed):
 	pass
