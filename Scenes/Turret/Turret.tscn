@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/Turrets/Turret.gd" id="1_oitth"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_q431m"]
+radius = 0.8
 
-[node name="Area3D" type="Area3D"]
+[node name="Turret" type="Area3D"]
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_oitth")
@@ -12,4 +13,9 @@ script = ExtResource("1_oitth")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.528316, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CylinderShape3D_q431m")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 0.8)
+debug_shape_thickness = 5

@@ -11,9 +11,13 @@ func _process(delta):
 	pass
 
 
-func _on_interactable_interacted(interactor):
-	print("box is activated") # Replace with function body.
+
 
 
 func _on_interactable_focused(interactor):
-	print("box is focused") # Replace with function body.
+	pass
+	#print("focused") # Replace with function body.
+
+
+func _on_interactable_interacted(interactor):
+	print("interacted") # Replace with function body.

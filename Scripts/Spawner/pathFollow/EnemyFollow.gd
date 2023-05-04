@@ -42,3 +42,4 @@ func setSpeed(amount):
 func setHealth(amount):
 	health = amount
 	
+

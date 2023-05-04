@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bw3kft87c330e"]
+[gd_scene load_steps=7 format=3 uid="uid://bw3kft87c330e"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/enemyMovement.gd" id="1_2aiaw"]
 [ext_resource type="Script" path="res://Scripts/Enemies/EnemyStatus.gd" id="2_dtek0"]
@@ -10,8 +10,12 @@ albedo_color = Color(0.776471, 0.184314, 0.211765, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_q2q7w"]
 material = SubResource("StandardMaterial3D_wcgq0")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_lcol1"]
+
 [node name="Enemy" type="CharacterBody3D"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.0807638, 0, 0)
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_2aiaw")
 
 [node name="EnemyStatus" type="Node3D" parent="."]
@@ -25,6 +29,9 @@ health = 15
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]
 mesh = SubResource("SphereMesh_q2q7w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_lcol1")
 
 [connection signal="enemyLostAllHP" from="." to="EnemyStatus" method="_on_enemy_enemy_lost_all_hp"]
 [connection signal="enemyLostAllHP" from="Health" to="." method="_on_health_enemy_lost_all_hp"]
