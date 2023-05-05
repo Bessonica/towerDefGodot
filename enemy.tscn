@@ -25,6 +25,26 @@ script = ExtResource("2_dtek0")
 script = ExtResource("3_dshtr")
 health = 15
 
+[node name="Label3D" type="Label3D" parent="Health"]
+transform = Transform3D(1, 0, 0, 0, 0.965835, 0.259156, 0, -0.259156, 0.965835, 0, 0.574527, 0.556127)
+pixel_size = 0.009
+text = "hello"
+
+[node name="Label3D2" type="Label3D" parent="Health"]
+transform = Transform3D(-4.01402e-08, -0.395882, 0.918301, -1.73046e-08, 0.918301, 0.395882, -1, 0, -4.37114e-08, 0.743997, 0.574527, -0.0643765)
+pixel_size = 0.009
+text = "hello"
+
+[node name="Label3D3" type="Label3D" parent="Health"]
+transform = Transform3D(-0.999949, 0, 0.0101228, 0.00485777, 0.87733, 0.479862, -0.008881, 0.479887, -0.877286, 0.060072, 0.574527, -0.782147)
+pixel_size = 0.009
+text = "hello"
+
+[node name="Label3D4" type="Label3D" parent="Health"]
+transform = Transform3D(-0.00866633, 0.516772, -0.856079, 0.00523117, 0.856123, 0.516746, 0.999949, 0, -0.0101228, -0.690168, 0.574527, -0.169207)
+pixel_size = 0.009
+text = "hello"
+
 [node name="Pivot" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]
@@ -34,4 +54,5 @@ mesh = SubResource("SphereMesh_q2q7w")
 shape = SubResource("SphereShape3D_lcol1")
 
 [connection signal="enemyLostAllHP" from="." to="EnemyStatus" method="_on_enemy_enemy_lost_all_hp"]
+[connection signal="enemyLostSomeHP" from="." to="Health" method="_on_enemy_enemy_lost_some_hp"]
 [connection signal="enemyLostAllHP" from="Health" to="." method="_on_health_enemy_lost_all_hp"]

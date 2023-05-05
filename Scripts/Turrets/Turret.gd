@@ -9,11 +9,25 @@ var readyToShoot: bool
 
 @export var player: Node3D
 
+@onready var coolDownTimer = $ReloadTimer
+@export var damage: float
+@export var reloadTime: float
+
+enum turretState{
+	shooting,
+	reload,
+	readyToShoot,
+	overHeated
+}
+
+var currentTurretState
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	currentTurretState = turretState.readyToShoot
+	# Replace with function body.
 
-#
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 """
@@ -26,14 +40,21 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	var space_state = get_world_3d().direct_space_state
-	#rayCast.look_at(player.global_position)
-	
 	enemiesAround = lookForEnemies()
-	if enemiesAround.size() != 0:
-		lookAtEnemy(enemiesAround[0])
-	else:
-		rayCast.target_position = Vector3(0, 0, 0.8)
+	
+	match currentTurretState:
+		turretState.readyToShoot:
+
+			if enemiesAround.size() != 0:
+				shootEnemy(enemiesAround[0])
+				reload(reloadTime)
+			else:
+				rayCast.target_position = Vector3(0, 0, 0.8)
+			
+		turretState.reload:
+			pass
+	
+
 
 func lookForEnemies():
 	#	получаем characterBodies3D
@@ -46,12 +67,28 @@ func lookAtEnemy(enemy):
 	var relitivePosition = enemy.global_position - rayCast.global_position
 	rayCast.target_position = relitivePosition
 
+
+func shootEnemy(enemy):
+	lookAtEnemy(enemy)
+	enemy.enemyLostSomeHealth(damage)
+	
+func reload(time):
+	currentTurretState = turretState.reload
+	# coolDownTimer
+	await get_tree().create_timer(reloadTime).timeout
+	currentTurretState = turretState.readyToShoot
+	
+	
 	#rayCast.look_at(enemy.position)
 	# global_transform    and   .global_position
 	#		what is the difference.   read about transform
-	
-
-
+	"""
+	if enemiesAround.size() != 0:
+		lookAtEnemy(enemiesAround[0])
+		enemiesAround[0].enemyLostSomeHealth(damage)
+	else:
+		rayCast.target_position = Vector3(0, 0, 0.8)
+	"""
 
 
 func changeTurretRadius(amount):

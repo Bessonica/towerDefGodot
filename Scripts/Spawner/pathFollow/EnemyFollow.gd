@@ -17,8 +17,10 @@ func _init():
 
 
 # Called when the node enters the scene tree for the first time.
+#		cant setUp health in function setHealth. says that enemychild is nil
 func _ready():
-	pass
+	enemyChild.setHealth(health)
+
 
 func _process(delta):
 	progressRatio = get_progress_ratio()
@@ -32,13 +34,13 @@ func _process(delta):
 			pass
 	
 func killEnemy():
-	enemyChild.enemyGotKilled()
+	enemyChild.queue_free()
 	queue_free()
 	
 	
 func setSpeed(amount):
 	movementSpeed = amount
-	
+
 func setHealth(amount):
 	health = amount
 	

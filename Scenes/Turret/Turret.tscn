@@ -19,3 +19,5 @@ shape = SubResource("CylinderShape3D_q431m")
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, 0.8)
 debug_shape_thickness = 5
+
+[node name="ReloadTimer" type="Timer" parent="."]

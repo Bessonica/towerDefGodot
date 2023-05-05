@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_harbj")
 enemyAmount = 3
-timeToSpawn = 5.0
+timeToSpawn = 2.0
 enemyPathFollow = ExtResource("1_ijf0d")
-enemyHP = 5
+enemyHP = 3
 enemySpeed = 1.5

@@ -3,6 +3,7 @@ extends Node3D
 
 @export var health: int
 
+@onready var hpLabel = $Label3D
 
 signal enemyLostAllHP
 
@@ -13,6 +14,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#hpLabel.text = var_to_str(health)
+	updateHealthLabel(health)
 	if health <= 0:
 		sendSignalToKillEnemy()
 
@@ -30,4 +33,11 @@ func addHealth(amount):
 	
 func decreaseHealth(amount):
 	health = health - amount
+
+func updateHealthLabel(text):
+	for node in get_children():
+		node.text = var_to_str(text)
 	
+
+func _on_enemy_enemy_lost_some_hp(amount):
+	decreaseHealth(amount) # Replace with function body.

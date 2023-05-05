@@ -5,9 +5,15 @@ extends CharacterBody3D
 
 #@export var movementSpeed := 2
 signal enemyLostAllHP
+signal enemyLostSomeHP(amount)
 
 signal sendSignalToSetHealth
 signal sendSignalToSetSpeed
+
+
+@onready var enemyHealthComponent = $Health
+
+
 
 enum moveState{
 	moving,
@@ -24,14 +30,20 @@ func _ready():
 func _process(delta):
 	pass
 	
+func setHealth(amount):
+	enemyHealthComponent.setHealth(amount)
+	
+	
 #			TODO this function shouldnt be here, but in theory if it was in Enemy status it wouldnt delete Enemy node
 func killItself():
-	queue_free()
+	get_parent().killEnemy()
+	#queue_free()
 
 func enemyGotKilled():
 	killItself()
 
-
+func enemyLostSomeHealth(amount):
+	enemyLostSomeHP.emit(amount)
 
 func _on_health_enemy_lost_all_hp():
 	enemyGotKilled()
