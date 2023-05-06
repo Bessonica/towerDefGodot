@@ -20,6 +20,10 @@ creat pairs of amount and of enemy type
 ==
 				TODOD
 
+		build manager (data - Turret, etc)-> build platform
+
+			RUN DOESNT WORK IN PLAYER
+
 tres wave file assign hp at initialization(enemy health has set health method)
 
 clean project structure

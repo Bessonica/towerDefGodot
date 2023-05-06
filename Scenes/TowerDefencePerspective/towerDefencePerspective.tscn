@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://xotkl7ucojge"]
+
+[ext_resource type="Script" path="res://Scripts/TowerDefencePerspective/towerDefencePerspective.gd" id="1_tyoip"]
+
+[node name="TowerDefencePerspective" type="Node3D"]
+script = ExtResource("1_tyoip")
+
+[node name="Camera3D" type="Camera3D" parent="."]

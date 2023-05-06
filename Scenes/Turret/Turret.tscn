@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Turrets/Turret.gd" id="1_oitth"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_q431m"]
+height = 0.8
 radius = 0.8
 
 [node name="Turret" type="Area3D"]
@@ -13,11 +14,15 @@ script = ExtResource("1_oitth")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.528316, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.528, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CylinderShape3D_q431m")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, 0.8)
+debug_shape_custom_color = Color(0.227451, 0.305882, 0.709804, 1)
 debug_shape_thickness = 5
 
 [node name="ReloadTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

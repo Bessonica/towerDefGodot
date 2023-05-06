@@ -7,9 +7,11 @@ var readyToShoot: bool
 
 @onready var rayCast = $RayCast3D
 
-@export var player: Node3D
+#@export var player: Node3D
 
 @onready var coolDownTimer = $ReloadTimer
+@onready var collisionShape = $CollisionShape3D
+
 @export var damage: float
 @export var reloadTime: float
 
@@ -25,6 +27,7 @@ var currentTurretState
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	currentTurretState = turretState.readyToShoot
+	coolDownTimer.start()
 	# Replace with function body.
 
 
@@ -44,6 +47,7 @@ func _physics_process(delta):
 	
 	match currentTurretState:
 		turretState.readyToShoot:
+			rayCast.debug_shape_custom_color = Color("3a4eb5")
 
 			if enemiesAround.size() != 0:
 				shootEnemy(enemiesAround[0])
@@ -52,6 +56,8 @@ func _physics_process(delta):
 				rayCast.target_position = Vector3(0, 0, 0.8)
 			
 		turretState.reload:
+			rayCast.debug_shape_custom_color = Color("d39500")
+			#	d39500
 			pass
 	
 
@@ -91,8 +97,9 @@ func reload(time):
 	"""
 
 
-func changeTurretRadius(amount):
+func changeTurretRadius(amount: float):
 	pass
+	#collisionShape.radius = amount 
 
 #	bool readyToFire to check in process can you shoot or not
 func fire():
@@ -103,3 +110,7 @@ func fire():
 	
 	
 	
+
+
+func _on_reload_timer_timeout():
+	changeTurretRadius(2.0) # Replace with function body.

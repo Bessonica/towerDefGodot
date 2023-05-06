@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgrvfb6diy400"]
+
+[ext_resource type="Script" path="res://Scripts/BuildPlatform/buildPlatform.gd" id="1_ikhfl"]
+
+[node name="BuildPlatform" type="Area3D"]
+script = ExtResource("1_ikhfl")

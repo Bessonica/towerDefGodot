@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://d10fe0jx6s7dg"]
+
+[ext_resource type="Script" path="res://Scripts/PC/PC.gd" id="1_u8o3r"]
+[ext_resource type="PackedScene" uid="uid://cjhdmy58jfbo1" path="res://Interaction/Interactable/Interactable.tscn" id="2_u1op6"]
+[ext_resource type="PackedScene" uid="uid://xotkl7ucojge" path="res://Scenes/TowerDefencePerspective/towerDefencePerspective.tscn" id="3_gskkm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yh6bw"]
+size = Vector3(3, 3, 3)
+
+[node name="PC" type="Area3D"]
+script = ExtResource("1_u8o3r")
+
+[node name="Interactable" parent="." instance=ExtResource("2_u1op6")]
+
+[node name="CollisionShape3D" parent="Interactable" index="0"]
+shape = SubResource("BoxShape3D_yh6bw")
+
+[node name="TowerDefencePerspective" parent="." instance=ExtResource("3_gskkm")]
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+
+[editable path="Interactable"]
+[editable path="TowerDefencePerspective"]

@@ -39,8 +39,6 @@ func activateRayCast() -> Interactable:
 	var collidedObject: Area3D
 	
 	if rayCast.is_colliding():
-		#	поулчаем колайдер
-		
 		interactObject = rayCast.get_collider() as Interactable
 	return interactObject
 
