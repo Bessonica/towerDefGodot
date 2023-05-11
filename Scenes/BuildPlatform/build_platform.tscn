@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://djx5lge2nfjn8"]
-
-[ext_resource type="Script" path="res://Scripts/Building/BuildPlatform/buildPlatform.gd" id="1_tpx0k"]
-
-[node name="BuildPlatform" type="Area3D"]
-script = ExtResource("1_tpx0k")

@@ -2,7 +2,7 @@ extends Area3D
 
 class_name build_platform
 
-@export var turretList: Array[Area3D]
+#@export var turretList: Array[Area3D]
 #@export var turretToBuild: PackedScene
 
 var turretReference: Node3D
@@ -36,23 +36,24 @@ func returnOwnID():
 #instantiate turret itself
 func buildTurret(turretToBuild, turretResource):
 	var turretToInstantiate = turretToBuild.instantiate()
-	
 	turretToInstantiate.setDamage(turretResource.damage)
 	turretToInstantiate.setReload(turretResource.reloadTime)
 	
 	add_child(turretToInstantiate)
 	currentState = buildPlatformState.hasBuilding
 
-func setTurretResource(turretToInstantiate, turretResource):
-	pass
-	#turretToInstantiate.setDamage()
-	#turretToInstantiate.setReload()
+
 	
 
 
 # platform  take off turret from there
 func removeTurret():
-	pass
+	print("turret Removed")
+	for child in get_children():
+		if child.is_in_group("turret"):
+			child.destroyItself()
+			
+	currentState = buildPlatformState.canBuild
 	
 # delete turret itself
 func deleteTurret():

@@ -1,5 +1,6 @@
 extends Area3D
 
+class_name turret
 
 var enemiesAround
 
@@ -107,13 +108,9 @@ func changeTurretRadius(amount: float):
 	pass
 	#collisionShape.radius = amount 
 
-#	bool readyToFire to check in process can you shoot or not
-func fire():
-	pass
 	
-	
-	
-	
+func destroyItself():
+	queue_free()
 	
 	
 

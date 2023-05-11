@@ -8,13 +8,23 @@ extends Area3D
 @export var turretToBuild: PackedScene
 @export var turretResource: Resource
 
+#	TODO	scene to manage how much money/in game resources player has
+@export var economyManager: PackedScene
+
 func _ready():
-	pass # Replace with function body.
+	await get_tree().create_timer(10).timeout
+	turnOffAllBuildings()# Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func turnOffAllBuildings():
+	for child in get_children():
+		child.removeTurret()
+		
+	
 
 
 func setBuilding(buildPlatform):

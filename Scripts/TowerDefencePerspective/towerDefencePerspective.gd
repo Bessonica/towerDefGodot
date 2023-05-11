@@ -30,7 +30,7 @@ func _physics_process(delta):
 			if RayCast.is_colliding():
 				var buildPlatform = RayCast.get_collider() as build_platform
 				buildManager.buildBuilding(buildPlatform)
-				print("INTERCEPTED BUILD OBJECT")
+				#print("INTERCEPTED BUILD OBJECT")
 				putRayCastToDefault()
 			
 	
@@ -43,7 +43,7 @@ func _process(delta):
 
 func updateRayCast():
 	var to = Camera.project_ray_normal(get_viewport().get_mouse_position()) * 10
-	print("to = ", to)
+	#print("to = ", to)
 	RayCast.target_position = to
 
 func putRayCastToDefault():
