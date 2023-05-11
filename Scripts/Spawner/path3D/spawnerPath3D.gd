@@ -24,7 +24,7 @@ func _ready():
 	currentSpawnState = spawnState.stopSpawn
 	timer = 0
 	gameStartTime = Time.get_ticks_msec()
-	print("game started: ", Time.get_ticks_msec())
+	#print("game started: ", Time.get_ticks_msec())
 	
 	#timeToSpawn = waveArrayResource.timeToSpawn
 
@@ -39,11 +39,11 @@ func _process(delta):
 			timer = timer + delta
 			if (timer >= timeToSpawn):
 				timer = 0
-				print("started to spawn wave: ", waveIndex + 1)
-				print("time: ", Time.get_ticks_msec())
+				#print("started to spawn wave: ", waveIndex + 1)
+				#print("time: ", Time.get_ticks_msec())
 				await spawnWave(waveArrayResource.enemyAmount, waveArrayResource.enemyPathFollow)
 				waveIndex = waveIndex + 1
-				print("finished spawned wave: ", waveIndex)
+				#print("finished spawned wave: ", waveIndex)
 				
 		spawnState.stopSpawn:
 			timer = 0
@@ -67,7 +67,7 @@ func spawnWave(amount, enemyToSpawn):
 	for x in amount:
 		var timerVar = randf_range(0.2, 0.7)
 		spawnEnemyAndSetUpValues(enemyToSpawn)
-		print("enemy number: ", x)
+		#print("enemy number: ", x)
 		await get_tree().create_timer(timerVar, false).timeout
 	
 

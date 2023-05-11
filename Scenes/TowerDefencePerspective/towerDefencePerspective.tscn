@@ -5,4 +5,9 @@
 [node name="TowerDefencePerspective" type="Node3D"]
 script = ExtResource("1_tyoip")
 
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0.1, 0)
+collision_mask = 8
+collide_with_areas = true
+
 [node name="Camera3D" type="Camera3D" parent="."]

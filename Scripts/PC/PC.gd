@@ -33,14 +33,17 @@ func _process(delta):
 #			у нас будет РС обьект и в качестве детей мі кладем разніе ноді с камерами и будет
 #				функция что меняет камеру на ту что была указана в аргументе
 func exitPC():
+	towerDefenceView.perspectiveLeft()
 	playerCharacter.givePlayerMovement()
 	playerCharacter.setPlayerCameraAsCurrent()
 	currentPcState = PCState.playerIsOut
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func enterPC():
 	towerDefenceView.setUpPerspective()
 	playerCharacter.takeAwayPlayerMovement()
 	currentPcState = PCState.playerIsIn
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func changePerspective(perspectiveObject):
 	pass

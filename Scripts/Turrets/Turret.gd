@@ -15,6 +15,7 @@ var readyToShoot: bool
 @export var damage: float
 @export var reloadTime: float
 
+
 enum turretState{
 	shooting,
 	reload,
@@ -69,10 +70,15 @@ func lookForEnemies():
 #	var list: Array[Area3D] = get_overlapping_areas()
 
 func lookAtEnemy(enemy):
-	print("enemy position: ", enemy.global_position)
+	#print("enemy position: ", enemy.global_position)
 	var relitivePosition = enemy.global_position - rayCast.global_position
 	rayCast.target_position = relitivePosition
 
+func setDamage(amount):
+	damage = amount
+	
+func setReload(amount):
+	reloadTime = amount
 
 func shootEnemy(enemy):
 	lookAtEnemy(enemy)

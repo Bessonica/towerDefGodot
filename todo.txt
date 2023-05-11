@@ -47,8 +47,10 @@ instantiate turret as  achild of building platform
 
 
 --
-
-
+		посмотреть в будущем. в перспективе тавер дефенс стоит функция инпута, что активируется
+		каждій раз когда какой либо иввент нажат. что если таких инпут функций будет сотня?
+		для этого может пригодится set_process_input. нужно будет погуглить как игнорить инпут функции
+		https://docs.godotengine.org/en/stable/classes/class_node.html#class-node-method-input
 
 first person
 DONE	camera
@@ -73,6 +75,11 @@ DONE	he can stop at any point				TODO NEXT
 	he can change his path/behaiviour/destination
 
 
+
+представь себе какая была бы жизнь если бы все шло по плану
+не придумывай ситуации которые могут случиться
+
+позволь жизни удивить тебя
 	
 	
 
