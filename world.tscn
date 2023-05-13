@@ -24,7 +24,7 @@ albedo_color = Color(0.576471, 0.266667, 0.294118, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_k5u7h"]
 material = SubResource("StandardMaterial3D_yx3jq")
 
-[sub_resource type="Curve3D" id="Curve3D_ux5gw"]
+[sub_resource type="Curve3D" id="Curve3D_3hq4r"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, 0, 0, 0, 0, 0, 0, 5.62238, 0, -0.206467, -0.324059, -0.0229492, -0.269306, 0.324059, 0.0229492, 0.269306, 10.2996, 0, 0.073597, -0.00752163, 0.0584838, -0.626336, 0.00752163, -0.0584838, 0.626336, 10.472, -0.0234375, 2.14776, 0, 0, 0, 0, 0, 0, 5.95959, 0, 2.34135, 0.354167, 0, -0.448611, -0.354167, 0, 0.448611, 1.53534, 0, 2.57532, -0.165278, 0, -0.472222, 0.165278, 0, 0.472222, 1.64158, 0, 6.01073, 0, 0, 0, 0, 0, 0, 5.50998, 0, 6.1818),
@@ -70,7 +70,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18819, 0, -0.738985)
 waveArray = ExtResource("6_nroaw")
 
 [node name="Path3D" parent="SpawnerController2" instance=ExtResource("2_763cq")]
-curve = SubResource("Curve3D_ux5gw")
+curve = SubResource("Curve3D_3hq4r")
 
 [node name="InteractTest" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243499, 0, 6.87373)
@@ -98,9 +98,10 @@ target_position = Vector3(1, 0, 0)
 [node name="Camera3D" parent="PC/TowerDefencePerspective" index="1"]
 transform = Transform3D(1, 0, 0, 0, 0.778463, 0.627692, 0, -0.627692, 0.778463, 0, 0, 0)
 
-[node name="BuildManager" parent="." instance=ExtResource("10_rwo60")]
+[node name="BuildManager" parent="." node_paths=PackedStringArray("economyManager") instance=ExtResource("10_rwo60")]
 turretToBuild = ExtResource("7_u7ipe")
 turretResource = ExtResource("11_d8ee8")
+economyManager = NodePath("../economyManager")
 
 [node name="BuildPlatform3" parent="BuildManager" instance=ExtResource("9_r4v6r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.69186, 4.76837e-07, -5.99346)
@@ -111,7 +112,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0609441, 4.76837e-07, -6.1
 [node name="BuildPlatform" parent="BuildManager" instance=ExtResource("9_r4v6r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87559, 0, -5.32553)
 
-[node name="economyManager" parent="." instance=ExtResource("12_cktyo")]
+[node name="economyManager" parent="." node_paths=PackedStringArray("buildManager") instance=ExtResource("12_cktyo")]
+buildManager = NodePath("../BuildManager")
 
 [connection signal="focused" from="InteractTest/Interactable" to="InteractTest" method="_on_interactable_focused"]
 [connection signal="interacted" from="InteractTest/Interactable" to="InteractTest" method="_on_interactable_interacted"]
@@ -123,3 +125,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87559, 0, -5.32553)
 [editable path="PC/Interactable"]
 [editable path="PC/TowerDefencePerspective"]
 [editable path="BuildManager/BuildPlatform"]
+[editable path="economyManager"]

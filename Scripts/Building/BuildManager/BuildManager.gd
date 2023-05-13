@@ -9,11 +9,12 @@ extends Area3D
 @export var turretResource: Resource
 
 #	TODO	scene to manage how much money/in game resources player has
-@export var economyManager: PackedScene
+@export var economyManager: Area3D
 
 func _ready():
-	await get_tree().create_timer(10).timeout
-	turnOffAllBuildings()# Replace with function body.
+	pass
+	#await get_tree().create_timer(8).timeout
+	#turnOffAllBuildings()# Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,17 +24,19 @@ func _process(delta):
 func turnOffAllBuildings():
 	for child in get_children():
 		child.removeTurret()
-		
-	
-
 
 func setBuilding(buildPlatform):
 	buildPlatform.setTurret(turretToBuild, turretResource)
 
 func checkIfCanBuild(buildPlatform):
-	if buildPlatform.currentState == buildPlatform.buildPlatformState.canBuild:
+	if buildPlatform.currentState == buildPlatform.buildPlatformState.canBuild && economyManager.canPlayerBuild():
 		return true
 	else:
+		print("-")
+		print("YOU CANT BUILD")
+		print("current limit = ", economyManager.returnCurrentTurretLimitAmount())
+		print("limit = ", economyManager.returnTurretLimitAmount())
+		print("-")
 		return false
 
 
@@ -45,6 +48,15 @@ func buildBuilding(buildPlatform):
 	if canBuild:
 		setBuilding(buildPlatform)
 	
+
+func returnHowManyTurretsIsOn():
+	var turretCount: int
+	turretCount = 0
+	for child in get_children():
+		if child.doesPlatformHasTurret():
+			#print("found turret")
+			turretCount = turretCount + 1
+	return turretCount
 
 
 #	buildBuilding(buildplatform)

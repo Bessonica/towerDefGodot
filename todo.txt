@@ -15,8 +15,7 @@ mesh instance/rigidbody3d/primitiveMesh/csgMesh/
 	what is the difference?
 
 ==
-creat pairs of amount and of enemy type
-турели, установка туреллей.
+
 ==
 				TODOD
 
@@ -24,27 +23,18 @@ creat pairs of amount and of enemy type
 
 			RUN DOESNT WORK IN PLAYER
 
-tres wave file assign hp at initialization(enemy health has set health method)
-
-clean project structure
 
 турель, стреляет. настраиваемая. можем менять свое состояние. начиная от кул дауна, заканчивая
 визуальніми еффектами
 
-	base turret: keep track of enemies in its radius
 
-instantiate turret as  achild of building platform
-	turret should have states
-	raycast for debugging purposes
-
-
+		РАЗОБРАТЬСЯ С ИЛЛЮХОЙ:	рефакторить турель. методы setDamage, setReload для всех общие
+			что бі платформа могла ставить любые турели нормально. функционал уже зависит от 
+			функционала самого ребенка класса.
+				то же самое можно сделать и для врагов у них методы setSpeed, setHealth
+					их использует spawnerPath3D.gd
 
 --
-	ПЕРЕНЕСТИ СТАТ СКОРОСТЬ ИЗ pathfollow3d в enemy
-		неудобно. если enemy имеет эту переменную но ее использует pathfollow, 
-		тогда ее не видно в редакторе и я пока не знаю как ее менять
-		
-
 
 --
 		посмотреть в будущем. в перспективе тавер дефенс стоит функция инпута, что активируется
@@ -83,13 +73,7 @@ DONE	he can stop at any point				TODO NEXT
 	
 	
 
-first person
-	interaction system
-		simple way to have interface to interact with different objects
-		press and hold functionality
-	change camera view, controls etc
-	
-pc view/tower defence screen
+
 
 
 

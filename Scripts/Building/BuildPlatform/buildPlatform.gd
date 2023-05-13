@@ -30,9 +30,6 @@ func _process(delta):
 func setTurret(turretToBuild, turretResource):
 	buildTurret(turretToBuild, turretResource)
 
-func returnOwnID():
-	pass
-
 #instantiate turret itself
 func buildTurret(turretToBuild, turretResource):
 	var turretToInstantiate = turretToBuild.instantiate()
@@ -48,13 +45,20 @@ func buildTurret(turretToBuild, turretResource):
 
 # platform  take off turret from there
 func removeTurret():
-	print("turret Removed")
 	for child in get_children():
 		if child.is_in_group("turret"):
 			child.destroyItself()
+			currentState = buildPlatformState.canBuild
+			print("turret Removed")
 			
-	currentState = buildPlatformState.canBuild
-	
+
+func doesPlatformHasTurret():
+	for child in get_children():
+		if child.is_in_group("turret"):
+			return true
+	#	after the whole cycle we found any turret
+	return false
+
 # delete turret itself
 func deleteTurret():
 	pass
