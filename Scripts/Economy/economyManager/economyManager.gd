@@ -9,30 +9,38 @@ extends Area3D
 
 #	await get_tree().create_timer(8).timeout
 
-@export var turretAmountLimit = 4
-var turretCurrentAmountLimit: int
+signal turretCurrentAmountIsChanged(newValue)
+signal timerIsTurnedOff()
+
+@export var turretAmountLimit: int = 4: set = setturretAmountLimit, get = getturretAmountLimit
+var turretCurrentAmountLimit: int: set = setCurrentTurretAmount, get = getCurrentTurretAmount
 var turretAmountNow: int
 
-# Called when the node enters the scene tree for the first time.
+enum generatorState{
+	generatorIsOn,
+	generatorIsOff
+}
+
+var currentGeneratorState
+
 func _ready():
+	currentGeneratorState = generatorState.generatorIsOn
 	turretCurrentAmountLimit = 0
 	startTimer()
+	#await get_tree().create_timer(10).timeout
+	#turretAmountLimit = 1
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if turretCurrentAmountLimit >= turretAmountLimit:
+	if (turretCurrentAmountLimit >= turretAmountLimit && currentGeneratorState == generatorState.generatorIsOn):
 		stopTimer()
+	if(timer.is_stopped() && turretCurrentAmountLimit < turretAmountLimit && currentGeneratorState == generatorState.generatorIsOn):
+		startTimer()
 
-
-func startTimer():
-	timer.start()
-
-func stopTimer():
-	timer.stop()
-	
 func canPlayerBuild():
-	turretAmountNow = updateTurretAmount()
-	if turretAmountNow >= turretCurrentAmountLimit:
+	turretAmountNow = getTurretAmount()
+	if (turretAmountNow >= turretCurrentAmountLimit):
+		return false
+	elif currentGeneratorState != generatorState.generatorIsOn:
 		return false
 	else:
 		return true
@@ -43,13 +51,46 @@ func returnTurretLimitAmount():
 func returnCurrentTurretLimitAmount():
 	return turretCurrentAmountLimit
 
-func updateTurretAmount():
+func getTurretAmount():
 	var turretAmount: int
 	turretAmount = buildManager.returnHowManyTurretsIsOn()
 	return turretAmount
 
-
+#	when timer reaches end
 func _on_timer_timeout():
 	if turretCurrentAmountLimit < turretAmountLimit:
 		turretCurrentAmountLimit = turretCurrentAmountLimit + 1
-	print("increased current tower limit = ", turretCurrentAmountLimit)
+		print("increased current tower limit = ", turretCurrentAmountLimit)
+
+func startTimer():
+	timer.start()
+
+func stopTimer():
+	timer.stop()
+
+func getTimerPercentage():
+	var percentage = (timer.wait_time - timer.time_left)/(timer.wait_time) * 100
+	return percentage
+
+func generatorTurnedOff():
+	currentGeneratorState = generatorState.generatorIsOff
+	turretCurrentAmountLimit = 0
+	stopTimer()
+	timerIsTurnedOff.emit()
+
+#	setter, getter
+func setCurrentTurretAmount(newValue):
+	turretCurrentAmountLimit = newValue
+	turretCurrentAmountIsChanged.emit(turretCurrentAmountLimit)
+func getCurrentTurretAmount():
+	return turretCurrentAmountLimit
+	
+func setturretAmountLimit(newValue):
+	turretAmountLimit = newValue
+	if turretAmountLimit > turretCurrentAmountLimit:
+		startTimer()
+	elif turretAmountLimit < turretCurrentAmountLimit:
+		turretCurrentAmountLimit = turretAmountLimit
+	
+func getturretAmountLimit():
+	return turretAmountLimit

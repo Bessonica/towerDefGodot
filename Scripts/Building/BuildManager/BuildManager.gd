@@ -47,7 +47,6 @@ func buildBuilding(buildPlatform):
 	canBuild = checkIfCanBuild(buildPlatform)
 	if canBuild:
 		setBuilding(buildPlatform)
-	
 
 func returnHowManyTurretsIsOn():
 	var turretCount: int
@@ -62,3 +61,22 @@ func returnHowManyTurretsIsOn():
 #	buildBuilding(buildplatform)
 #		checkData -> check if we can actually build (recources)
 #			spawnBuilding -> if yes then we build
+
+func turnOffRandomBuilding(amountToTurnOff):
+	var childrenPlatform = []
+	for child in get_children():
+		if child.doesPlatformHasTurret():
+			childrenPlatform.append(child)
+	for i in range(amountToTurnOff):
+		print("hey")
+		childrenPlatform[i].removeTurret()
+		#	randi_range(0, childrenPlatform.size() - 1)
+
+func _on_economy_manager_timer_is_turned_off():
+	turnOffAllBuildings()
+
+func _on_economy_manager_turret_current_amount_is_changed(newValue):
+	var turretAmount = returnHowManyTurretsIsOn()
+	if turretAmount > newValue:
+		turnOffRandomBuilding(turretAmount - newValue)
+		print("THERE ARE TO MUCH TURRETS ", (turretAmount - newValue))

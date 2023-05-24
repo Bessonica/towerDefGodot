@@ -22,8 +22,17 @@ mesh instance/rigidbody3d/primitiveMesh/csgMesh/
 		build manager (data - Turret, etc)-> build platform
 
 			RUN DOESNT WORK IN PLAYER
-
-
+			
+		UI for perspective
+			bar for generator load
+			
+		PCperspective inheritance
+			if i make inheritance from base class, how i will acces/change camera object? 
+			or i can left it untoched and create Camera variable in child class?
+		
+		try setters and getters function. for example: every time max limit value is changed, emit signal so ui changes and stuff
+		
+		
 турель, стреляет. настраиваемая. можем менять свое состояние. начиная от кул дауна, заканчивая
 визуальніми еффектами
 

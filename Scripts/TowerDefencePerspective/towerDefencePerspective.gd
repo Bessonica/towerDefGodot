@@ -1,9 +1,14 @@
 extends Node3D
 
+@onready var TurretLimitText = $CanvasLayer/UI/CurrentAmount
+@onready var TurretLimitProgressBar = $CanvasLayer/UI/ProgressBar
+
 
 @onready var Camera = $Camera3D
 @onready var RayCast = $RayCast3D
 
+
+@export var economyManager: Node3D
 @export var buildManager: Node3D
 
 enum tdPerspectiveState{
@@ -37,6 +42,7 @@ func _physics_process(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	TurretLimitProgressBar.value = economyManager.getTimerPercentage()
 	match currentState:
 		tdPerspectiveState.currentPerspective:
 			pass
@@ -60,3 +66,10 @@ func perspectiveLeft():
 	currentState = tdPerspectiveState.notCurrentPerspective
 	
 #	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func updateTextUI(newValue):
+	TurretLimitText.text = str(newValue) 
+
+func _on_economy_manager_turret_current_amount_is_changed(newValue):
+	updateTextUI(newValue)
+
