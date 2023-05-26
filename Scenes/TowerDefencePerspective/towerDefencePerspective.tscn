@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://xotkl7ucojge"]
+[gd_scene load_steps=3 format=3 uid="uid://xotkl7ucojge"]
 
 [ext_resource type="Script" path="res://Scripts/TowerDefencePerspective/towerDefencePerspective.gd" id="1_tyoip"]
+[ext_resource type="Texture2D" uid="uid://c5up23r3830d" path="res://icon.svg" id="2_lwnki"]
 
 [node name="TowerDefencePerspective" type="Node3D"]
 script = ExtResource("1_tyoip")
@@ -20,6 +21,58 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Label" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 977.0
+offset_top = 408.0
+offset_right = 1017.0
+offset_bottom = 431.0
+text = "One"
+
+[node name="turretOne" type="TextureButton" parent="CanvasLayer/UI"]
+offset_left = 964.0
+offset_top = 439.0
+offset_right = 1020.0
+offset_bottom = 500.0
+texture_normal = ExtResource("2_lwnki")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label2" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 897.0
+offset_top = 408.0
+offset_right = 937.0
+offset_bottom = 434.0
+text = "Two
+"
+
+[node name="Label3" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 1056.0
+offset_top = 411.0
+offset_right = 1096.0
+offset_bottom = 437.0
+text = "Bomb"
+
+[node name="turretTwo" type="TextureButton" parent="CanvasLayer/UI"]
+offset_left = 885.0
+offset_top = 438.0
+offset_right = 944.0
+offset_bottom = 497.0
+texture_normal = ExtResource("2_lwnki")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Clear" type="TextureButton" parent="CanvasLayer/UI"]
+offset_left = 1048.0
+offset_top = 438.0
+offset_right = 1102.0
+offset_bottom = 499.0
+texture_normal = ExtResource("2_lwnki")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="CurrentAmount" type="Label" parent="CanvasLayer/UI"]
 layout_mode = 0
 offset_left = 1027.0
@@ -29,10 +82,21 @@ offset_bottom = 423.0
 text = "YO"
 vertical_alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/UI"]
+[node name="ProgressBarGenerator" type="ProgressBar" parent="CanvasLayer/UI"]
 layout_mode = 0
 offset_left = 1037.0
 offset_top = 294.0
 offset_right = 1041.0
 offset_bottom = 321.0
 fill_mode = 3
+
+[node name="ProgressBarBomb" type="ProgressBar" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 1118.0
+offset_top = 455.0
+offset_right = 1122.0
+offset_bottom = 482.0
+
+[connection signal="pressed" from="CanvasLayer/UI/turretOne" to="." method="_on_turret_one_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/turretTwo" to="." method="_on_turret_two_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Clear" to="." method="_on_clear_pressed"]

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="turretResource" load_steps=2 format=3 uid="uid://ds3ck12cboij7"]
+
+[ext_resource type="Script" path="res://Scripts/custom resource/turret/turretResource.gd" id="1_elxjd"]
+
+[resource]
+script = ExtResource("1_elxjd")
+damage = 10.0
+reloadTime = 2.0

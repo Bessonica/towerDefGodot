@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm5an1wxhwbty"]
+
+[ext_resource type="Script" path="res://Scripts/ability/damageCone.gd" id="1_0ask5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_f345r"]
+
+[node name="DamageCone" type="Area3D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_0ask5")
+damage = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+shape = SubResource("CylinderShape3D_f345r")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.560856, 0.827914, 0, -0.827914, 0.560856, -0.0709689, 1.78945, 0.507255)
+text = "YO"
+font_size = 64
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

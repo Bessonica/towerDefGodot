@@ -45,6 +45,11 @@ transform = Transform3D(-0.00866633, 0.516772, -0.856079, 0.00523117, 0.856123, 
 pixel_size = 0.009
 text = "hello"
 
+[node name="Label3D5" type="Label3D" parent="Health"]
+transform = Transform3D(6.64741e-05, 1.49999, 0.00656836, 0.01518, -0.00656869, 1.49991, 1.49992, 0, -0.0151801, 0.0512477, 1.25927, -0.169207)
+pixel_size = 0.009
+text = "hello"
+
 [node name="Pivot" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]

@@ -3,13 +3,24 @@ extends Area3D
 #	have a children build platform
 #	decides can you build there or not(enaugh recources)
 
-# Called when the node enters the scene tree for the first time.
+@export_group("turrets")
+@export_subgroup("simple turret, (index 0)")
+@export var turretToBuildFirst: PackedScene
+@export var turretResourceFirst: Resource
 
-@export var turretToBuild: PackedScene
-@export var turretResource: Resource
+@export_subgroup("second turret, (index 1)")
+@export var turretToBuildSecond: PackedScene
+@export var turretResourceSecond: Resource
+
+@onready var turretArray = [[turretToBuildFirst, turretResourceFirst], [turretToBuildSecond, turretResourceSecond]]
+var turretToBuild: PackedScene
+var turretResourceToBuild: Resource
 
 #	TODO	scene to manage how much money/in game resources player has
+@export_group("economy Manager")
 @export var economyManager: Area3D
+
+
 
 func _ready():
 	pass
@@ -17,7 +28,6 @@ func _ready():
 	#turnOffAllBuildings()# Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
@@ -25,8 +35,15 @@ func turnOffAllBuildings():
 	for child in get_children():
 		child.removeTurret()
 
-func setBuilding(buildPlatform):
-	buildPlatform.setTurret(turretToBuild, turretResource)
+func setBuilding(buildPlatform, buildingIndex):
+	if buildingIndex<=(turretArray.size() - 1):
+		turretToBuild = turretArray[buildingIndex][0]
+		turretResourceToBuild = turretArray[buildingIndex][1]
+		buildPlatform.setTurret(turretToBuild, turretResourceToBuild)
+	else:
+		print("building index is to large = ")
+		print("turret array size = ", turretArray.size())
+		print("buildingIndex = ", buildingIndex)
 
 func checkIfCanBuild(buildPlatform):
 	if buildPlatform.currentState == buildPlatform.buildPlatformState.canBuild && economyManager.canPlayerBuild():
@@ -41,12 +58,12 @@ func checkIfCanBuild(buildPlatform):
 
 
 #	method that tower defence perspective calls
-func buildBuilding(buildPlatform):
+func buildBuilding(buildPlatform, buildingIndex):
 	var canBuild: bool
 	
 	canBuild = checkIfCanBuild(buildPlatform)
 	if canBuild:
-		setBuilding(buildPlatform)
+		setBuilding(buildPlatform, buildingIndex)
 
 func returnHowManyTurretsIsOn():
 	var turretCount: int

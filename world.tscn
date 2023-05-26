@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bv7i2dhmq6env"]
+[gd_scene load_steps=22 format=3 uid="uid://bv7i2dhmq6env"]
 
 [ext_resource type="PackedScene" uid="uid://cbu12ermeprmd" path="res://Scenes/player.tscn" id="1_1rdeo"]
 [ext_resource type="PackedScene" uid="uid://d28v5jcm8gwcu" path="res://Scenes/Spawner/enemyPath.tscn" id="2_763cq"]
@@ -11,7 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://b3315fs4hg2r3" path="res://Scenes/Building/BuildPlatform/buildPlatform.tscn" id="9_r4v6r"]
 [ext_resource type="PackedScene" uid="uid://cwf0jfhb4hq0l" path="res://Scenes/Building/BuildManager/build_manager.tscn" id="10_rwo60"]
 [ext_resource type="Resource" uid="uid://mvcr4rj2qfym" path="res://custom turret resources/turretResource01.tres" id="11_d8ee8"]
+[ext_resource type="Resource" uid="uid://ds3ck12cboij7" path="res://custom turret resources/turretResource02.tres" id="11_qbu1q"]
 [ext_resource type="PackedScene" uid="uid://bnee4uhnhgddb" path="res://Scenes/economy/economyManager/economyManager.tscn" id="12_cktyo"]
+[ext_resource type="PackedScene" uid="uid://mijfyxqp7wij" path="res://Scenes/Lever/lever.tscn" id="14_kj1b7"]
+[ext_resource type="PackedScene" uid="uid://bg7s7e5akcwis" path="res://Scenes/ability/abilityManager.tscn" id="15_n0dm3"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_vfbs8"]
 
@@ -24,7 +27,7 @@ albedo_color = Color(0.576471, 0.266667, 0.294118, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_k5u7h"]
 material = SubResource("StandardMaterial3D_yx3jq")
 
-[sub_resource type="Curve3D" id="Curve3D_vjgqw"]
+[sub_resource type="Curve3D" id="Curve3D_wssqj"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, 0, 0, 0, 0, 0, 0, 5.62238, 0, -0.206467, -0.324059, -0.0229492, -0.269306, 0.324059, 0.0229492, 0.269306, 10.2996, 0, 0.073597, -0.00752163, 0.0584838, -0.626336, 0.00752163, -0.0584838, 0.626336, 10.472, -0.0234375, 2.14776, 0, 0, 0, 0, 0, 0, 5.95959, 0, 2.34135, 0.354167, 0, -0.448611, -0.354167, 0, 0.448611, 1.53534, 0, 2.57532, -0.165278, 0, -0.472222, 0.165278, 0, 0.472222, 1.64158, 0, 6.01073, 0, 0, 0, 0, 0, 0, 5.50998, 0, 6.1818),
@@ -36,12 +39,15 @@ point_count = 8
 
 [node name="Node3D" type="Node3D"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.16816)
+collision_layer = 9
+collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("WorldBoundaryShape3D_vfbs8")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 mesh = SubResource("PlaneMesh_qqjbg")
 
 [node name="Player" parent="." instance=ExtResource("1_1rdeo")]
@@ -70,7 +76,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18819, 0, -0.738985)
 waveArray = ExtResource("6_nroaw")
 
 [node name="Path3D" parent="SpawnerController2" instance=ExtResource("2_763cq")]
-curve = SubResource("Curve3D_vjgqw")
+curve = SubResource("Curve3D_wssqj")
 
 [node name="InteractTest" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243499, 0, 6.87373)
@@ -87,21 +93,42 @@ shape = SubResource("BoxShape3D_qfwxu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.01226, 0, 0.206934)
 playerCharacter = NodePath("../Player")
 
-[node name="TowerDefencePerspective" parent="PC" index="1" node_paths=PackedStringArray("economyManager", "buildManager")]
-transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -8.50319, 4.96136, -0.0775602)
+[node name="TowerDefencePerspective" parent="PC" index="1" node_paths=PackedStringArray("economyManager", "buildManager", "abilityManager")]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -8.50319, 7.82249, -1.94962)
 economyManager = NodePath("../../economyManager")
 buildManager = NodePath("../../BuildManager")
+abilityManager = NodePath("../../AbilityManager")
 
 [node name="RayCast3D" parent="PC/TowerDefencePerspective" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0)
 target_position = Vector3(1, 0, 0)
 
 [node name="Camera3D" parent="PC/TowerDefencePerspective" index="1"]
-transform = Transform3D(1, 0, 0, 0, 0.778463, 0.627692, 0, -0.627692, 0.778463, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.0294918, 0.999566, 0, -0.999566, 0.0294918, 0, 0, 0)
+
+[node name="turretOne" parent="PC/TowerDefencePerspective/CanvasLayer/UI" index="1"]
+offset_left = 968.0
+offset_top = 440.0
+offset_right = 1024.0
+offset_bottom = 501.0
+
+[node name="turretTwo" parent="PC/TowerDefencePerspective/CanvasLayer/UI" index="4"]
+offset_left = 882.0
+offset_top = 440.0
+offset_right = 941.0
+offset_bottom = 499.0
+
+[node name="Clear" parent="PC/TowerDefencePerspective/CanvasLayer/UI" index="5"]
+offset_left = 1051.0
+offset_top = 448.0
+offset_right = 1105.0
+offset_bottom = 509.0
 
 [node name="BuildManager" parent="." node_paths=PackedStringArray("economyManager") instance=ExtResource("10_rwo60")]
-turretToBuild = ExtResource("7_u7ipe")
-turretResource = ExtResource("11_d8ee8")
+turretToBuildFirst = ExtResource("7_u7ipe")
+turretResourceFirst = ExtResource("11_d8ee8")
+turretToBuildSecond = ExtResource("7_u7ipe")
+turretResourceSecond = ExtResource("11_qbu1q")
 economyManager = NodePath("../economyManager")
 
 [node name="BuildPlatform3" parent="BuildManager" instance=ExtResource("9_r4v6r")]
@@ -124,6 +151,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87559, 0, -5.32553)
 
 [node name="economyManager" parent="." node_paths=PackedStringArray("buildManager") instance=ExtResource("12_cktyo")]
 buildManager = NodePath("../BuildManager")
+
+[node name="Lever" parent="." node_paths=PackedStringArray("economyManager") instance=ExtResource("14_kj1b7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.70056, 1.06852, 3.56444)
+economyManager = NodePath("../economyManager")
+
+[node name="AbilityManager" parent="." instance=ExtResource("15_n0dm3")]
+bombingDamage = 4
 
 [connection signal="focused" from="InteractTest/Interactable" to="InteractTest" method="_on_interactable_focused"]
 [connection signal="interacted" from="InteractTest/Interactable" to="InteractTest" method="_on_interactable_interacted"]

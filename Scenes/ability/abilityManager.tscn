@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg7s7e5akcwis"]
+
+[ext_resource type="Script" path="res://Scripts/ability/abilityManager.gd" id="1_xd0v2"]
+
+[node name="AbilityManager" type="Area3D"]
+script = ExtResource("1_xd0v2")
+bombingDamage = 5
+
+[node name="BombTimer" type="Timer" parent="."]
+wait_time = 3.896
+
+[connection signal="timeout" from="BombTimer" to="." method="_on_bomb_timr_timeout"]

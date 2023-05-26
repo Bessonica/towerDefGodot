@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://mijfyxqp7wij"]
+
+[ext_resource type="Script" path="res://Scripts/Lever/Lever.gd" id="1_0kre5"]
+[ext_resource type="PackedScene" uid="uid://cjhdmy58jfbo1" path="res://Interaction/Interactable/Interactable.tscn" id="2_raxkf"]
+
+[node name="Lever" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.505946, 0)
+script = ExtResource("1_0kre5")
+
+[node name="Interactable" parent="." instance=ExtResource("2_raxkf")]
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+
+[editable path="Interactable"]

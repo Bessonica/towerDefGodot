@@ -24,9 +24,8 @@ enum generatorState{
 var currentGeneratorState
 
 func _ready():
-	currentGeneratorState = generatorState.generatorIsOn
+	currentGeneratorState = generatorState.generatorIsOff
 	turretCurrentAmountLimit = 0
-	startTimer()
 	#await get_tree().create_timer(10).timeout
 	#turretAmountLimit = 1
 
@@ -50,6 +49,9 @@ func returnTurretLimitAmount():
 
 func returnCurrentTurretLimitAmount():
 	return turretCurrentAmountLimit
+	
+func returnCurrentGeneratorState():
+	return currentGeneratorState
 
 func getTurretAmount():
 	var turretAmount: int
@@ -77,6 +79,13 @@ func generatorTurnedOff():
 	turretCurrentAmountLimit = 0
 	stopTimer()
 	timerIsTurnedOff.emit()
+
+func generatorTurnedOn():
+	currentGeneratorState = generatorState.generatorIsOn
+	turretCurrentAmountLimit = 0
+	startTimer()
+
+
 
 #	setter, getter
 func setCurrentTurretAmount(newValue):
