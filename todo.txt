@@ -17,6 +17,18 @@ mesh instance/rigidbody3d/primitiveMesh/csgMesh/
 ==
 
 	raycast for bombing ability activates only on small radius. try pressign close to window edge
+	
+	
+----------------------------------------- блокнот
+remove turret with mouse click
+
+ui label color change
+
+
+
+турель что поджигает всех вокруг ссебя, замедляя их. но єто заблокирует платформу
+на длительное время
+-------------
 
 ==
 				TODOD

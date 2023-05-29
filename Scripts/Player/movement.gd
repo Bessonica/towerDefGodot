@@ -14,6 +14,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var mouse_sense = 0.1
 
+@export var hasWeapon: bool
+
 enum playerState{
 	canMove,
 	cannotMove
@@ -22,6 +24,7 @@ enum playerState{
 var currentPlayerState = playerState.canMove
 
 func _ready():
+	hasWeapon = true
 	#hides the cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	actualSpeed = SPEED

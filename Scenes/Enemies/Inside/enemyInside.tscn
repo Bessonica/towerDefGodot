@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://fmg7o6fjclu8"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/Inside/enemyInside.gd" id="1_77isg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l6s7f"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_i3q42"]
+
+[node name="enemyInside" type="CharacterBody3D" groups=["enemiesInside"]]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_77isg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_l6s7f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_i3q42")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+agent_height_offset = 0.25
+
+[node name="StopTimer" type="Timer" parent="."]
+wait_time = 2.433
+
+[connection signal="timeout" from="StopTimer" to="." method="_on_stop_timer_timeout"]

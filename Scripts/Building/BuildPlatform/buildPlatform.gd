@@ -7,6 +7,8 @@ class_name build_platform
 
 var turretReference: Node3D
 
+@onready var cooldownTimer = $CooldownTimer
+
 enum buildPlatformState{
 	empty,
 	canBuild,
@@ -40,7 +42,12 @@ func buildTurret(turretToBuild, turretResource):
 	currentState = buildPlatformState.hasBuilding
 
 
-	
+func setCooldown(amount):
+	cooldownTimer.start()
+	currentState = buildPlatformState.cannotBuild
+func stopCooldown():
+	currentState = buildPlatformState.canBuild
+	cooldownTimer.stop()
 
 
 # platform  take off turret from there
@@ -62,4 +69,7 @@ func doesPlatformHasTurret():
 # delete turret itself
 func deleteTurret():
 	pass
-	
+
+func _on_cooldown_timer_timeout():
+	stopCooldown()
+

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://clxg6bm3kouef"]
+
+[ext_resource type="Script" path="res://Scripts/Weapons/weaponComponent.gd" id="1_fys5r"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6b08k"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dun4e"]
+
+[node name="flameThrow" type="Node3D"]
+script = ExtResource("1_fys5r")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.50242)
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_6b08k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1.02405, 0, 0, 0)
+mesh = SubResource("BoxMesh_dun4e")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.574
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

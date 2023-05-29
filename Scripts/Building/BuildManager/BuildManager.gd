@@ -64,6 +64,9 @@ func buildBuilding(buildPlatform, buildingIndex):
 	canBuild = checkIfCanBuild(buildPlatform)
 	if canBuild:
 		setBuilding(buildPlatform, buildingIndex)
+		
+func removeBuilding(buildPlatform):
+	buildPlatform.removeTurret()
 
 func returnHowManyTurretsIsOn():
 	var turretCount: int
