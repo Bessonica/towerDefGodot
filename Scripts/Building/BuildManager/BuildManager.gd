@@ -66,7 +66,9 @@ func buildBuilding(buildPlatform, buildingIndex):
 		setBuilding(buildPlatform, buildingIndex)
 		
 func removeBuilding(buildPlatform):
-	buildPlatform.removeTurret()
+	if buildPlatform.currentState == buildPlatform.buildPlatformState.hasBuilding:
+		buildPlatform.removeTurret()
+		buildPlatform.setCooldown(5)
 
 func returnHowManyTurretsIsOn():
 	var turretCount: int

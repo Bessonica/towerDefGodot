@@ -43,7 +43,7 @@ func buildTurret(turretToBuild, turretResource):
 
 
 func setCooldown(amount):
-	cooldownTimer.start()
+	cooldownTimer.start(amount)
 	currentState = buildPlatformState.cannotBuild
 func stopCooldown():
 	currentState = buildPlatformState.canBuild

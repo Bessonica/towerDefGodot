@@ -67,8 +67,8 @@ func _physics_process(delta):
 				putRayCastToDefault()
 				currentMouseState = mouseState.empty
 				uiElement.clearAllColor()
-	
-	
+
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var damage = 0
+@export var damage = 5
 @export var playerScene: Node3D
 
 @onready var timer = $Timer
@@ -24,9 +24,16 @@ func _process(delta):
 
 func _on_timer_timeout():
 	var enemies = flameArea.get_overlapping_bodies()
+	var spawnPoints = flameArea.get_overlapping_areas()
 	for enemy in enemies:
-		enemy.decreaseHealth(damage)
-		enemy.stopEnemy()
-		print("enemy lost hp")
+		if enemy.is_in_group("enemiesInside"):
+			enemy.decreaseHealth(damage)
+			enemy.stopEnemy()
+			print("enemy lost hp")
+			
+	for spawnPoint in spawnPoints:
+		if spawnPoint.is_in_group("enemyInsideSpawnPoint"):
+			print("enemy spawn point hit")
+			spawnPoint.health -= damage
 		
 

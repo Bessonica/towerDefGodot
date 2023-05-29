@@ -74,3 +74,4 @@ Fire={
 3d_physics/layer_3="enemy"
 3d_physics/layer_4="building"
 3d_physics/layer_5="enemyInside"
+3d_physics/layer_6="enemyInsideSpawnPoint"
