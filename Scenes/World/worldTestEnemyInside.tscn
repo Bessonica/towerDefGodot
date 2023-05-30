@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://emnl56sa6oeu"]
+[gd_scene load_steps=9 format=3 uid="uid://emnl56sa6oeu"]
 
 [ext_resource type="Script" path="res://Scripts/World/worldTestEnemyInside.gd" id="1_3csxe"]
 [ext_resource type="PackedScene" uid="uid://cbu12ermeprmd" path="res://Scenes/player.tscn" id="1_v5isi"]
 [ext_resource type="PackedScene" uid="uid://fmg7o6fjclu8" path="res://Scenes/Enemies/Inside/enemyInside.tscn" id="3_4s35g"]
 [ext_resource type="PackedScene" uid="uid://vvnbuyajasxs" path="res://Scenes/Enemies/Inside/spawnPointEnemyInside.tscn" id="4_c6jt6"]
+[ext_resource type="PackedScene" uid="uid://de5dub2gtn26a" path="res://Scenes/Enemies/Inside/spawnInsideManager.tscn" id="5_nuype"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_vmeo8"]
 vertices = PackedVector3Array(-21.2965, 0.5, 8.75209, -21.2965, 0.5, 17.5021, -10.7965, 0.5, 17.5021, -10.7965, 0.5, -17.4979, -21.2965, 0.5, -17.4979, -21.2965, 0.5, -8.74791, 10.4535, 0.5, 17.5021, 21.2035, 0.5, 17.5021, 21.2035, 0.5, 8.75209, 21.2035, 0.5, -8.74791, 21.2035, 0.5, -17.4979, 10.4535, 0.5, -17.4979, -21.2965, 0.5, 0.00209045, -21.2965, 0.5, 8.75209, -10.7965, 0.5, 17.5021, -10.7965, 0.5, -17.4979, -21.2965, 0.5, -8.74791, -21.2965, 0.5, 0.00209045, -0.0464859, 0.5, -17.4979, 10.4535, 0.5, 17.5021, 21.2035, 0.5, 8.75209, 21.2035, 0.5, 0.00209045, -0.0464859, 0.5, 17.5021, 21.2035, 0.5, 0.00209045, 21.2035, 0.5, -8.74791, 10.4535, 0.5, -17.4979, -0.0464859, 0.5, -17.4979, -21.2965, 0.5, 0.00209045, -10.7965, 0.5, 17.5021, -0.0464859, 0.5, 17.5021, 21.2035, 0.5, 0.00209045, 10.4535, 0.5, -17.4979)
@@ -45,5 +46,19 @@ health = 10.0
 
 [node name="timeLeft" parent="spawnPoint" index="1"]
 transform = Transform3D(2, 0, 0, 0, 1.85554, -0.746299, 0, 0.746299, 1.85554, 0.0173483, 0.494273, 0)
+
+[node name="SpawnInsideManager" parent="." instance=ExtResource("5_nuype")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.08377, 2.15604, -3.65753)
+
+[node name="spawnPoint" parent="SpawnInsideManager" instance=ExtResource("4_c6jt6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.85401, 0, 1.64624)
+health = 10.0
+
+[node name="spawnPoint2" parent="SpawnInsideManager" instance=ExtResource("4_c6jt6")]
+health = 10.0
+
+[node name="spawnPoint3" parent="SpawnInsideManager" instance=ExtResource("4_c6jt6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.507044, 0, 3.69165)
+health = 10.0
 
 [editable path="spawnPoint"]

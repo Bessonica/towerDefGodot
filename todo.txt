@@ -1,3 +1,12 @@
+
+
+====
+----------------------------------------- блокнот
+
+
+
+=================
+
 game design ideas
 	game should have several values. it should not be one-two things. example of good value system - first deus ex
 _______
@@ -17,13 +26,7 @@ mesh instance/rigidbody3d/primitiveMesh/csgMesh/
 ==
 
 	raycast for bombing ability activates only on small radius. try pressign close to window edge
-	
-	
------------------------------------------ блокнот
 
-турель что поджигает всех вокруг ссебя, замедляя их. но єто заблокирует платформу
-на длительное время
--------------
 
 ==
 				TODOD

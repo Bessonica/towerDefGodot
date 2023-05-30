@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="waveArray" load_steps=3 format=3 uid="uid://5w7qbna6smkc"]
+[gd_resource type="Resource" script_class="waveArray" load_steps=4 format=3 uid="uid://5w7qbna6smkc"]
 
 [ext_resource type="Script" path="res://Scripts/custom resource/waveArray/waveArray.gd" id="1_v8f04"]
 [ext_resource type="Resource" uid="uid://hbkx3d4tu1rx" path="res://custom wave resources/wave/waveTest02.tres" id="2_p26t1"]
+[ext_resource type="Resource" uid="uid://did6gp1rmog1q" path="res://custom wave resources/wave/strongEnemy.tres" id="3_5teiy"]
 
 [resource]
 script = ExtResource("1_v8f04")
-waveArray = Array[Resource("res://Scripts/custom resource/wave/wave.gd")]([ExtResource("2_p26t1")])
+waveArray = Array[Resource("res://Scripts/custom resource/wave/wave.gd")]([ExtResource("2_p26t1"), ExtResource("3_5teiy")])

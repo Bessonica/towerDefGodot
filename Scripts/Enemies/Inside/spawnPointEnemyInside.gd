@@ -1,5 +1,7 @@
 extends Area3D
 
+class_name spawnPointEnemyInside
+
 @export var health:float
 @onready var timeLeftLabel = $timeLeft
 @onready var timeLeftTimer = $timeLeftTimer
@@ -13,8 +15,9 @@ var startOnce: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pass
 	await get_tree().create_timer(3).timeout
-	startCountDown()
+	#startCountDown()
 
 
 
@@ -28,13 +31,17 @@ func _process(delta):
 func startCountDown():
 	timeLeftTimer.start()
 
+func stopCountdown():
+	timeLeftTimer.stop()
+
 # one time process
 func spawnEnemyInside():
 	var enemyToSpawn = enemySceneToSpawn.instantiate()
 	add_child(enemyToSpawn)
 	
 func deactivateSpawn():
-	pass
+	stopCountdown()
+	
 
 
 func _on_time_left_timer_timeout():

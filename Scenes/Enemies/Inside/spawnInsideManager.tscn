@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://de5dub2gtn26a"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/Inside/spawnInsideManager.gd" id="1_kfiim"]
+
+[node name="SpawnInsideManager" type="Node3D"]
+script = ExtResource("1_kfiim")

@@ -8,6 +8,9 @@ extends PathFollow3D
 @onready var enemyState = enemyChild.enemyCurrentState
 
 var progressRatio = 0
+var stopPoint = randf_range(0.8, 1)
+
+var reachedEndBool = false
 
 func _init():
 	set_h_offset(randf_range(-0.5, 0.5))
@@ -24,8 +27,9 @@ func _ready():
 
 func _process(delta):
 	progressRatio = get_progress_ratio()
-	if (progressRatio >= 1):
-		killEnemy()
+	if (progressRatio >= stopPoint):
+		enemyState = enemyChild.moveState.stop
+		reachedEnd()
 
 	match enemyState:
 		enemyChild.moveState.moving:
@@ -36,7 +40,11 @@ func _process(delta):
 func killEnemy():
 	enemyChild.queue_free()
 	queue_free()
-	
+
+func reachedEnd():
+	if reachedEndBool == false:
+		enemyChild.startDigging()
+		reachedEndBool = true
 	
 func setSpeed(amount):
 	movementSpeed = amount

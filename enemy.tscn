@@ -58,6 +58,10 @@ mesh = SubResource("SphereMesh_q2q7w")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_lcol1")
 
+[node name="DiggingTimer" type="Timer" parent="."]
+wait_time = 7.392
+
 [connection signal="enemyLostAllHP" from="." to="EnemyStatus" method="_on_enemy_enemy_lost_all_hp"]
 [connection signal="enemyLostSomeHP" from="." to="Health" method="_on_enemy_enemy_lost_some_hp"]
 [connection signal="enemyLostAllHP" from="Health" to="." method="_on_health_enemy_lost_all_hp"]
+[connection signal="timeout" from="DiggingTimer" to="." method="_on_digging_timer_timeout"]

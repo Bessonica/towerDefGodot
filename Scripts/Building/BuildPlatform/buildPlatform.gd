@@ -35,8 +35,9 @@ func setTurret(turretToBuild, turretResource):
 #instantiate turret itself
 func buildTurret(turretToBuild, turretResource):
 	var turretToInstantiate = turretToBuild.instantiate()
-	turretToInstantiate.setDamage(turretResource.damage)
-	turretToInstantiate.setReload(turretResource.reloadTime)
+	if turretToInstantiate is turret:
+		turretToInstantiate.setDamage(turretResource.damage)
+		turretToInstantiate.setReload(turretResource.reloadTime)
 	
 	add_child(turretToInstantiate)
 	currentState = buildPlatformState.hasBuilding

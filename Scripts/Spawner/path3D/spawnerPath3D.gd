@@ -19,11 +19,19 @@ enum spawnState{
 
 var currentSpawnState
 
+var doItOnce: bool
+
+signal waveSpawningEnded
+var waveSpawnTime: int
+var currentWaveSpawnTime: int
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	currentSpawnState = spawnState.stopSpawn
 	timer = 0
 	gameStartTime = Time.get_ticks_msec()
+	waveSpawnTime = 0
+	currentWaveSpawnTime = 0
 	#print("game started: ", Time.get_ticks_msec())
 	
 	#timeToSpawn = waveArrayResource.timeToSpawn
@@ -33,6 +41,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if waveSpawnTime != 0 && currentWaveSpawnTime>=waveSpawnTime:
+		stopSpawn()
+		waveSpawnTime = 0
+		currentWaveSpawnTime = 0
+		waveSpawningEnded.emit()
 	
 	match currentSpawnState:
 		spawnState.startSpawn:
@@ -43,7 +56,11 @@ func _process(delta):
 				#print("time: ", Time.get_ticks_msec())
 				await spawnWave(waveArrayResource.enemyAmount, waveArrayResource.enemyPathFollow)
 				waveIndex = waveIndex + 1
+				currentWaveSpawnTime += 1
 				#print("finished spawned wave: ", waveIndex)
+				if doItOnce:
+					stopSpawn()
+					doItOnce = false
 				
 		spawnState.stopSpawn:
 			timer = 0
@@ -69,16 +86,24 @@ func spawnWave(amount, enemyToSpawn):
 		spawnEnemyAndSetUpValues(enemyToSpawn)
 		#print("enemy number: ", x)
 		await get_tree().create_timer(timerVar, false).timeout
-	
 
-func startSpawning(waveResource):
-	makeCurrentWave(waveResource)
+
+func startSpawning(waveResource, newWaveSpawnTime = 0):
+	makeCurrentWave(waveResource, newWaveSpawnTime)
 	currentSpawnState = spawnState.startSpawn
 
-func makeCurrentWave(waveResource):
+func makeCurrentWave(waveResource, newWaveSpawnTime = 0):
+	waveSpawnTime = newWaveSpawnTime
 	waveArrayResource = waveResource
 	timeToSpawn = waveResource.timeToSpawn
 
+func spawnOnce(waveResource):
+	makeCurrentWave(waveResource)
+	currentSpawnState = spawnState.startSpawn
+	doItOnce = true
+	
+func stopSpawn():
+	currentSpawnState = spawnState.stopSpawn
 
 # get all children and "say" them to change speed
 func changeSpeed(newSpeed):
