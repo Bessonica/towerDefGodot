@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci2kpbgwnmkt1"]
+
+[ext_resource type="Script" path="res://Scripts/weaponStand.gd" id="1_v657m"]
+[ext_resource type="PackedScene" uid="uid://cjhdmy58jfbo1" path="res://Interaction/Interactable/Interactable.tscn" id="2_hmuk8"]
+
+[node name="WeaponStand" type="Area3D"]
+script = ExtResource("1_v657m")
+
+[node name="Interactable" parent="." instance=ExtResource("2_hmuk8")]
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.333835, 0.498292)
+text = "Weapon Stand"
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+
+[editable path="Interactable"]

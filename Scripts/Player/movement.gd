@@ -11,10 +11,10 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var head = $CameraPivot
 @onready var camera = $CameraPivot/Camera3D
+@onready var weapon = $CameraPivot/flameThrow
 
 var mouse_sense = 0.1
 
-@export var hasWeapon: bool
 
 enum playerState{
 	canMove,
@@ -24,7 +24,6 @@ enum playerState{
 var currentPlayerState = playerState.canMove
 
 func _ready():
-	hasWeapon = true
 	#hides the cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	actualSpeed = SPEED
@@ -82,8 +81,15 @@ func _physics_process(delta):
 		playerState.cannotMove:
 			pass
 			
-			
-			
+
+
+func deActivateWeapon():
+	weapon.deActivateWeapon()
+func activateWeapon():
+	weapon.activateWeapon()
+func toggleWeapon():
+	weapon.toggleWeapon()
+
 func takeAwayPlayerMovement():
 	currentPlayerState = playerState.cannotMove
 	

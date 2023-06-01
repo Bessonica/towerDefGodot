@@ -9,6 +9,24 @@ script = ExtResource("1_0kre5")
 
 [node name="Interactable" parent="." instance=ExtResource("2_raxkf")]
 
+[node name="Labels" type="Node3D" parent="."]
+
+[node name="Label3D" type="Label3D" parent="Labels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.480232)
+text = "Lever"
+
+[node name="Label3D2" type="Label3D" parent="Labels"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.483317, 0, -0.0360951)
+text = "Lever"
+
+[node name="Label3D3" type="Label3D" parent="Labels"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0344195, 0, -0.496358)
+text = "Lever"
+
+[node name="Label3D4" type="Label3D" parent="Labels"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.499712, 0, 0.0320921)
+text = "Lever"
+
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
 
 [editable path="Interactable"]

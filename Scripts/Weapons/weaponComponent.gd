@@ -7,14 +7,17 @@ extends Node3D
 @onready var flameArea = $Area3D
 @onready var particles = $GPUParticles3D
 
+@export var activated: bool
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	activated = true
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if playerScene.hasWeapon == false:
+	if activated == false:
 		return
 	
 	if Input.is_action_just_pressed("Fire") && playerScene.currentPlayerState  ==  playerScene.playerState.canMove:
@@ -24,6 +27,19 @@ func _process(delta):
 		timer.stop()
 		particles.emitting = false
 
+func deActivateWeapon():
+	activated = false
+	hide()
+
+func activateWeapon():
+	activated = true
+	visible = true
+
+func toggleWeapon():
+	if activated == true:
+		deActivateWeapon()
+	else:
+		activateWeapon()
 
 func _on_timer_timeout():
 	var enemies = flameArea.get_overlapping_bodies()

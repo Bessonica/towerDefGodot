@@ -1,11 +1,54 @@
 
 
-====
+=====================
 ----------------------------------------- блокнот
 
 
 
-=================
+
+flamethrow basic particles
+
+spawnOnce fucntionality
+include amount of times to spawn wave (now spawn once kinda useless)
+
+shake enemy
+---
+sound for everything
+	sound component
+sound manager that addresses components with help of groups?
+	(what abot enemies inside wich is more than one?)
+
+
+enemy die functionality (wiggle a lot, die and send signal)
+
+pause menu, end game/die functionality
+
+buildplatform cooldown, mesh color change
+
+build platform set cooldown
+	change platform color when on cooldown
+
+turrets that spawn, slowes/stoppes enemies and then dissapears, with cooldown
+
+better fire material + light source
+
+
+---
+турель что поджигает всех вокруг ссебя, замедляя их. но єто заблокирует платформу
+на длительное время
+
+
+=====
+
+платформер с тяжелым бумерангом или щитом, дверью
+когда он в руках, не можешь прыгать. бросив его можно 
+прыгать оч высоко. 
+поймав щит в воздухе можно упасть и нанести сильный урон + аое.
+в зависимости от скорости падения больше/меньше урон.
+ мотивируем игрока взлетать как можно больше и сильно падать 
+
+
+==================================
 
 game design ideas
 	game should have several values. it should not be one-two things. example of good value system - first deus ex

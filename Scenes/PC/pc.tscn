@@ -35,6 +35,28 @@ offset_top = 0.0
 offset_right = 54.0
 offset_bottom = 61.0
 
+[node name="labels" type="Node3D" parent="."]
+
+[node name="Label3D" type="Label3D" parent="labels"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.954679, -1.48729)
+text = "PC"
+font_size = 64
+
+[node name="Label3D2" type="Label3D" parent="labels"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.50414, 0.954679, 0.0233426)
+text = "PC"
+font_size = 64
+
+[node name="Label3D3" type="Label3D" parent="labels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00403011, 0.954679, 1.50641)
+text = "PC"
+font_size = 64
+
+[node name="Label3D4" type="Label3D" parent="labels"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.47336, 0.954679, 0.000613809)
+text = "PC"
+font_size = 64
+
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
 
 [editable path="Interactable"]
