@@ -7,29 +7,34 @@ class_name spawnPointEnemyInside
 @onready var timeLeftTimer = $timeLeftTimer
 @onready var enemySceneToSpawn = preload("res://Scenes/Enemies/Inside/enemyInside.tscn")
 
-enum spawnPontState{
-	activated
+enum spawnPointState{
+	activated,
+	deactivated
 	
 }
+var currentSpawnPointState
 var startOnce: bool
+var startHealth: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-	await get_tree().create_timer(3).timeout
-	#startCountDown()
+	startHealth = health
+	setHealth(health)
+	currentSpawnPointState = spawnPointState.deactivated
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	timeLeftLabel.text = var_to_str(timeLeftTimer.time_left)
-	if health <= 0:
+	if health <= 0 && currentSpawnPointState == spawnPointState.activated:
 		deactivateSpawn()
+		#emit signal enemy got burned
 	
 
 func startCountDown():
 	timeLeftTimer.start()
+	currentSpawnPointState == spawnPointState.activated
 
 func stopCountdown():
 	timeLeftTimer.stop()
@@ -41,10 +46,13 @@ func spawnEnemyInside():
 	
 func deactivateSpawn():
 	stopCountdown()
+	currentSpawnPointState = spawnPointState.deactivated
+	health = startHealth
 	
-
+func setHealth(amount):
+	health = amount
 
 func _on_time_left_timer_timeout():
-	timeLeftTimer.stop()
+	deactivateSpawn()
 	spawnEnemyInside()
 

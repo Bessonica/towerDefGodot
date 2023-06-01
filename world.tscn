@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bv7i2dhmq6env"]
+[gd_scene load_steps=32 format=3 uid="uid://bv7i2dhmq6env"]
 
 [ext_resource type="PackedScene" uid="uid://cbu12ermeprmd" path="res://Scenes/player.tscn" id="1_1rdeo"]
 [ext_resource type="PackedScene" uid="uid://cqa772v6uo1dk" path="res://Scenes/World/levelAssets/square.tscn" id="1_6dhew"]
@@ -17,8 +17,10 @@
 [ext_resource type="PackedScene" uid="uid://bnee4uhnhgddb" path="res://Scenes/economy/economyManager/economyManager.tscn" id="12_cktyo"]
 [ext_resource type="PackedScene" uid="uid://mijfyxqp7wij" path="res://Scenes/Lever/lever.tscn" id="14_kj1b7"]
 [ext_resource type="PackedScene" uid="uid://bg7s7e5akcwis" path="res://Scenes/ability/abilityManager.tscn" id="15_n0dm3"]
-[ext_resource type="PackedScene" uid="uid://fmg7o6fjclu8" path="res://Scenes/Enemies/Inside/enemyInside.tscn" id="16_yh3ih"]
 [ext_resource type="PackedScene" uid="uid://ci2kpbgwnmkt1" path="res://Scenes/weaponStand.tscn" id="19_0hws2"]
+[ext_resource type="PackedScene" uid="uid://jkctr78rdr75" path="res://Scenes/Game Stats/gameStatsManager.tscn" id="20_0cafy"]
+[ext_resource type="PackedScene" uid="uid://de5dub2gtn26a" path="res://Scenes/Enemies/Inside/spawnInsideManager.tscn" id="21_qgys3"]
+[ext_resource type="PackedScene" uid="uid://vvnbuyajasxs" path="res://Scenes/Enemies/Inside/spawnPointEnemyInside.tscn" id="22_e3tls"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_k1wgm"]
 vertices = PackedVector3Array(1, 0.5, -7.2111, -8.5, 0.5, -0.211104, -8.5, 0.5, 6.7889, 1, 0.5, 6.7889, 10.5, 0.5, -0.211104, 10.5, 0.5, -7.2111, 1, 0.5, 6.7889, 10.5, 0.5, 6.7889, 10.5, 0.5, -0.211104, 1, 0.5, -7.2111, -8.5, 0.5, -7.2111, -8.5, 0.5, -0.211104)
@@ -35,7 +37,7 @@ albedo_color = Color(0.576471, 0.266667, 0.294118, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_k5u7h"]
 material = SubResource("StandardMaterial3D_yx3jq")
 
-[sub_resource type="Curve3D" id="Curve3D_2f6rq"]
+[sub_resource type="Curve3D" id="Curve3D_hwksn"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, 0, 0, 0, 0, 0, 0, 5.62238, 0, -0.206467, -0.324059, -0.0229492, -0.269306, 0.324059, 0.0229492, 0.269306, 10.2996, 0, 0.073597, -0.00752163, 0.0584838, -0.626336, 0.00752163, -0.0584838, 0.626336, 10.472, -0.0234375, 2.14776, 0, 0, 0, 0, 0, 0, 5.95959, 0, 2.34135, 0.354167, 0, -0.448611, -0.354167, 0, 0.448611, 1.53534, 0, 2.57532, -0.165278, 0, -0.472222, 0.165278, 0, 0.472222, 1.64158, 0, 6.01073, 0, 0, 0, 0, 0, 0, 5.50998, 0, 6.1818),
@@ -44,6 +46,16 @@ _data = {
 point_count = 8
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qfwxu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d6tk0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_eufls"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_d6tk0")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ba5uo"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_d6tk0")
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_q53n2")
@@ -92,12 +104,12 @@ mesh = SubResource("BoxMesh_k5u7h")
 transform = Transform3D(-4.88513, 0, 0.000653333, 0, 1, 0, -0.0317178, 0, -0.100625, 6.78629, 0, 2.28933)
 mesh = SubResource("BoxMesh_k5u7h")
 
-[node name="SpawnerController2" parent="." instance=ExtResource("7_r214j")]
+[node name="SpawnerController" parent="." instance=ExtResource("7_r214j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18819, 0, -0.738985)
 waveArray = ExtResource("6_nroaw")
 
-[node name="Path3D" parent="SpawnerController2" instance=ExtResource("2_763cq")]
-curve = SubResource("Curve3D_2f6rq")
+[node name="Path3D" parent="SpawnerController" instance=ExtResource("2_763cq")]
+curve = SubResource("Curve3D_hwksn")
 
 [node name="InteractTest" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243499, 0, 6.87373)
@@ -109,6 +121,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.683356, 0)
 [node name="CollisionShape3D" parent="InteractTest/Interactable" index="0"]
 transform = Transform3D(1, 0, 0, 0, 2.30351, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_qfwxu")
+
+[node name="WeaponStand" parent="." node_paths=PackedStringArray("playerScene") instance=ExtResource("19_0hws2")]
+transform = Transform3D(-0.998275, 0, 0.0587139, 0, 1, 0, -0.0587139, 0, -0.998275, 3.47894, 0.935643, 6.4637)
+playerScene = NodePath("../Player")
 
 [node name="PC" parent="." node_paths=PackedStringArray("playerCharacter") instance=ExtResource("8_ort1y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.01226, 0, 0.206934)
@@ -152,23 +168,28 @@ turretToBuildSecond = ExtResource("7_u7ipe")
 turretResourceSecond = ExtResource("11_qbu1q")
 economyManager = NodePath("../economyManager")
 
-[node name="BuildPlatform3" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.69186, 4.76837e-07, -5.99346)
+[node name="BuildPlatform" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2543, 0, -5.55721)
 
-[node name="BuildPlatform4" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.19033, 4.76837e-07, -4.55609)
-
-[node name="BuildPlatform5" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93004, 4.76837e-07, -3.72304)
-
-[node name="BuildPlatform6" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.60552, 4.76837e-07, -2.28434)
+[node name="MeshInstance3D" parent="BuildManager/BuildPlatform" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.302063, 0, 0, 0, 1, 0.0102272, -0.0088954, 0.0167313)
+mesh = SubResource("BoxMesh_eufls")
 
 [node name="BuildPlatform2" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0609441, 4.76837e-07, -6.14355)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.955617, 4.76837e-07, -5.60405)
 
-[node name="BuildPlatform" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87559, 0, -5.32553)
+[node name="BuildPlatform3" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8276, 4.76837e-07, -5.87196)
+
+[node name="BuildPlatform4" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62879, 1.43051e-06, -3.53655)
+
+[node name="BuildPlatform5" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85276, 1.90735e-06, -2.79654)
+
+[node name="MeshInstance3D" parent="BuildManager/BuildPlatform5" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.302063, 0, 0, 0, 1, 0.0039959, 0.00862217, -0.011291)
+mesh = SubResource("BoxMesh_ba5uo")
 
 [node name="economyManager" parent="." node_paths=PackedStringArray("buildManager") instance=ExtResource("12_cktyo")]
 buildManager = NodePath("../BuildManager")
@@ -176,12 +197,25 @@ buildManager = NodePath("../BuildManager")
 [node name="AbilityManager" parent="." instance=ExtResource("15_n0dm3")]
 bombingDamage = 4
 
-[node name="enemyInside" parent="." instance=ExtResource("16_yh3ih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.45952, 3.59543, 3.54576)
+[node name="GameStatsManager" parent="." instance=ExtResource("20_0cafy")]
 
-[node name="WeaponStand" parent="." node_paths=PackedStringArray("playerScene") instance=ExtResource("19_0hws2")]
-transform = Transform3D(-0.998275, 0, 0.0587139, 0, 1, 0, -0.0587139, 0, -0.998275, 3.47894, 0.935643, 6.4637)
-playerScene = NodePath("../Player")
+[node name="SpawnInsideManager" parent="." instance=ExtResource("21_qgys3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.47562, 1.62431, 0)
+
+[node name="spawnPoint" parent="SpawnInsideManager" instance=ExtResource("22_e3tls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06523, 0, 2.27021)
+
+[node name="spawnPoint2" parent="SpawnInsideManager" instance=ExtResource("22_e3tls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.358131, 0, -1.47589)
+
+[node name="spawnPoint3" parent="SpawnInsideManager" instance=ExtResource("22_e3tls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85002, 0, -0.222894)
+
+[node name="spawnPoint4" parent="SpawnInsideManager" instance=ExtResource("22_e3tls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77349, -2.38419e-07, 0.144909)
+
+[node name="spawnPoint5" parent="SpawnInsideManager" instance=ExtResource("22_e3tls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.104758, -2.38419e-07, 0.1123)
 
 [connection signal="focused" from="InteractTest/Interactable" to="InteractTest" method="_on_interactable_focused"]
 [connection signal="interacted" from="InteractTest/Interactable" to="InteractTest" method="_on_interactable_interacted"]
@@ -197,4 +231,5 @@ playerScene = NodePath("../Player")
 [editable path="PC/Interactable"]
 [editable path="PC/TowerDefencePerspective"]
 [editable path="BuildManager/BuildPlatform"]
+[editable path="BuildManager/BuildPlatform5"]
 [editable path="economyManager"]

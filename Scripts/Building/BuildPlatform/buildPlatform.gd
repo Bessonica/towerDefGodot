@@ -8,6 +8,8 @@ class_name build_platform
 var turretReference: Node3D
 
 @onready var cooldownTimer = $CooldownTimer
+@onready var mesh = $MeshInstance3D
+@onready var cooldwonLabel = $CoolDownLabel3D
 
 enum buildPlatformState{
 	empty,
@@ -42,13 +44,21 @@ func buildTurret(turretToBuild, turretResource):
 	add_child(turretToInstantiate)
 	currentState = buildPlatformState.hasBuilding
 
-
+#	get_material_override()	get_surface_override_material(0)
 func setCooldown(amount):
 	cooldownTimer.start(amount)
 	currentState = buildPlatformState.cannotBuild
+	cooldwonLabel.text = "cooldown"
+	#var meshMaterial = mesh.mesh.surface_get_material(0)
+	#meshMaterial.albedo_color = Color.RED
+
 func stopCooldown():
 	currentState = buildPlatformState.canBuild
 	cooldownTimer.stop()
+	cooldwonLabel.text = ""
+	#var meshMaterial = mesh.mesh.surface_get_material(0)
+	#meshMaterial.albedo_color = Color.WHITE
+
 
 
 # platform  take off turret from there

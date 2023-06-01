@@ -3,11 +3,11 @@ extends Node3D
 @onready var player = $Player
 
 # do it onready
-@export_group("managers")
-@export var economyManager: Node3D
-@export var buildManager: Node3D
-@export var spawnController: Node3D
-
+#@export_group("managers")
+@onready var spawnController = $SpawnerController
+@onready var buildManager = $BuildManager
+@onready var economyManager = $economyManager
+@onready var gameStatsManager = $GameStatsManager
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,5 +19,4 @@ func _process(delta):
 	pass
 
 func _physics_process(delta):
-	pass
-	#get_tree().call_group("enemiesInside", "updateTargetLocation", player.global_transform.origin)
+	get_tree().call_group("enemiesInside", "updateTargetLocation", player.global_transform.origin)

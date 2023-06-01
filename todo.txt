@@ -5,13 +5,6 @@
 
 
 
-
-flamethrow basic particles
-
-spawnOnce fucntionality
-include amount of times to spawn wave (now spawn once kinda useless)
-
-shake enemy
 ---
 sound for everything
 	sound component

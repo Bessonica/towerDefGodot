@@ -1,8 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3315fs4hg2r3"]
+[gd_scene load_steps=5 format=3 uid="uid://b3315fs4hg2r3"]
 
 [ext_resource type="Script" path="res://Scripts/Building/BuildPlatform/buildPlatform.gd" id="1_fbo2e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yvl5q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d6tk0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_twtxb"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_d6tk0")
 
 [node name="BuildPlatform" type="Area3D"]
 collision_layer = 8
@@ -14,5 +20,12 @@ shape = SubResource("BoxShape3D_yvl5q")
 
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 4.241
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.302063, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_twtxb")
+
+[node name="CoolDownLabel3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.239991, 0.970775, 0, -0.970775, 0.239991, 0.0687603, 0.236523, 0)
 
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

@@ -28,6 +28,7 @@ var enemyCurrentState
 func _ready():
 	startedShaking = false
 	enemyCurrentState = moveState.moving # Replace with function body.
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,6 +47,7 @@ func killItself():
 
 func enemyGotKilled():
 	killItself()
+	Events.emit_signal("enemyKilled")
 
 func startDigging():
 	diggingTimer.start()
@@ -71,5 +73,6 @@ func _on_health_enemy_lost_all_hp():
 
 func _on_digging_timer_timeout():
 	enemyDugDown.emit()
+	Events.emit_signal("enemyDugDown")
 	killItself()
 

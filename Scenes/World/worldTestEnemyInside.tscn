@@ -41,7 +41,7 @@ shape = SubResource("BoxShape3D_8wxfu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8684, 4.48827, -1.63468)
 
 [node name="spawnPoint" parent="." instance=ExtResource("4_c6jt6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.79082, 2.33092, -7.5063)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.79082, 2.33092, -12.3794)
 health = 10.0
 
 [node name="timeLeft" parent="spawnPoint" index="1"]

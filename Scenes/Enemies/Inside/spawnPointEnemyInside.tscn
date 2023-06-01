@@ -8,6 +8,7 @@
 collision_layer = 32
 collision_mask = 0
 script = ExtResource("1_gqurh")
+health = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_hv1lk")
@@ -17,6 +18,6 @@ transform = Transform3D(2, 0, 0, 0, 1.34057, 1.48421, 0, -1.48421, 1.34057, 0.01
 text = "YO"
 
 [node name="timeLeftTimer" type="Timer" parent="."]
-wait_time = 10.317
+wait_time = 7.393
 
 [connection signal="timeout" from="timeLeftTimer" to="." method="_on_time_left_timer_timeout"]
