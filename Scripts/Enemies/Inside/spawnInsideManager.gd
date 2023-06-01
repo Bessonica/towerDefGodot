@@ -15,8 +15,14 @@ func _process(delta):
 
 
 func spawnInRandomPlace():
-	print("yo")
-	var spawnPoints = get_children()
-	var spawnPointsAmount = get_child_count()
-	var randomIndex = randi_range(0, spawnPointsAmount - 1)
-	spawnPoints[randomIndex].startCountDown()
+	var spawnPoints = []
+	var allSpawnPoints = get_children()
+	#var spawnPointsAmount = get_child_count()
+	for spawnPoint in allSpawnPoints:
+		if spawnPoint.currentSpawnPointState == spawnPoint.spawnPointState.deactivated:
+			spawnPoints.append(spawnPoint)
+	
+	var spawnPointsAmount = spawnPoints.size()
+	if spawnPointsAmount >= 1:
+		var randomIndex = randi_range(0, spawnPointsAmount - 1)
+		spawnPoints[randomIndex].startCountDown()

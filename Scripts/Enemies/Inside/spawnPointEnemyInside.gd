@@ -6,6 +6,7 @@ class_name spawnPointEnemyInside
 @onready var timeLeftLabel = $timeLeft
 @onready var timeLeftTimer = $timeLeftTimer
 @onready var enemySceneToSpawn = preload("res://Scenes/Enemies/Inside/enemyInside.tscn")
+@onready var healthLabel = $HealthLabel
 
 enum spawnPointState{
 	activated,
@@ -27,6 +28,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	timeLeftLabel.text = var_to_str(timeLeftTimer.time_left)
+	healthLabel.text = var_to_str(health)
 	if health <= 0 && currentSpawnPointState == spawnPointState.activated:
 		deactivateSpawn()
 		#emit signal enemy got burned
@@ -34,7 +36,7 @@ func _process(delta):
 
 func startCountDown():
 	timeLeftTimer.start()
-	currentSpawnPointState == spawnPointState.activated
+	currentSpawnPointState = spawnPointState.activated
 
 func stopCountdown():
 	timeLeftTimer.stop()
@@ -51,6 +53,9 @@ func deactivateSpawn():
 	
 func setHealth(amount):
 	health = amount
+func decreaseHealth(amount):
+	if currentSpawnPointState == spawnPointState.activated:
+		health -= amount
 
 func _on_time_left_timer_timeout():
 	deactivateSpawn()

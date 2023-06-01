@@ -53,6 +53,6 @@ func _on_timer_timeout():
 	for spawnPoint in spawnPoints:
 		if spawnPoint.is_in_group("enemyInsideSpawnPoint"):
 			print("enemy spawn point hit")
-			spawnPoint.health -= damage
+			spawnPoint.decreaseHealth(damage)
 		
 

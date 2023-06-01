@@ -18,6 +18,9 @@ transform = Transform3D(2, 0, 0, 0, 1.34057, 1.48421, 0, -1.48421, 1.34057, 0.01
 text = "YO"
 
 [node name="timeLeftTimer" type="Timer" parent="."]
-wait_time = 7.393
+wait_time = 12.887
+
+[node name="HealthLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.477973)
 
 [connection signal="timeout" from="timeLeftTimer" to="." method="_on_time_left_timer_timeout"]

@@ -42,7 +42,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8684, 4.48827, -1.63468)
 
 [node name="spawnPoint" parent="." instance=ExtResource("4_c6jt6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.79082, 2.33092, -12.3794)
-health = 10.0
 
 [node name="timeLeft" parent="spawnPoint" index="1"]
 transform = Transform3D(2, 0, 0, 0, 1.85554, -0.746299, 0, 0.746299, 1.85554, 0.0173483, 0.494273, 0)
@@ -52,13 +51,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.08377, 2.15604, -3.65753)
 
 [node name="spawnPoint" parent="SpawnInsideManager" instance=ExtResource("4_c6jt6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.85401, 0, 1.64624)
-health = 10.0
 
 [node name="spawnPoint2" parent="SpawnInsideManager" instance=ExtResource("4_c6jt6")]
-health = 10.0
 
 [node name="spawnPoint3" parent="SpawnInsideManager" instance=ExtResource("4_c6jt6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.507044, 0, 3.69165)
-health = 10.0
 
 [editable path="spawnPoint"]
