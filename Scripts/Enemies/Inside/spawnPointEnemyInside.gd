@@ -34,6 +34,10 @@ func _process(delta):
 		#emit signal enemy got burned
 	
 
+func startSpawning():
+	startCountDown()
+
+
 func startCountDown():
 	timeLeftTimer.start()
 	currentSpawnPointState = spawnPointState.activated

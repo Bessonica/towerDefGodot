@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://emnl56sa6oeu"]
+[gd_scene load_steps=10 format=3 uid="uid://emnl56sa6oeu"]
 
 [ext_resource type="Script" path="res://Scripts/World/worldTestEnemyInside.gd" id="1_3csxe"]
 [ext_resource type="PackedScene" uid="uid://cbu12ermeprmd" path="res://Scenes/player.tscn" id="1_v5isi"]
 [ext_resource type="PackedScene" uid="uid://fmg7o6fjclu8" path="res://Scenes/Enemies/Inside/enemyInside.tscn" id="3_4s35g"]
 [ext_resource type="PackedScene" uid="uid://vvnbuyajasxs" path="res://Scenes/Enemies/Inside/spawnPointEnemyInside.tscn" id="4_c6jt6"]
 [ext_resource type="PackedScene" uid="uid://de5dub2gtn26a" path="res://Scenes/Enemies/Inside/spawnInsideManager.tscn" id="5_nuype"]
+[ext_resource type="PackedScene" uid="uid://dmdjrhlunqc1n" path="res://Scenes/World/levelAssets/building.tscn" id="6_oe0ce"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_vmeo8"]
 vertices = PackedVector3Array(-21.2965, 0.5, 8.75209, -21.2965, 0.5, 17.5021, -10.7965, 0.5, 17.5021, -10.7965, 0.5, -17.4979, -21.2965, 0.5, -17.4979, -21.2965, 0.5, -8.74791, 10.4535, 0.5, 17.5021, 21.2035, 0.5, 17.5021, 21.2035, 0.5, 8.75209, 21.2035, 0.5, -8.74791, 21.2035, 0.5, -17.4979, 10.4535, 0.5, -17.4979, -21.2965, 0.5, 0.00209045, -21.2965, 0.5, 8.75209, -10.7965, 0.5, 17.5021, -10.7965, 0.5, -17.4979, -21.2965, 0.5, -8.74791, -21.2965, 0.5, 0.00209045, -0.0464859, 0.5, -17.4979, 10.4535, 0.5, 17.5021, 21.2035, 0.5, 8.75209, 21.2035, 0.5, 0.00209045, -0.0464859, 0.5, 17.5021, 21.2035, 0.5, 0.00209045, 21.2035, 0.5, -8.74791, 10.4535, 0.5, -17.4979, -0.0464859, 0.5, -17.4979, -21.2965, 0.5, 0.00209045, -10.7965, 0.5, 17.5021, -0.0464859, 0.5, 17.5021, 21.2035, 0.5, 0.00209045, 10.4535, 0.5, -17.4979)
@@ -18,7 +19,7 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Arr
 script = ExtResource("1_3csxe")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_v5isi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23989, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30876, 8.47194, -21.1328)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.854885, 0.518818, 0, -0.518818, 0.854885, 0, 11.9346, 7.66893)
@@ -56,5 +57,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.85401, 0, 1.64624)
 
 [node name="spawnPoint3" parent="SpawnInsideManager" instance=ExtResource("4_c6jt6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.507044, 0, 3.69165)
+
+[node name="Level" parent="." instance=ExtResource("6_oe0ce")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 6.89249, -28.2799)
 
 [editable path="spawnPoint"]

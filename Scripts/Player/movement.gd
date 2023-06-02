@@ -53,7 +53,8 @@ func _physics_process(delta):
 	
 			#	show mouse when press "esc", so it easier to close window
 			if Input.is_action_just_pressed("Menu"):
-				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+				toggleMouse()
+				#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		
 		
 			# Get the input direction and handle the movement/deceleration.
@@ -81,6 +82,14 @@ func _physics_process(delta):
 		playerState.cannotMove:
 			pass
 			
+
+func toggleMouse():
+	var mouseMode = Input.get_mouse_mode()
+	print("mouse mode = ", mouseMode)
+	if mouseMode == 0:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	elif mouseMode == 2:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func deActivateWeapon():

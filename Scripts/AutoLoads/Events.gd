@@ -9,3 +9,7 @@ signal phaseTwoStarted
 
 signal phaseOneEnded
 signal phaseTwoEnded
+
+
+signal waveSpawningEnded
+signal variableWaveSpawnsFinishedChanged(newValue)

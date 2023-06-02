@@ -25,4 +25,4 @@ func spawnInRandomPlace():
 	var spawnPointsAmount = spawnPoints.size()
 	if spawnPointsAmount >= 1:
 		var randomIndex = randi_range(0, spawnPointsAmount - 1)
-		spawnPoints[randomIndex].startCountDown()
+		spawnPoints[randomIndex].startSpawning()

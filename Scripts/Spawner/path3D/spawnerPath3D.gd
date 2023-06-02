@@ -46,6 +46,8 @@ func _process(delta):
 		waveSpawnTime = 0
 		currentWaveSpawnTime = 0
 		waveSpawningEnded.emit()
+		print("(spawnerPath3D.gd) wave spawning ended")
+		Events.emit_signal("waveSpawningEnded")
 	
 	match currentSpawnState:
 		spawnState.startSpawn:
@@ -88,17 +90,18 @@ func spawnWave(amount, enemyToSpawn):
 		await get_tree().create_timer(timerVar, false).timeout
 
 
-func startSpawning(waveResource, newWaveSpawnTime = 0):
+
+func startSpawning(waveResource, newWaveSpawnTime):
 	makeCurrentWave(waveResource, newWaveSpawnTime)
 	currentSpawnState = spawnState.startSpawn
 
-func makeCurrentWave(waveResource, newWaveSpawnTime = 0):
+func makeCurrentWave(waveResource, newWaveSpawnTime):
 	waveSpawnTime = newWaveSpawnTime
 	waveArrayResource = waveResource
 	timeToSpawn = waveResource.timeToSpawn
 
 func spawnOnce(waveResource):
-	makeCurrentWave(waveResource)
+	makeCurrentWave(waveResource, 1)
 	currentSpawnState = spawnState.startSpawn
 	doItOnce = true
 	

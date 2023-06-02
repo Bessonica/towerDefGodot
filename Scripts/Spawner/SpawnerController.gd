@@ -25,9 +25,8 @@ func _init():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if doItOnce:
-		startWave(0, waveArray.waveArray[0], 1)
-		doItOnce = false
+	pass
+
 
 
 func startWave(enemyPathIndex, waveResource, newWaveSpawnTime = 0):
@@ -52,4 +51,7 @@ func stopAllPath():
 	for i in get_child_count():
 		stopWave(i)
 
+func phaseOne():
+	startWave(0, waveArray.waveArray[0], 3)
+	startWave(1, waveArray.waveArray[0], 3)
 
