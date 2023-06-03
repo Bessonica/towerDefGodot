@@ -20,7 +20,7 @@ data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0
 [node name="Walls" type="Node3D" parent="Building"]
 
 [node name="Wall" type="MeshInstance3D" parent="Building/Walls"]
-transform = Transform3D(-2.18557e-08, 0, 1, 0, 4, 0, -0.5, 0, -4.37114e-08, -0.513974, 0, 6.45678)
+transform = Transform3D(-2.18557e-08, 0, 1, 0, 4, 0, -0.5, 0, -4.37114e-08, -0.513974, -0.595279, 6.02768)
 material_override = SubResource("StandardMaterial3D_3ox2k")
 mesh = SubResource("BoxMesh_lpce1")
 skeleton = NodePath("../../..")
