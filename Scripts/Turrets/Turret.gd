@@ -75,12 +75,6 @@ func lookAtEnemy(enemy):
 	var relitivePosition = enemy.global_position - rayCast.global_position
 	rayCast.target_position = relitivePosition
 
-func setDamage(amount):
-	damage = amount
-	
-func setReload(amount):
-	reloadTime = amount
-
 func shootEnemy(enemy):
 	lookAtEnemy(enemy)
 	enemy.enemyLostSomeHealth(damage)
@@ -113,6 +107,11 @@ func destroyItself():
 	queue_free()
 	
 	
+func setDamage(amount):
+	damage = amount
+	
+func setReload(amount):
+	reloadTime = amount
 
 
 func _on_reload_timer_timeout():

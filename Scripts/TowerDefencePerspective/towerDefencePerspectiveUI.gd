@@ -1,8 +1,8 @@
 extends Control
 
-@onready var labelOne = $TurretOneLabel
-@onready var labelTwo = $TurretTwoLabel
-@onready var labelBomb =$BombLabel
+@onready var labelOne = $ButtonLabels/TurretOneLabel
+@onready var labelTwo = $ButtonLabels/TurretTwoLabel
+@onready var labelBomb = $ButtonLabels/BombLabel
 
 @onready var labelArray = [labelOne, labelTwo, labelBomb]
 

@@ -1,8 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://vvnbuyajasxs"]
+[gd_scene load_steps=8 format=3 uid="uid://vvnbuyajasxs"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/Inside/spawnPointEnemyInside.gd" id="1_gqurh"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hv1lk"]
+
+[sub_resource type="Curve" id="Curve_eyd7y"]
+_data = [Vector2(0.00970873, 0.236364), 0.0, 0.0, 0, 0, Vector2(0.504854, 0.954545), 0.0, 0.0, 0, 0, Vector2(0.995146, 0.3), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_2uvtu"]
+curve = SubResource("Curve_eyd7y")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_itx1a"]
+direction = Vector3(0, 0, 0)
+spread = 131.47
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 4.0
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_2uvtu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tybq0"]
+albedo_color = Color(0.694118, 0.282353, 0.0980392, 0.968627)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_4x6f2"]
+material = SubResource("StandardMaterial3D_tybq0")
+size = Vector2(0.5, 0.5)
 
 [node name="spawnPoint" type="Area3D" groups=["enemyInsideSpawnPoint"]]
 collision_layer = 32
@@ -22,5 +46,12 @@ wait_time = 12.887
 
 [node name="HealthLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.477973)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+lifetime = 0.44
+randomness = 0.06
+process_material = SubResource("ParticleProcessMaterial_itx1a")
+draw_pass_1 = SubResource("QuadMesh_4x6f2")
 
 [connection signal="timeout" from="timeLeftTimer" to="." method="_on_time_left_timer_timeout"]

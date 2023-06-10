@@ -41,7 +41,7 @@ material = SubResource("StandardMaterial3D_yx3jq")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qfwxu"]
 
-[sub_resource type="Curve3D" id="Curve3D_d8kaw"]
+[sub_resource type="Curve3D" id="Curve3D_cwrkp"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, 0, 0, 0, 0, 0, 0, 3.15451, -0.655516, 0.253695, -0.397074, -0.0841217, -0.197206, 0.397074, 0.0841217, 0.197206, 5.6006, -0.92286, 0.494441, -0.468102, -0.130757, -0.446819, 0.468102, 0.130757, 0.446819, 7.77, -0.3813, 2.14785, 0, 0, 0, 0, 0, 0, 7.2442, -0.481441, 3.25344, 0.354167, 0, -0.448611, -0.354167, 0, 0.448611, 4.70149, -0.0363139, 3.21309),
@@ -49,7 +49,7 @@ _data = {
 }
 point_count = 6
 
-[sub_resource type="Curve3D" id="Curve3D_1pufl"]
+[sub_resource type="Curve3D" id="Curve3D_e1ftk"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, 0, 0, 0, 0, 0, 0, 2.64913, 0.0987378, 1.16708, -0.54646, -0.104004, -0.351944, 0.54646, 0.104004, 0.351944, 4.30247, 0.097273, 1.82558, -0.701813, -0.115027, -0.30721, 0.701813, 0.115027, 0.30721, 6.61722, 0.178938, 2.81054, 0, 0, 0, 0, 0, 0, 7.99684, 0.0483228, 2.8201, -0.409041, 0.124146, 1.73254, 0.409041, -0.124146, -1.73254, 9.02967, 0.01573, 1.0142),
@@ -105,7 +105,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.46367, 1.06852, -42.9595)
 economyManager = NodePath("../economyManager")
 
 [node name="Player" parent="." instance=ExtResource("1_1rdeo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.40789, 2.24088, -34.7954)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46622, 2.49509, -35.2776)
 
 [node name="flameThrow" parent="Player/CameraPivot" index="2"]
 damage = 10
@@ -142,42 +142,11 @@ waveArray = ExtResource("6_nroaw")
 
 [node name="Path3D" parent="SpawnerController" instance=ExtResource("2_763cq")]
 transform = Transform3D(0.451781, 0, -0.892129, 0, 1, 0, 0.892129, 0, 0.451781, -2.91185, 0.0533761, -8.85249)
-curve = SubResource("Curve3D_d8kaw")
+curve = SubResource("Curve3D_cwrkp")
 
 [node name="Path3D2" parent="SpawnerController" instance=ExtResource("2_763cq")]
 transform = Transform3D(0.361478, 0, -0.932381, 0, 1, 0, 0.932381, 0, 0.361478, 4.79203, -0.0398999, -8.73884)
-curve = SubResource("Curve3D_1pufl")
-
-[node name="BuildManager" parent="." node_paths=PackedStringArray("economyManager") instance=ExtResource("10_rwo60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6587, 0, -14.0348)
-turretToBuildFirst = ExtResource("7_u7ipe")
-turretResourceFirst = ExtResource("11_d8ee8")
-turretToBuildSecond = ExtResource("7_u7ipe")
-turretResourceSecond = ExtResource("11_qbu1q")
-economyManager = NodePath("../economyManager")
-
-[node name="BuildPlatform" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2543, 0, -5.55721)
-
-[node name="MeshInstance3D" parent="BuildManager/BuildPlatform" index="2"]
-transform = Transform3D(1, 0, 0, 0, 0.302063, 0, 0, 0, 1, 0.0102272, -0.0088954, 0.0167313)
-mesh = SubResource("BoxMesh_eufls")
-
-[node name="BuildPlatform2" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.955617, 4.76837e-07, -5.60405)
-
-[node name="BuildPlatform3" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8276, 4.76837e-07, -5.87196)
-
-[node name="BuildPlatform4" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62879, 1.43051e-06, -3.53655)
-
-[node name="BuildPlatform5" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85276, 1.90735e-06, -2.79654)
-
-[node name="MeshInstance3D" parent="BuildManager/BuildPlatform5" index="2"]
-transform = Transform3D(1, 0, 0, 0, 0.302063, 0, 0, 0, 1, 0.0039959, 0.00862217, -0.011291)
-mesh = SubResource("BoxMesh_ba5uo")
+curve = SubResource("Curve3D_e1ftk")
 
 [node name="WeaponStand" parent="." node_paths=PackedStringArray("playerScene") instance=ExtResource("19_0hws2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.400287, 0.935643, -37.9369)
@@ -217,6 +186,37 @@ offset_left = 1051.0
 offset_top = 448.0
 offset_right = 1105.0
 offset_bottom = 509.0
+
+[node name="BuildManager" parent="." node_paths=PackedStringArray("economyManager") instance=ExtResource("10_rwo60")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6587, 0, -14.0348)
+turretToBuildFirst = ExtResource("7_u7ipe")
+turretResourceFirst = ExtResource("11_d8ee8")
+turretToBuildSecond = ExtResource("7_u7ipe")
+turretResourceSecond = ExtResource("11_qbu1q")
+economyManager = NodePath("../economyManager")
+
+[node name="BuildPlatform" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2543, 0, -5.55721)
+
+[node name="MeshInstance3D" parent="BuildManager/BuildPlatform" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.302063, 0, 0, 0, 1, 0.0102272, -0.0088954, 0.0167313)
+mesh = SubResource("BoxMesh_eufls")
+
+[node name="BuildPlatform2" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.955617, 4.76837e-07, -5.60405)
+
+[node name="BuildPlatform3" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8276, 4.76837e-07, -5.87196)
+
+[node name="BuildPlatform4" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62879, 1.43051e-06, -3.53655)
+
+[node name="BuildPlatform5" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85276, 1.90735e-06, -2.79654)
+
+[node name="MeshInstance3D" parent="BuildManager/BuildPlatform5" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.302063, 0, 0, 0, 1, 0.0039959, 0.00862217, -0.011291)
+mesh = SubResource("BoxMesh_ba5uo")
 
 [node name="economyManager" parent="." node_paths=PackedStringArray("buildManager") instance=ExtResource("12_cktyo")]
 buildManager = NodePath("../BuildManager")
@@ -263,17 +263,17 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 20.6106)
 [connection signal="focused" from="InteractTest/Interactable" to="InteractTest" method="_on_interactable_focused"]
 [connection signal="interacted" from="InteractTest/Interactable" to="InteractTest" method="_on_interactable_interacted"]
 [connection signal="timerIsTurnedOff" from="economyManager" to="BuildManager" method="_on_economy_manager_timer_is_turned_off"]
-[connection signal="turretCurrentAmountIsChanged" from="economyManager" to="BuildManager" method="_on_economy_manager_turret_current_amount_is_changed"]
 [connection signal="turretCurrentAmountIsChanged" from="economyManager" to="PC/TowerDefencePerspective" method="_on_economy_manager_turret_current_amount_is_changed"]
+[connection signal="turretCurrentAmountIsChanged" from="economyManager" to="BuildManager" method="_on_economy_manager_turret_current_amount_is_changed"]
 
 [editable path="Level2/StaticBody3D3"]
 [editable path="Player"]
 [editable path="Player/CameraPivot/PlayerInteractor"]
 [editable path="InteractTest/Interactable"]
 [editable path="SpawnerController/Path3D2"]
-[editable path="BuildManager/BuildPlatform"]
-[editable path="BuildManager/BuildPlatform5"]
 [editable path="PC"]
 [editable path="PC/Interactable"]
 [editable path="PC/TowerDefencePerspective"]
+[editable path="BuildManager/BuildPlatform"]
+[editable path="BuildManager/BuildPlatform5"]
 [editable path="economyManager"]

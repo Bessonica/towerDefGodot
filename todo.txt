@@ -22,6 +22,8 @@ menu/pause functionality
 
 look into full screen
 
+fix values for damage, cooldowns, etc
+
 
 turrets that spawn, slowes/stoppes enemies and then dissapears, with cooldown
 

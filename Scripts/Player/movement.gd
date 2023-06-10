@@ -98,6 +98,9 @@ func activateWeapon():
 	weapon.activateWeapon()
 func toggleWeapon():
 	weapon.toggleWeapon()
+	
+func killPlayer():
+	pass
 
 func takeAwayPlayerMovement():
 	currentPlayerState = playerState.cannotMove

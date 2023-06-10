@@ -38,14 +38,15 @@ func startWaveAfterSec(amount, enemyPathIndex, waveResource, newWaveSpawnTime = 
 	await get_tree().create_timer(amount).timeout
 	startWave(enemyPathIndex, waveResource, newWaveSpawnTime)
 
-func startWaveOnce(enemyPathIndex, waveResource):
-	enemyPath = get_child(enemyPathIndex)
-	enemyPath.spawnOnce(waveResource)
-
 func stopWave(enemyPathIndex):
 	enemyPath = get_child(enemyPathIndex)
 	enemyPath.stopSpawn()
 	#enemyPath.currentSpawnState = enemyPath.spawnState.stopSpawn
+
+func startWaveOnce(enemyPathIndex, waveResource):
+	enemyPath = get_child(enemyPathIndex)
+	enemyPath.spawnOnce(waveResource)
+
 
 func stopAllPath():
 	for i in get_child_count():

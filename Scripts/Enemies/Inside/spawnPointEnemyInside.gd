@@ -7,6 +7,8 @@ class_name spawnPointEnemyInside
 @onready var timeLeftTimer = $timeLeftTimer
 @onready var enemySceneToSpawn = preload("res://Scenes/Enemies/Inside/enemyInside.tscn")
 @onready var healthLabel = $HealthLabel
+@onready var groundParticles = $GPUParticles3D
+#	particles.emitting = true
 
 enum spawnPointState{
 	activated,
@@ -36,6 +38,7 @@ func _process(delta):
 
 func startSpawning():
 	startCountDown()
+	groundParticles.emitting = true
 
 
 func startCountDown():
@@ -50,16 +53,20 @@ func spawnEnemyInside():
 	var enemyToSpawn = enemySceneToSpawn.instantiate()
 	add_child(enemyToSpawn)
 	
+func decreaseHealth(amount):
+	if currentSpawnPointState == spawnPointState.activated:
+		health -= amount
+		
+
 func deactivateSpawn():
 	stopCountdown()
+	groundParticles.emitting = false
 	currentSpawnPointState = spawnPointState.deactivated
 	health = startHealth
 	
 func setHealth(amount):
 	health = amount
-func decreaseHealth(amount):
-	if currentSpawnPointState == spawnPointState.activated:
-		health -= amount
+
 
 func _on_time_left_timer_timeout():
 	deactivateSpawn()

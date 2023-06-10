@@ -9,7 +9,7 @@ var choosenInteractable: Interactable
 
 
 
-#	прикрепляем этот рейкаст к камере и проверяем есть ли коллайд
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

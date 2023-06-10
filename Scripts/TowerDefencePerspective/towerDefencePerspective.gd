@@ -1,14 +1,14 @@
 extends Node3D
 
-@onready var TurretLimitText = $CanvasLayer/UI/CurrentAmount
-@onready var TurretLimitProgressBar = $CanvasLayer/UI/ProgressBarGenerator
+@onready var TurretLimitText = $CanvasLayer/Control/CurrentAmount
+@onready var TurretLimitProgressBar = $CanvasLayer/Control/ProgressBarGenerator
 @onready var towerDefenceUI = $CanvasLayer
-@onready var bombProgressBar = $CanvasLayer/UI/ProgressBarBomb
+@onready var bombProgressBar = $CanvasLayer/Control/ProgressBarBomb
 
 @onready var Camera = $Camera3D
 @onready var RayCast = $RayCast3D
 
-@onready var uiElement = $CanvasLayer/UI
+@onready var uiElement = $CanvasLayer/Control
 
 @export_group("managers")
 @export var economyManager: Node3D

@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/Enemies/Inside/enemyInside.gd" id="1_77isg"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l6s7f"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_hipnu"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_i3q42"]
+[sub_resource type="SphereMesh" id="SphereMesh_028qq"]
 
 [node name="enemyInside" type="CharacterBody3D" groups=["enemiesInside"]]
 collision_layer = 16
@@ -12,10 +12,10 @@ collision_mask = 0
 script = ExtResource("1_77isg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_l6s7f")
+shape = SubResource("SphereShape3D_hipnu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_i3q42")
+mesh = SubResource("SphereMesh_028qq")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 agent_height_offset = 0.25
