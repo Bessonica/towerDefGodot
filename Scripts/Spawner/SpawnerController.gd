@@ -8,9 +8,14 @@ var enemyPath
 #signal startingWave(enemyPath, waveResource)
 
 var timer = 0
+var currentWavesToSpawn
+var wavesToSpawn
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Events.connect("waveSpawningEnded", countWaveSpawns)
+	currentWavesToSpawn = 0
+	wavesToSpawn = 0
 	pass
 	#await get_tree().create_timer(10).timeout
 	#startWaveOnce(0, waveArray.waveArray[1])
@@ -27,7 +32,8 @@ func _init():
 func _process(delta):
 	pass
 
-
+func startWaveQueue():
+	pass
 
 func startWave(enemyPathIndex, waveResource, newWaveSpawnTime = 0):
 	enemyPath = get_child(enemyPathIndex)
@@ -55,4 +61,19 @@ func stopAllPath():
 func phaseOne():
 	startWave(0, waveArray.waveArray[0], 3)
 	startWave(1, waveArray.waveArray[0], 3)
+	wavesToSpawn = 2
+
+func phaseTwo():
+	startWaveAfterSec(8, 1, waveArray.waveArray[0], 3)
+
+
+func countWaveSpawns():
+	if currentWavesToSpawn >= 0 && wavesToSpawn > 0:
+		currentWavesToSpawn += 1
+	if wavesToSpawn <= currentWavesToSpawn:
+		Events.emit_signal("PhaseEnded")
+		#	PhaseEnded	spawningEnded
+		wavesToSpawn = 0
+		currentWavesToSpawn = 0
+
 

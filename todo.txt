@@ -24,6 +24,8 @@ look into full screen
 
 fix values for damage, cooldowns, etc
 
+wave queue (waves spawn one after another and not at the same time)
+
 
 turrets that spawn, slowes/stoppes enemies and then dissapears, with cooldown
 
@@ -34,6 +36,12 @@ better fire material + light source
 турель что поджигает всех вокруг ссебя, замедляя их. но єто заблокирует платформу
 на длительное время
 
+нужно перезаряжать огнемет в отдельной комнате?
+
+монстры движуться вокруг безопасной зоны игрока и пытаются найти способы попасть внутрь.
+повердить генератор к прмимеру
+	у игрока нет полного обзора территории
+	монстры фокусируют разные вещи снаружи, вентиляция генераторы тд.
 
 =====
 

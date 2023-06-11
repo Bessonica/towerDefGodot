@@ -4,16 +4,31 @@ extends Node3D
 
 #	TODO ask on forums
 #var waveSpawnsFinished: int: set = waveSpawnsFinishedSet, get = waveSpawnsFinishedChanged
-var waveSpawnsFinished: int: set = setWaveSpawnsFinished, get = getWaveSpawnsFinished
+
+@export var spawnController: Node3D
+
+var phases = [0, 1, 2]
+var currentPhase = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#enemyScene.enemyDugDown.connect(printInfo)
-	waveSpawnsFinished = 0
 	Events.connect("enemyDugDown", printInfo)
-	Events.connect("waveSpawningEnded", countWaveSpawns)
+	Events.connect("PhaseEnded", changePhase)
+	await get_tree().create_timer(4).timeout
+	changePhase()
+	#spawningEnded
 
-
+func changePhase():
+	match currentPhase:
+		0:
+			startPhaseOne()
+			currentPhase += 1
+		1:
+			Events.emit_signal("phaseOneEnded")
+			startPhaseTwo()
+			currentPhase += 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -23,24 +38,18 @@ func printInfo():
 	pass
 	#print("enemy dug down")
 
-func countWaveSpawns():
-	waveSpawnsFinished += 1
-	print("(gameStats.gd) waveSpawns = ", waveSpawnsFinished)
-
-func reloadWaveSpawns():
-	waveSpawnsFinished = 0
 
 
-func setWaveSpawnsFinished(newValue):
-	waveSpawnsFinished = newValue
-	Events.emit_signal("variableWaveSpawnsFinishedChanged", newValue)
-func getWaveSpawnsFinished():
-	return waveSpawnsFinished
+func phaseEnded():
+	pass
+	#Events.emit_signal("PhaseEnded")
 
-"""
-#	TODO ask on forums
-func waveSpawnsFinishedChanged(newValue):
-	waveSpawnsFinished = newValue
-func waveSpawnsFinishedSet():
-	return waveSpawnsFinished
-"""
+func startPhaseOne():
+	spawnController.phaseOne() 
+
+func phaseOneEnded():
+	print("world.gd phase ONE ENDED")
+	
+
+func startPhaseTwo():
+	spawnController.phaseTwo() 

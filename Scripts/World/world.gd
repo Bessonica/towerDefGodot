@@ -15,10 +15,16 @@ extends Node3D
 @export_subgroup("phaseTwo")
 @export var amountOfWavesTwo: int
 # Called when the node enters the scene tree for the first time.
+
+var phases = [0, 1, 2]
+var currentPhase = 0
+
 func _ready():
-	Events.connect("variableWaveSpawnsFinishedChanged", printInfo)
-	await get_tree().create_timer(6).timeout
-	startPhaseOne()
+	pass
+	#Events.connect("variableWaveSpawnsFinishedChanged", printInfo)
+	#	phaseOneEnded
+	#await get_tree().create_timer(4).timeout
+	#changePhase()
 
 	#Events.connect("waveSpawningEnded", changePhase)
 
@@ -35,19 +41,3 @@ func _physics_process(delta):
 func printInfo(newValue):
 	print("(world.gd) wave finished, new value = ", newValue)
 
-
-
-func changePhase():
-	pass
-
-func startPhaseOne():
-	spawnController.phaseOne() 
-
-
-func endPhaseOne():
-	#stop wave .. .
-	pass
-	
-
-func startPhaseTwo():
-	pass
