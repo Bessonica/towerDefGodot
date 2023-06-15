@@ -53,7 +53,8 @@ func _physics_process(delta):
 	
 			#	show mouse when press "esc", so it easier to close window
 			if Input.is_action_just_pressed("Menu"):
-				toggleMouse()
+				pass
+				#toggleMouse()
 				#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		
 		

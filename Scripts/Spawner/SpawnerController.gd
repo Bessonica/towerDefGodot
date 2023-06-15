@@ -65,6 +65,7 @@ func phaseOne():
 
 func phaseTwo():
 	startWaveAfterSec(8, 1, waveArray.waveArray[0], 3)
+	wavesToSpawn = 1
 
 
 func countWaveSpawns():

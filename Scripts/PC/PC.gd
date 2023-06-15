@@ -14,6 +14,7 @@ var currentPcState
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	currentPcState = PCState.playerIsOut
+	Events.connect("exitPC", exitPCEvent)
 
 
 
@@ -22,7 +23,8 @@ func _process(delta):
 	match currentPcState:
 		PCState.playerIsIn:
 			if Input.is_action_just_pressed("Menu"):
-				exitPC()
+				pass
+				#exitPC()
 		
 		#	esc, we le
 	
@@ -44,6 +46,10 @@ func enterPC():
 	playerCharacter.takeAwayPlayerMovement()
 	currentPcState = PCState.playerIsIn
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func exitPCEvent():
+	exitPC()
+
 
 func changePerspective(perspectiveObject):
 	pass

@@ -124,3 +124,8 @@ func _on_clear_pressed():
 	mouseIndex = 11
 	uiElement.changeColor(2)
 
+
+
+func _on_exit_pressed():
+	Events.emit_signal("exitPC")
+

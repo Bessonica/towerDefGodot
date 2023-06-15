@@ -26,6 +26,7 @@ grow_vertical = 2
 script = ExtResource("2_w64k0")
 
 [node name="Container" type="Container" parent="CanvasLayer/Control"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
@@ -73,8 +74,11 @@ anchor_left = 0.768
 anchor_top = 0.72
 anchor_right = 0.768
 anchor_bottom = 0.72
-offset_left = 0.263977
-columns = 3
+offset_left = -49.736
+offset_top = 3.43997
+offset_right = 138.264
+offset_bottom = 127.44
+columns = 4
 
 [node name="turretOne" type="TextureButton" parent="CanvasLayer/Control/Buttons"]
 custom_minimum_size = Vector2(60, 60)
@@ -97,6 +101,13 @@ texture_normal = ExtResource("2_lwnki")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="Exit" type="TextureButton" parent="CanvasLayer/Control/Buttons"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture_normal = ExtResource("2_lwnki")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="ButtonLabels" type="GridContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = -1
@@ -104,10 +115,12 @@ anchor_left = 0.763
 anchor_top = 0.662
 anchor_right = 0.763
 anchor_bottom = 0.662
-offset_right = 174.0
-offset_bottom = 26.0
+offset_left = -33.976
+offset_top = 4.02399
+offset_right = 140.024
+offset_bottom = 30.024
 theme_override_constants/h_separation = 32
-columns = 3
+columns = 4
 
 [node name="TurretOneLabel" type="Label" parent="CanvasLayer/Control/ButtonLabels"]
 layout_mode = 2
@@ -122,6 +135,10 @@ text = "Two
 layout_mode = 2
 text = "Bomb"
 
+[node name="ExitLabel" type="Label" parent="CanvasLayer/Control/ButtonLabels"]
+layout_mode = 2
+text = "Exit"
+
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 40.0
@@ -133,3 +150,4 @@ layout_mode = 2
 [connection signal="pressed" from="CanvasLayer/Control/Buttons/turretOne" to="." method="_on_turret_one_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Buttons/turretTwo" to="." method="_on_turret_two_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Buttons/Clear" to="." method="_on_clear_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Buttons/Exit" to="." method="_on_exit_pressed"]

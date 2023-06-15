@@ -17,24 +17,6 @@ shape = SubResource("BoxShape3D_yh6bw")
 
 [node name="TowerDefencePerspective" parent="." instance=ExtResource("3_gskkm")]
 
-[node name="turretOne" parent="TowerDefencePerspective/CanvasLayer/UI" index="1"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 56.0
-offset_bottom = 61.0
-
-[node name="turretTwo" parent="TowerDefencePerspective/CanvasLayer/UI" index="3"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 59.0
-offset_bottom = 59.0
-
-[node name="Clear" parent="TowerDefencePerspective/CanvasLayer/UI" index="5"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 54.0
-offset_bottom = 61.0
-
 [node name="labels" type="Node3D" parent="."]
 
 [node name="Label3D" type="Label3D" parent="labels"]

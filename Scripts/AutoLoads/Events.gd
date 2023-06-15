@@ -16,3 +16,8 @@ signal spawningEnded
 
 signal waveSpawningEnded
 signal variableWaveSpawnsFinishedChanged(newValue)
+
+signal exitPC
+
+signal turnOnPauseMenu
+signal turnOffPauseMenu

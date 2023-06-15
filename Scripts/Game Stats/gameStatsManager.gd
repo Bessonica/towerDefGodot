@@ -24,11 +24,14 @@ func changePhase():
 	match currentPhase:
 		0:
 			startPhaseOne()
-			currentPhase += 1
+			#currentPhase += 1
 		1:
 			Events.emit_signal("phaseOneEnded")
 			startPhaseTwo()
-			currentPhase += 1
+			#currentPhase += 1
+		2:
+			Events.emit_signal("phaseTwoEnded")
+			print("PHASE TWO ENDED")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -39,17 +42,15 @@ func printInfo():
 	#print("enemy dug down")
 
 
-
-func phaseEnded():
-	pass
-	#Events.emit_signal("PhaseEnded")
-
 func startPhaseOne():
+	Events.emit_signal("phaseOneStarted")
 	spawnController.phaseOne() 
+	currentPhase = 1
 
 func phaseOneEnded():
 	print("world.gd phase ONE ENDED")
-	
 
 func startPhaseTwo():
+	Events.emit_signal("phaseTwoStarted")
 	spawnController.phaseTwo() 
+	currentPhase = 2

@@ -41,7 +41,7 @@ material = SubResource("StandardMaterial3D_yx3jq")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qfwxu"]
 
-[sub_resource type="Curve3D" id="Curve3D_nf83c"]
+[sub_resource type="Curve3D" id="Curve3D_bfqjv"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, 0, 0, 0, 0, 0, 0, 3.15451, -0.655516, 0.253695, -0.397074, -0.0841217, -0.197206, 0.397074, 0.0841217, 0.197206, 5.6006, -0.92286, 0.494441, -0.468102, -0.130757, -0.446819, 0.468102, 0.130757, 0.446819, 7.77, -0.3813, 2.14785, 0, 0, 0, 0, 0, 0, 7.2442, -0.481441, 3.25344, 0.354167, 0, -0.448611, -0.354167, 0, 0.448611, 4.70149, -0.0363139, 3.21309),
@@ -49,7 +49,7 @@ _data = {
 }
 point_count = 6
 
-[sub_resource type="Curve3D" id="Curve3D_nq80u"]
+[sub_resource type="Curve3D" id="Curve3D_m65fw"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, 0, 0, 0, 0, 0, 0, 2.64913, 0.0987378, 1.16708, -0.54646, -0.104004, -0.351944, 0.54646, 0.104004, 0.351944, 4.30247, 0.097273, 1.82558, -0.701813, -0.115027, -0.30721, 0.701813, 0.115027, 0.30721, 6.61722, 0.178938, 2.81054, 0, 0, 0, 0, 0, 0, 7.99684, 0.0483228, 2.8201, -0.409041, 0.124146, 1.73254, 0.409041, -0.124146, -1.73254, 9.02967, 0.01573, 1.0142),
@@ -72,7 +72,8 @@ material = SubResource("StandardMaterial3D_d6tk0")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uxh1s"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
-[node name="Node3D" type="Node3D"]
+[node name="World" type="Node3D"]
+process_mode = 1
 script = ExtResource("1_q53n2")
 
 [node name="Level2" type="Node3D" parent="."]
@@ -142,11 +143,11 @@ waveArray = ExtResource("6_nroaw")
 
 [node name="Path3D" parent="SpawnerController" instance=ExtResource("2_763cq")]
 transform = Transform3D(0.451781, 0, -0.892129, 0, 1, 0, 0.892129, 0, 0.451781, -2.91185, 0.0533761, -8.85249)
-curve = SubResource("Curve3D_nf83c")
+curve = SubResource("Curve3D_bfqjv")
 
 [node name="Path3D2" parent="SpawnerController" instance=ExtResource("2_763cq")]
 transform = Transform3D(0.361478, 0, -0.932381, 0, 1, 0, 0.932381, 0, 0.361478, 4.79203, -0.0398999, -8.73884)
-curve = SubResource("Curve3D_nq80u")
+curve = SubResource("Curve3D_m65fw")
 
 [node name="WeaponStand" parent="." node_paths=PackedStringArray("playerScene") instance=ExtResource("19_0hws2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.400287, 0.935643, -37.9369)
@@ -168,9 +169,6 @@ target_position = Vector3(1, 0, 0)
 
 [node name="Camera3D" parent="PC/TowerDefencePerspective" index="1"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-
-[node name="Container" parent="PC/TowerDefencePerspective/CanvasLayer/Control" index="0"]
-layout_mode = 0
 
 [node name="BuildManager" parent="." node_paths=PackedStringArray("economyManager") instance=ExtResource("10_rwo60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6587, 0, -14.0348)
