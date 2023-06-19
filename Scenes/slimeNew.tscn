@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b107piljkfdmd"]
+
+[ext_resource type="PackedScene" uid="uid://biakmkcgb28rt" path="res://Models/slimeNew.glb" id="1_tbiyc"]
+
+[node name="slimeNew" instance=ExtResource("1_tbiyc")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)

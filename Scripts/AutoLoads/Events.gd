@@ -21,3 +21,5 @@ signal exitPC
 
 signal turnOnPauseMenu
 signal turnOffPauseMenu
+
+signal playerGotKilled

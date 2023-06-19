@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk2m45q146kia"]
+
+[ext_resource type="PackedScene" uid="uid://lxikvd8knvia" path="res://Models/generator.blend" id="1_byqun"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_174fa"]
+size = Vector3(12.0275, 7.13913, 5.40822)
+
+[node name="Area3D" type="Area3D"]
+
+[node name="generator" parent="." instance=ExtResource("1_byqun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19838, 0, 0.736615)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.18767, 0.606916, 1.29191)
+shape = SubResource("BoxShape3D_174fa")

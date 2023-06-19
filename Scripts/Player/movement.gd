@@ -11,7 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var head = $CameraPivot
 @onready var camera = $CameraPivot/Camera3D
-@onready var weapon = $CameraPivot/flameThrow
+@onready var weapon = $CameraPivot/hand/flameThrow
 
 var mouse_sense = 0.1
 
@@ -64,9 +64,8 @@ func _physics_process(delta):
 			var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 			
 			#		RUN DOESNT WORK
-			if Input.is_action_just_pressed("Run"):
-				print("action run is pressed")
-				actualSpeed = SPEED*2
+			if Input.is_action_pressed("Run"):
+				actualSpeed = SPEED*1.5
 			else:
 				actualSpeed = SPEED
 				

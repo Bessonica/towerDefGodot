@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://ekhv7v0fvxcb"]
+
+[ext_resource type="PackedScene" uid="uid://1qxllgx37b6c" path="res://Scenes/Models/woodenBox.tscn" id="1_x4dkx"]
+
+[node name="StackOfBoxes" type="Node3D"]
+
+[node name="Box" parent="." instance=ExtResource("1_x4dkx")]
+
+[node name="Box2" parent="." instance=ExtResource("1_x4dkx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05663, 0, 0)
+
+[node name="Box3" parent="." instance=ExtResource("1_x4dkx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0508, 0, 0)
+
+[node name="Box4" parent="." instance=ExtResource("1_x4dkx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.608488, -2.38419e-07, 1.05227)
+
+[node name="Box5" parent="." instance=ExtResource("1_x4dkx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.570911, -2.38419e-07, 1.04998)
+
+[node name="Box8" parent="." instance=ExtResource("1_x4dkx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.64281, -2.38419e-07, 1.01919)
+
+[node name="Box6" parent="." instance=ExtResource("1_x4dkx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.570911, 1.02361, 0.00230324)
+
+[node name="Box7" parent="." instance=ExtResource("1_x4dkx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46613, 1.02361, 0.00230324)

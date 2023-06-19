@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ycecv2h3psm2"]
+[gd_scene load_steps=5 format=3 uid="uid://ycecv2h3psm2"]
 
 [ext_resource type="PackedScene" uid="uid://bv7i2dhmq6env" path="res://world.tscn" id="1_3o1tk"]
 [ext_resource type="Script" path="res://Scripts/Game/Game.gd" id="1_l4qye"]
 [ext_resource type="PackedScene" uid="uid://befcfd815rhig" path="res://Scenes/PauseMenu/pauseMenu.tscn" id="2_4uta3"]
+[ext_resource type="PackedScene" uid="uid://bj1l8vsxue02w" path="res://Scenes/PlayerKilledMenu/playerLilledMenu.tscn" id="4_prchy"]
 
 [node name="Game" type="Node3D"]
 process_mode = 3
@@ -12,4 +13,8 @@ script = ExtResource("1_l4qye")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_4uta3")]
+[node name="PauseMenu" parent="CanvasLayer" node_paths=PackedStringArray("gameObject") instance=ExtResource("2_4uta3")]
+gameObject = NodePath("../..")
+
+[node name="PlayerKilledMenu" parent="CanvasLayer" node_paths=PackedStringArray("gameObject") instance=ExtResource("4_prchy")]
+gameObject = NodePath("../..")

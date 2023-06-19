@@ -3,7 +3,19 @@
 =====================
 ----------------------------------------- блокнот
 
+light
+assets
+	pc model
+	button/lever
+	generator
+	light bulb, lamp
 
+weapon sway		DONE
+weapon model
+sprint function	DONE
+
+dot in middle of screen
+dot changes when there is interactable
 
 ---
 

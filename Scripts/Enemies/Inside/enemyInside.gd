@@ -27,6 +27,13 @@ func _process(delta):
 		killItself()
 	
 func _physics_process(delta):
+	var newCollision = lookForEnemies()
+	if newCollision != null:
+		Events.emit_signal("playerGotKilled")
+		print("have a collision!")
+	
+	look_at(navigationAgent.target_position)
+		
 	match currentEnemyInsideState:
 		enemyInsideState.moving:
 			var currentLocation = global_transform.origin
@@ -40,6 +47,10 @@ func _physics_process(delta):
 
 func updateTargetLocation(targetLocation):
 	navigationAgent.target_position = targetLocation
+
+func lookForEnemies():
+	var collision = get_last_slide_collision()
+	return collision
 
 func killItself():
 	queue_free()

@@ -1,6 +1,7 @@
 extends Control
 
-var latestMouseMode
+var latestMouseMode = 2
+@export var gameObject: Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide()
@@ -20,3 +21,18 @@ func turnOnPauseMenu():
 func turnOffPauseMenu():
 	Input.set_mouse_mode(latestMouseMode)
 	hide()
+
+
+func _on_resume_button_pressed():
+	gameObject.resumeGameAndMenu()
+
+
+
+func _on_exit_button_pressed():
+	gameObject.exitGame()
+
+
+
+func _on_reload_button_pressed():
+	gameObject.reloadGame()
+

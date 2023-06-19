@@ -3,6 +3,7 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Events.connect("playerGotKilled", playerGotKilled)
 	pass # Replace with function body.
 
 #	Events.connect("PhaseEnded", changePhase)
@@ -22,16 +23,30 @@ func _input(event):
 func togglePause():
 	var currentPausedValue = get_tree().paused
 	if currentPausedValue == true:
-		resumeGame()
+		resumeGameAndMenu()
 	else:
-		pauseGame()
+		pauseGameAndMenu()
 
-	
-func pauseGame():
+func pauseGameAndMenu():
 	Events.emit_signal("turnOnPauseMenu")
 	get_tree().paused = true
 
-func resumeGame():
+func resumeGameAndMenu():
 	Events.emit_signal("turnOffPauseMenu")
 	get_tree().paused = false
 	
+func pauseGame():
+	get_tree().paused = true
+func resumeGame():
+	get_tree().paused = false
+	
+func exitGame():
+	get_tree().quit()
+
+func playerGotKilled():
+	pauseGame()
+
+func reloadGame():
+	var _reload = get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()
+

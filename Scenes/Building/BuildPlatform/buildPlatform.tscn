@@ -7,7 +7,6 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d6tk0"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_twtxb"]
-resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_d6tk0")
 
 [node name="BuildPlatform" type="Area3D"]
@@ -27,5 +26,10 @@ mesh = SubResource("BoxMesh_twtxb")
 
 [node name="CoolDownLabel3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.239991, 0.970775, 0, -0.970775, 0.239991, 0.0687603, 0.236523, 0)
+
+[node name="TurretLabel3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0)
+text = "YO"
+font_size = 50
 
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

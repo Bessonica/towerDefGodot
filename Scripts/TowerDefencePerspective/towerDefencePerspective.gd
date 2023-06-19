@@ -79,7 +79,7 @@ func _process(delta):
 			pass
 
 func updateRayCast():
-	var to = Camera.project_ray_normal(get_viewport().get_mouse_position()) * 10
+	var to = Camera.project_ray_normal(get_viewport().get_mouse_position()) * 100
 	#print("to = ", to)
 	RayCast.target_position = to
 

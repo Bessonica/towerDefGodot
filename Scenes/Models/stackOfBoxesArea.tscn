@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddhbc5ye5mp62"]
+
+[ext_resource type="PackedScene" uid="uid://ekhv7v0fvxcb" path="res://Scenes/Models/stackOfBoxes.tscn" id="1_dl5ji"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_er3c5"]
+size = Vector3(3.78834, 3, 2.23505)
+
+[node name="StackOfBoxes" type="Area3D"]
+
+[node name="StackOfBoxes" parent="." instance=ExtResource("1_dl5ji")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.278303, 0, 0.501274)
+shape = SubResource("BoxShape3D_er3c5")

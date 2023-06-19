@@ -14,7 +14,7 @@ script = ExtResource("1_oitth")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.528, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1.4, 0, 0, 0, 0.739, 0, 0, 0, 1.4, 0, 0, 0)
 shape = SubResource("CylinderShape3D_q431m")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]

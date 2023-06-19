@@ -10,6 +10,7 @@ var turretReference: Node3D
 @onready var cooldownTimer = $CooldownTimer
 @onready var mesh = $MeshInstance3D
 @onready var cooldwonLabel = $CoolDownLabel3D
+@onready var turretLabel = $TurretLabel3D
 
 enum buildPlatformState{
 	empty,
@@ -22,6 +23,7 @@ var currentState
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	cooldwonLabel.text = ""
 	currentState = buildPlatformState.canBuild
 
 
@@ -33,6 +35,14 @@ func _process(delta):
 #	method that build manager calls for
 func setTurret(turretToBuild, turretResource):
 	buildTurret(turretToBuild, turretResource)
+	turretLabel.text = "I"
+	#changePlatformColor(111)
+
+
+func changePlatformColor(color):
+	var materialSurface = mesh.mesh.surface_get_material(0)
+	materialSurface.albedo_color = Color.RED
+	
 
 #instantiate turret itself
 func buildTurret(turretToBuild, turretResource):
@@ -68,6 +78,7 @@ func removeTurret():
 			child.destroyItself()
 			currentState = buildPlatformState.canBuild
 			print("turret Removed")
+			turretLabel.text = ""
 			
 
 func doesPlatformHasTurret():

@@ -1,20 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://fmg7o6fjclu8"]
+[gd_scene load_steps=6 format=3 uid="uid://fmg7o6fjclu8"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/Inside/enemyInside.gd" id="1_77isg"]
+[ext_resource type="PackedScene" uid="uid://b107piljkfdmd" path="res://Scenes/slimeNew.tscn" id="2_2un3s"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hipnu"]
+radius = 0.793206
 
 [sub_resource type="SphereMesh" id="SphereMesh_028qq"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pbobc"]
+animation = &"SlimeIdle-loop001"
+
 [node name="enemyInside" type="CharacterBody3D" groups=["enemiesInside"]]
 collision_layer = 16
-collision_mask = 0
+collision_mask = 64
 script = ExtResource("1_77isg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_hipnu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("SphereMesh_028qq")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
@@ -23,4 +29,16 @@ agent_height_offset = 0.25
 [node name="StopTimer" type="Timer" parent="."]
 wait_time = 2.433
 
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeAnimation_pbobc")
+anim_player = NodePath("../slimeNew/AnimationPlayer")
+active = true
+
+[node name="slimeNew" parent="." instance=ExtResource("2_2un3s")]
+
+[node name="Skeleton3D" parent="slimeNew/Root" index="0"]
+bones/0/scale = Vector3(1.005, 0.988258, 1.01395)
+
 [connection signal="timeout" from="StopTimer" to="." method="_on_stop_timer_timeout"]
+
+[editable path="slimeNew"]

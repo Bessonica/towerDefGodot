@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2ojtgqoyltgx"]
+
+[ext_resource type="PackedScene" uid="uid://do65oc0mxfdvp" path="res://Models/table.blend" id="1_pcdcp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i23eg"]
+size = Vector3(2.67835, 3.09877, 6.65041)
+
+[node name="TableArea" type="Area3D"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="table" parent="." instance=ExtResource("1_pcdcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.424342, 0, 0.375103)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.134301, 1.4773, -0.1106)
+shape = SubResource("BoxShape3D_i23eg")

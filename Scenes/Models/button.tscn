@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2247vmjwfjxm"]
+
+[ext_resource type="PackedScene" uid="uid://cmc8p4jqb0x8" path="res://Models/button.blend" id="1_1s72y"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="button" parent="." instance=ExtResource("1_1s72y")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

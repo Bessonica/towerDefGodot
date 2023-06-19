@@ -9,6 +9,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5r7ea"]
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
+collision_layer = 65
 script = ExtResource("1_vb2kb")
 
 [node name="CameraPivot" type="Node3D" parent="."]
@@ -26,9 +27,12 @@ shape = SubResource("BoxShape3D_ich7s")
 [node name="RayCast3D" parent="CameraPivot/PlayerInteractor" index="1"]
 target_position = Vector3(0, 0, -2)
 
-[node name="flameThrow" parent="CameraPivot" node_paths=PackedStringArray("playerScene") instance=ExtResource("3_xmpto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22569, -0.547161, -0.828218)
-playerScene = NodePath("../..")
+[node name="hand" type="Node3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20579, -0.732294, -0.507989)
+
+[node name="flameThrow" parent="CameraPivot/hand" node_paths=PackedStringArray("playerScene") instance=ExtResource("3_xmpto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0199003, 0.185133, -0.320229)
+playerScene = NodePath("../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_5r7ea")
