@@ -1,8 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbu12ermeprmd"]
+[gd_scene load_steps=9 format=3 uid="uid://cbu12ermeprmd"]
 
 [ext_resource type="Script" path="res://Scripts/Player/movement.gd" id="1_vb2kb"]
+[ext_resource type="Shader" path="res://Scripts/playerShader/player.gdshader" id="2_mrysk"]
 [ext_resource type="PackedScene" uid="uid://ce8uyseg8gccl" path="res://Interaction/Interactor/player/player_interactor.tscn" id="2_xwn7w"]
 [ext_resource type="PackedScene" uid="uid://clxg6bm3kouef" path="res://Scenes/Weapons/flameThrow.tscn" id="3_xmpto"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wnmyq"]
+render_priority = 0
+shader = ExtResource("2_mrysk")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6csgb"]
+material = SubResource("ShaderMaterial_wnmyq")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ich7s"]
 
@@ -17,6 +25,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.515838, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 current = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CameraPivot/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.465971)
+transparency = 0.16
+mesh = SubResource("PlaneMesh_6csgb")
 
 [node name="PlayerInteractor" parent="CameraPivot" node_paths=PackedStringArray("player") instance=ExtResource("2_xwn7w")]
 player = NodePath("../..")
@@ -34,7 +47,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20579, -0.732294, -0.507989
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0199003, 0.185133, -0.320229)
 playerScene = NodePath("../../..")
 
+[node name="GPUParticles3D" parent="CameraPivot/hand/flameThrow" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.600733)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_5r7ea")
 
 [editable path="CameraPivot/PlayerInteractor"]
+[editable path="CameraPivot/hand/flameThrow"]
