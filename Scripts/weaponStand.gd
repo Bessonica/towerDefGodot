@@ -1,10 +1,10 @@
 extends Area3D
 
-@export var playerScene: Node3D
-
+#@export var playerScene: Node3D
+@onready var flamethrowModel = $flamethrow
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	flamethrowModel.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -13,9 +13,17 @@ func _process(delta):
 
 
 func _on_interactable_interacted(interactor):
-	toggleWeapon()
-	
+	var player = interactor.returnPlayer()
+	player.toggleWeapon()
+	toggleWeaponModel()
 
+func toggleWeaponModel():
+	if flamethrowModel.visible == true:
+		takeWeapon()
+	else:
+		putWeapon()
 
-func toggleWeapon():
-	playerScene.toggleWeapon()
+func takeWeapon():
+	flamethrowModel.hide()
+func putWeapon():
+	flamethrowModel.show()

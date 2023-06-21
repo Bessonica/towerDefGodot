@@ -8,9 +8,11 @@ size = Vector3(2.67835, 3.09877, 6.65041)
 [node name="TableArea" type="Area3D"]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
-[node name="table" parent="." instance=ExtResource("1_pcdcp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.424342, 0, 0.375103)
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.134301, 1.4773, -0.1106)
 shape = SubResource("BoxShape3D_i23eg")
+
+[node name="table" parent="StaticBody3D" instance=ExtResource("1_pcdcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.424342, 0, 0.375103)

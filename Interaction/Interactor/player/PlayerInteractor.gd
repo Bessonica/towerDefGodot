@@ -35,7 +35,8 @@ func _input(event: InputEvent) -> void:
 		if choosenInteractable != null:
 			interact(choosenInteractable)
 	
-
+func returnPlayer():
+	return player
 
 func activateRayCast() -> Interactable:
 	var interactObject: Interactable = null

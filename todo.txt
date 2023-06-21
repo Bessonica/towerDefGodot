@@ -16,15 +16,6 @@ sounds
 enemy model/animation
 	enemy kill
 
-weapon sway
-
-finish phases, add more path3d
-
-fix ui scale	DONE
-
-menu/pause functionality
-
-look into full screen
 
 fix values for damage, cooldowns, etc
 
@@ -35,7 +26,13 @@ turrets that spawn, slowes/stoppes enemies and then dissapears, with cooldown
 
 better fire material + light source
 
+big enemy that kills when reaches end
 
+sound manager, sound component for player and npc
+
+pc screen filter, visual effects fo it
+
+weapon stand visual effects
 ---
 турель что поджигает всех вокруг ссебя, замедляя их. но єто заблокирует платформу
 на длительное время
@@ -155,8 +152,10 @@ gameplay ideas
 бежать к рубильнику что бі запустить систему снова
 
 
+visual effects
+когда зжигаешь монстра который вылазиет из стены, добавляешь визуальных еффектов как в амнезии
 
-
+когда большой монстр приближаеться к центру, екран игрока дрожит при каждом шаге монстра и пыль падает с потолка
 
 
 
