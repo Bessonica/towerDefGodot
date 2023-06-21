@@ -36,14 +36,16 @@ func _process(delta):
 #				функция что меняет камеру на ту что была указана в аргументе
 func exitPC():
 	towerDefenceView.perspectiveLeft()
-	playerCharacter.givePlayerMovement()
-	playerCharacter.setPlayerCameraAsCurrent()
+	playerCharacter.playerLeftPC()
+	#playerCharacter.givePlayerMovement()
+	#playerCharacter.setPlayerCameraAsCurrent()
 	currentPcState = PCState.playerIsOut
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func enterPC():
 	towerDefenceView.setUpPerspective()
-	playerCharacter.takeAwayPlayerMovement()
+	#playerCharacter.takeAwayPlayerMovement()
+	playerCharacter.playerEnteredPC()
 	currentPcState = PCState.playerIsIn
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 

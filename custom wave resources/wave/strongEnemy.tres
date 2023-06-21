@@ -8,5 +8,5 @@ script = ExtResource("1_xpy60")
 enemyAmount = 1
 timeToSpawn = 2.0
 enemyPathFollow = ExtResource("1_y5e83")
-enemyHP = 10
+enemyHP = 15
 enemySpeed = 0.4

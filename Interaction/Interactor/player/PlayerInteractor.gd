@@ -7,7 +7,8 @@ extends Interactor
 var choosenInteractable: Interactable
 @onready var rayCast = $RayCast3D
 
-
+signal focuseOn
+signal focuseOff
 
 
 
@@ -23,9 +24,11 @@ func _process(delta):
 	choosenInteractable = activateRayCast()
 	if choosenInteractable != null:
 		focus(choosenInteractable)
+		focuseOn.emit()
 		#print("found interactable!")
 		#interact(choosenInteractable)
-		pass
+	else:
+		focuseOff.emit()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed('interact'):

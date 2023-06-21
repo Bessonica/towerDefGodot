@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dksrv0sci8uk6"]
+[gd_scene load_steps=17 format=3 uid="uid://dksrv0sci8uk6"]
 
 [ext_resource type="Texture2D" uid="uid://cj1h6pliam5yw" path="res://Textures/Tile/Tile_03-256x256.png" id="1_ig8tn"]
 [ext_resource type="Texture2D" uid="uid://clapukhakux75" path="res://Textures/Plaster/Plaster_20-256x256.png" id="2_2pu6m"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://b2ojtgqoyltgx" path="res://Scenes/Models/tableArea.tscn" id="7_4ei6g"]
 [ext_resource type="PackedScene" uid="uid://dbtk5a6c1tlih" path="res://Scenes/Models/pcArea.tscn" id="8_p0vft"]
 [ext_resource type="PackedScene" uid="uid://dqvrx08w3tj64" path="res://Scenes/Models/chairArea.tscn" id="9_j0udy"]
+[ext_resource type="PackedScene" uid="uid://dqpihtqrwpmxd" path="res://Scenes/Models/wallLamp.tscn" id="10_mhmv6"]
+[ext_resource type="Texture2D" uid="uid://u1fa3816fro8" path="res://Textures/Plaster/Plaster_02-256x256.png" id="11_1mj53"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pr8e2"]
 albedo_texture = ExtResource("1_ig8tn")
@@ -29,6 +31,10 @@ uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2t503"]
 albedo_texture = ExtResource("3_hfp5l")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6p8gu"]
+albedo_texture = ExtResource("11_1mj53")
+uv1_triplanar = true
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
@@ -204,10 +210,10 @@ material = SubResource("StandardMaterial3D_2t503")
 [node name="Lights" type="Node3D" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02906, 3.90186)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.27394, 1.05935, 3.88325)
 light_color = Color(0.905882, 0.164706, 0.192157, 1)
 light_bake_mode = 1
-omni_range = 4.404
+omni_range = 6.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2.60785, 1.02906, 0.0588903)
@@ -264,4 +270,18 @@ transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 
 transform = Transform3D(-0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, -6.48033, 1.02435, 0.603138)
 
 [node name="ChairArea3" parent="." instance=ExtResource("9_j0udy")]
-transform = Transform3D(-0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, -0.75087, 0.318417, 1.06088)
+transform = Transform3D(-0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 1.8691, 0.213862, 0.118823)
+
+[node name="WallLamp" parent="." instance=ExtResource("10_mhmv6")]
+transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 1.80243, 0.956733, 1.59862)
+
+[node name="WallLamp3" parent="." instance=ExtResource("10_mhmv6")]
+transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 1.35679, 0.956733, 4.27723)
+
+[node name="WallLamp2" parent="." instance=ExtResource("10_mhmv6")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -3.03803, 0.956733, 0.0720552)
+
+[node name="Ceiling4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.33735, 1.46481, 1.28055)
+size = Vector3(15.9228, 0.356746, 14.8632)
+material = SubResource("StandardMaterial3D_6p8gu")

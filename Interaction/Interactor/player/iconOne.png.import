@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u1fa3816fro8"
-path.s3tc="res://.godot/imported/Plaster_02-256x256.png-f8607603b87b3aa29bd4ff0d297e8e19.s3tc.ctex"
+uid="uid://d2yd03v4l74v8"
+path="res://.godot/imported/iconOne.png-d59359ffbbfa5e4742da0fbfb22e8d39.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Plaster/Plaster_02-256x256.png"
-dest_files=["res://.godot/imported/Plaster_02-256x256.png-f8607603b87b3aa29bd4ff0d297e8e19.s3tc.ctex"]
+source_file="res://Interaction/Interactor/player/iconOne.png"
+dest_files=["res://.godot/imported/iconOne.png-d59359ffbbfa5e4742da0fbfb22e8d39.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

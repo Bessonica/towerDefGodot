@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="wave" load_steps=3 format=3 uid="uid://cepimpvnxtcdq"]
+
+[ext_resource type="Script" path="res://Scripts/custom resource/wave/wave.gd" id="1_d6cxk"]
+[ext_resource type="PackedScene" uid="uid://txh2qy7dlkql" path="res://enemyPathFollow3D.tscn" id="1_jufok"]
+
+[resource]
+script = ExtResource("1_d6cxk")
+enemyAmount = 1
+timeToSpawn = 1.0
+enemyPathFollow = ExtResource("1_jufok")
+enemyHP = 15
+enemySpeed = 0.7

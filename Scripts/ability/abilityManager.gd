@@ -33,6 +33,7 @@ func bombing(position):
 	bombingCone.global_position = position
 	add_child(bombingCone)
 	bombingIsOn.emit()
+	Events.emit_signal("bombingHappened")
 	await get_tree().create_timer(0.25).timeout
 	bombingCone.queue_free()
 	#print("BOOM")

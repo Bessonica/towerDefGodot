@@ -22,6 +22,7 @@ script = ExtResource("1_2aiaw")
 script = ExtResource("2_dtek0")
 
 [node name="Health" type="Node3D" parent="."]
+visible = false
 script = ExtResource("3_dshtr")
 health = 15
 

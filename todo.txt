@@ -4,15 +4,7 @@
 ----------------------------------------- блокнот
 
 light
-assets
-	pc model
-	button/lever
-	generator
-	light bulb, lamp
 
-weapon sway		DONE
-weapon model
-sprint function	DONE
 
 dot in middle of screen
 dot changes when there is interactable
@@ -28,7 +20,7 @@ weapon sway
 
 finish phases, add more path3d
 
-fix ui scale
+fix ui scale	DONE
 
 menu/pause functionality
 
@@ -152,6 +144,17 @@ DONE	he can stop at any point				TODO NEXT
 позволь жизни удивить тебя
 	
 	
+=====
+gameplay ideas
+
+перезагрузка истсемы
+и игроку нужно пережить некоторое время, прячась от врагов или обжигая их
+например монстр начинает открывать медленно металические двери
+и игрок может обжечь его что немного замедлит монстра
+	или
+бежать к рубильнику что бі запустить систему снова
+
+
 
 
 

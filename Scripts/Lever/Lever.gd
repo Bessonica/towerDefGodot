@@ -1,10 +1,12 @@
 extends Area3D
 
 @export var economyManager: Node3D
-
+@export var gameStatsManager: Node3D
+var firstPull: bool
 var generatorState
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	firstPull = true
 	pass # Replace with function body.
 
 
@@ -14,6 +16,10 @@ func _process(delta):
 
 
 func toggleGenerator():
+	if firstPull:
+		gameStatsManager.changePhase()
+		firstPull = false
+	
 	generatorState = economyManager.returnCurrentGeneratorState()
 	if generatorState == economyManager.generatorState.generatorIsOff:
 		economyManager.generatorTurnedOn()

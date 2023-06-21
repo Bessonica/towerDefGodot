@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://d10fe0jx6s7dg"]
+[gd_scene load_steps=8 format=3 uid="uid://d10fe0jx6s7dg"]
 
 [ext_resource type="Script" path="res://Scripts/PC/PC.gd" id="1_u8o3r"]
 [ext_resource type="PackedScene" uid="uid://cjhdmy58jfbo1" path="res://Interaction/Interactable/Interactable.tscn" id="2_u1op6"]
 [ext_resource type="PackedScene" uid="uid://xotkl7ucojge" path="res://Scenes/TowerDefencePerspective/towerDefencePerspective.tscn" id="3_gskkm"]
+[ext_resource type="Texture2D" uid="uid://bh7htwg16ngot" path="res://iconOne.png" id="4_yyc64"]
+[ext_resource type="Texture2D" uid="uid://dykxukygfipr1" path="res://IconBomb.png" id="5_dgxx6"]
+[ext_resource type="Texture2D" uid="uid://cb4fha3g4s3nn" path="res://IconExit.png" id="6_u4nph"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yh6bw"]
 size = Vector3(1.52793, 1.40269, 1.81954)
@@ -18,7 +21,23 @@ shape = SubResource("BoxShape3D_yh6bw")
 
 [node name="TowerDefencePerspective" parent="." instance=ExtResource("3_gskkm")]
 
+[node name="turretOne" parent="TowerDefencePerspective/CanvasLayer/Control/Buttons" index="0"]
+texture_normal = ExtResource("4_yyc64")
+
+[node name="turretTwo" parent="TowerDefencePerspective/CanvasLayer/Control/Buttons" index="1"]
+visible = false
+
+[node name="Clear" parent="TowerDefencePerspective/CanvasLayer/Control/Buttons" index="2"]
+texture_normal = ExtResource("5_dgxx6")
+
+[node name="Exit" parent="TowerDefencePerspective/CanvasLayer/Control/Buttons" index="3"]
+texture_normal = ExtResource("6_u4nph")
+
+[node name="TurretTwoLabel" parent="TowerDefencePerspective/CanvasLayer/Control/ButtonLabels" index="1"]
+visible = false
+
 [node name="labels" type="Node3D" parent="."]
+visible = false
 
 [node name="Label3D" type="Label3D" parent="labels"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.954679, -1.48729)

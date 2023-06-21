@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbu12ermeprmd"]
+[gd_scene load_steps=10 format=3 uid="uid://cbu12ermeprmd"]
 
 [ext_resource type="Script" path="res://Scripts/Player/movement.gd" id="1_vb2kb"]
 [ext_resource type="Shader" path="res://Scripts/playerShader/player.gdshader" id="2_mrysk"]
 [ext_resource type="PackedScene" uid="uid://ce8uyseg8gccl" path="res://Interaction/Interactor/player/player_interactor.tscn" id="2_xwn7w"]
 [ext_resource type="PackedScene" uid="uid://clxg6bm3kouef" path="res://Scenes/Weapons/flameThrow.tscn" id="3_xmpto"]
+[ext_resource type="PackedScene" uid="uid://c7r0fuys75mab" path="res://Scenes/UI/playerInterface.tscn" id="5_6lmfm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wnmyq"]
 render_priority = 0
@@ -47,11 +48,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20579, -0.732294, -0.507989
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0199003, 0.185133, -0.320229)
 playerScene = NodePath("../../..")
 
-[node name="GPUParticles3D" parent="CameraPivot/hand/flameThrow" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.600733)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_5r7ea")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerInterface" parent="CanvasLayer" instance=ExtResource("5_6lmfm")]
+
+[connection signal="focuseOff" from="CameraPivot/PlayerInteractor" to="." method="_on_player_interactor_focuse_off"]
+[connection signal="focuseOn" from="CameraPivot/PlayerInteractor" to="." method="_on_player_interactor_focuse_on"]
 
 [editable path="CameraPivot/PlayerInteractor"]
 [editable path="CameraPivot/hand/flameThrow"]

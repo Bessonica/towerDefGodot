@@ -39,6 +39,7 @@ shape = SubResource("SphereShape3D_hv1lk")
 
 [node name="timeLeft" type="Label3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 1.34057, 1.48421, 0, -1.48421, 1.34057, 0.0173482, 0.494273, 0)
+visible = false
 text = "YO"
 
 [node name="timeLeftTimer" type="Timer" parent="."]
@@ -46,6 +47,7 @@ wait_time = 5.0
 
 [node name="HealthLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.477973)
+visible = false
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 emitting = false

@@ -54,7 +54,7 @@ wait_time = 0.574
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.600733)
 emitting = false
-amount = 9
+amount = 12
 lifetime = 0.38
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_l46i6")

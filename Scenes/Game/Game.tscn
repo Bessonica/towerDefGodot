@@ -18,3 +18,5 @@ gameObject = NodePath("../..")
 
 [node name="PlayerKilledMenu" parent="CanvasLayer" node_paths=PackedStringArray("gameObject") instance=ExtResource("4_prchy")]
 gameObject = NodePath("../..")
+
+[node name="playerFinishedGameTODO" type="Node3D" parent="CanvasLayer"]

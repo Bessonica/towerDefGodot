@@ -14,6 +14,7 @@ script = ExtResource("1_0kre5")
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 
 [node name="Labels" type="Node3D" parent="."]
+visible = false
 
 [node name="Label3D" type="Label3D" parent="Labels"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.480232)

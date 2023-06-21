@@ -29,7 +29,6 @@ transform = Transform3D(1, 0, 0, 0, 0.239991, 0.970775, 0, -0.970775, 0.239991, 
 
 [node name="TurretLabel3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0)
-text = "YO"
 font_size = 50
 
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

@@ -26,6 +26,7 @@
 [sub_resource type="Environment" id="Environment_vsh2x"]
 background_mode = 1
 background_color = Color(0.137255, 0.137255, 0.137255, 1)
+background_energy_multiplier = 0.5
 ambient_light_color = Color(0.352941, 0.317647, 0.301961, 1)
 ambient_light_energy = 1.01
 
@@ -46,85 +47,93 @@ material = SubResource("StandardMaterial3D_yx3jq")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qfwxu"]
 
-[sub_resource type="Curve3D" id="Curve3D_g3yr8"]
+[sub_resource type="Curve3D" id="Curve3D_wk4ub"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, 0, 0, 0, 0, 0, 0, 6.15197, -0.655549, 1.78291, -0.829933, -0.0841064, 1.02897, 0.829933, 0.0841064, -1.02897, 9.98526, -0.581574, 2.95595),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, 0, 0, 0, 0, 0, 0, 6.08448, -0.655549, 2.54313, -0.829933, -0.0841064, 1.02897, 0.829933, 0.0841064, -1.02897, 9.98526, -0.581574, 2.95595),
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
 
-[sub_resource type="Curve3D" id="Curve3D_h4uqk"]
+[sub_resource type="Curve3D" id="Curve3D_4mv3x"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.691055, -1.70916e-05, 1.81059, 0, 0, 0, 0, 0, 0, 2.48834, 0.0987378, 1.97747, -0.54646, -0.104004, -0.351944, 0.54646, 0.104004, 0.351944, 4.5854, 0.0972729, 1.79652, -0.701813, -0.115027, -0.30721, 0.701813, 0.115027, 0.30721, 6.47717, 0.178938, 3.25106, 0, 0, 0, 0, 0, 0, 7.99684, 0.0483228, 2.8201, -0.409041, 0.124146, 1.73254, 0.409041, -0.124146, -1.73254, 9.02967, 0.01573, 1.0142),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -2.79859, -1.70916e-05, 2.17763, -0.400539, 0, 0.337147, 0.400539, 0, -0.337147, 2.6279, 0.0987378, 3.18571, -0.54646, -0.104004, -0.351944, 0.54646, 0.104004, 0.351944, 4.1013, 0.0972729, 1.68768, -0.701813, -0.115027, -0.30721, 0.701813, 0.115027, 0.30721, 6.47717, 0.178938, 3.25106, 0, 0, 0, 0, 0, 0, 7.66643, 0.0483228, 1.68139, -1.26602, 0.124146, 0.294899, 1.26602, -0.124146, -0.294899, 9.47184, 0.01573, 0.411629),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
 }
 point_count = 6
 
-[sub_resource type="Curve3D" id="Curve3D_lf265"]
+[sub_resource type="Curve3D" id="Curve3D_olu2f"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.29936, -3.13744e-05, 0.381252, -0.145277, 0, -0.322319, 0.145277, 0, 0.322319, 4.32718, -3.13744e-05, -0.123993, -0.427439, 0, -0.269661, 0.427439, 0, 0.269661, 6.31189, -0.00479212, 1.16492, -0.714736, -0.0229492, -0.25676, 0.714736, 0.0229492, 0.25676, 7.82279, -3.13744e-05, -0.614393, 0, 0, 0, 0, 0, 0, 10.4742, -3.13744e-05, 1.57496),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.32805, -3.13744e-05, 1.17391, -0.145277, 0, -0.322319, 0.145277, 0, 0.322319, 4.83661, -3.13744e-05, 0.662601, -0.427439, 0, -0.269661, 0.427439, 0, 0.269661, 5.77178, -0.00479212, 2.12844, -0.714736, -0.0229492, -0.25676, 0.714736, 0.0229492, 0.25676, 7.29094, -3.13744e-05, 2.81025, -0.458164, 0, -0.135494, 0.458164, 0, 0.135494, 8.60032, -3.13744e-05, 4.59835, -0.48983, 0, 0.47567, 0.48983, 0, -0.47567, 9.63927, -3.13744e-05, 4.09959, 0, 0, 0, 0, 0, 0, 10.1989, -3.13744e-05, 2.57332, 0, 0, 0, 0, 0, 0, 10.7181, -3.13744e-05, 0.827206),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 5
+point_count = 8
 
-[sub_resource type="Curve3D" id="Curve3D_hrk07"]
+[sub_resource type="Curve3D" id="Curve3D_4vtvu"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, -0.497166, 0, 0.000360489, 0.497166, 0, -0.000360489, 3.09573, -3.13744e-05, -0.00354195, -0.423874, -0.0229492, -0.037674, 0.423874, 0.0229492, 0.037674, 5.39832, -3.13744e-05, -1.04808, 0, 0, 0, 0, 0, 0, 8.56603, -3.13744e-05, 0.464092),
-"tilts": PackedFloat32Array(0, 0, 0, 0)
-}
-point_count = 4
-
-[sub_resource type="Curve3D" id="Curve3D_dg8nu"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, 0, 0, 0, 0, 0, 0, 5.94532, -3.13744e-05, -0.046669, -0.552647, -0.0229492, 0.0200634, 0.552647, 0.0229492, -0.0200634, 7.83268, -3.13744e-05, 0.816849, 0, 0, 0, 0, 0, 0, 9.1629, -3.13744e-05, 0.321098, 0, 0, 0, 0, 0, 0, 11.1612, -3.13744e-05, -0.962109),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
-}
-point_count = 5
-
-[sub_resource type="Curve3D" id="Curve3D_ufv4y"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, 0, 0, 0, 0, 0, 0, 2.01702, -3.13744e-05, 1.22747, -0.231308, -0.0229492, -0.275307, 0.231308, 0.0229492, 0.275307, 4.38747, -3.13744e-05, 1.63883, 0, 0, 0, 0, 0, 0, 7.89198, -3.13744e-05, 0.579292),
-"tilts": PackedFloat32Array(0, 0, 0, 0)
-}
-point_count = 4
-
-[sub_resource type="Curve3D" id="Curve3D_svhep"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, 0, 0, 0, 0, 0, 0, 3.01402, -3.13744e-05, 0.392639, -0.497473, -0.0229492, 0.106014, 0.497473, 0.0229492, -0.106014, 5.03157, -3.13744e-05, 0.901081, -0.328787, 0, -0.0767403, 0.328787, 0, 0.0767403, 6.7121, -3.13744e-05, -0.253624, 0, 0, 0, 0, 0, 0, 9.04349, -3.13744e-05, -0.173798),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
-}
-point_count = 5
-
-[sub_resource type="Curve3D" id="Curve3D_s2y73"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, 0, 0, 0, 0, 0, 0, 1.60922, -3.13744e-05, -0.108408, -0.389484, -0.0229492, -0.154232, 0.389484, 0.0229492, 0.154232, 3.30005, -3.13744e-05, -0.596199, -0.464767, 0, -0.0279751, 0.464767, 0, 0.0279751, 4.73739, -3.13744e-05, -0.846889, -0.587059, 0, 0.134781, 0.587059, 0, -0.134781, 7.22114, -3.13744e-05, -1.97572, 0, 0, 0, 0, 0, 0, 9.59494, -3.13744e-05, -4.03934),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, -0.497166, 0, 0.000360489, 0.497166, 0, -0.000360489, 3.026, -3.13744e-05, 1.74616, -0.423874, -0.0229492, -0.037674, 0.423874, 0.0229492, 0.037674, 4.76592, -3.13744e-05, 3.41302, -0.402916, 0, 0.0929909, 0.402916, 0, -0.0929909, 6.55473, -3.13744e-05, 1.56707, -0.703384, 0, 0.0384274, 0.703384, 0, -0.0384274, 8.9603, -3.13744e-05, 2.46153, 0, 0, 0, 0, 0, 0, 12.1493, -3.13744e-05, 2.12399),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
 }
 point_count = 6
 
-[sub_resource type="Curve3D" id="Curve3D_sff76"]
+[sub_resource type="Curve3D" id="Curve3D_gspyy"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, 0, 0, 0, 0, 0, 0, 1.55706, -3.13744e-05, -0.569408, -0.46814, -0.0229492, -0.123322, 0.46814, 0.0229492, 0.123322, 3.71193, -3.13744e-05, -1.17231, 0, 0, 0, 0, 0, 0, 5.75391, -3.13744e-05, -1.92796, -0.398117, 0, 0.428177, 0.398117, 0, -0.428177, 7.03555, -3.13744e-05, -2.87434, 0, 0, 0, 0, 0, 0, 8.47749, -3.13744e-05, -3.68327, 0, 0, 0, 0, 0, 0, 9.50134, -3.13744e-05, -4.20572),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, 0, 0, 0, 0, 0, 0, 5.45845, -3.13744e-05, -1.76822, -0.404755, -0.0229492, -0.307749, 0.404755, 0.0229492, 0.307749, 7.97218, -3.13744e-05, -1.81177, -1.00226, 0, -0.1085, 1.00226, 0, 0.1085, 9.41056, -3.13744e-05, 0.359771, -0.399143, 0, 0.640544, 0.399143, 0, -0.640544, 11.2618, -3.13744e-05, 0.0412345, 0, 0, 0, 0, 0, 0, 11.4673, -3.13744e-05, -1.22545),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="Curve3D" id="Curve3D_nr56h"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, 0, 0, 0, 0, 0, 0, 2.01702, -3.13744e-05, 1.22747, -0.380231, -0.0229492, 0.349642, 0.380231, 0.0229492, -0.349642, 4.27745, -3.13744e-05, 1.8012, -0.407793, 0, -0.0591621, 0.407793, 0, 0.0591621, 5.48711, -3.13744e-05, -0.802006, -0.507076, 0, -0.65591, 0.507076, 0, 0.65591, 7.53734, -3.13744e-05, -0.78735, 0, 0, 0, 0, 0, 0, 9.51081, -3.13744e-05, 2.30479),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="Curve3D" id="Curve3D_y6rv2"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, 0, 0, 0, 0, 0, 0, 3.01402, -3.13744e-05, 0.392639, -0.497473, -0.0229492, 0.106014, 0.497473, 0.0229492, -0.106014, 5.03157, -3.13744e-05, 0.901081, -0.151355, 3.63798e-12, 0.350372, 0.151355, -3.63798e-12, -0.350372, 6.29546, -3.13744e-05, -0.790295, -0.600395, 0, 0.105221, 0.600395, 0, -0.105221, 8.91641, -3.13744e-05, -2.46616, 0, 0, 0, 0, 0, 0, 11.2468, -3.13744e-05, -0.241669, 0, 0, 0, 0, 0, 0, 13.832, -3.13744e-05, -0.048439),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 7
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwo1n"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_ba5uo"]
+[sub_resource type="Curve3D" id="Curve3D_j716d"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_wwo1n")
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, 0, 0, 0, 0, 0, 0, 1.29306, -3.13744e-05, -0.160038, -0.355182, -0.0229492, 0.255432, 0.355182, 0.0229492, -0.255432, 3.30005, -3.13744e-05, -0.596199, -0.297688, 0, 0.525917, 0.297688, 0, -0.525917, 4.64444, -3.13744e-05, -2.25372, -0.587059, 0, 0.134781, 0.587059, 0, -0.134781, 7.36549, -3.13744e-05, -4.47481, 0, 0, 0, 0, 0, 0, 9.59494, -3.13744e-05, -4.03934),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="Curve3D" id="Curve3D_45uwr"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, 0, 0, 0, 0, 0, 0, 0.648955, -3.13744e-05, -1.70926, -0.46814, -0.0229492, -0.123322, 0.46814, 0.0229492, 0.123322, 3.95476, -3.13744e-05, -2.74381, -0.805174, 0, -0.136894, 0.805174, 0, 0.136894, 5.14923, -3.13744e-05, -0.696098, -0.398117, 0, 0.428177, 0.398117, 0, -0.428177, 7.24711, -3.13744e-05, -1.65758, 0, 0, 0, 0, 0, 0, 7.85392, -3.13744e-05, -3.16233, 0, 0, 0, 0, 0, 0, 7.94854, -3.13744e-05, -5.39898, 0, 0, 0, 0, 0, 0, 8.54522, -3.13744e-05, -6.43613),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
+
+[sub_resource type="Curve3D" id="Curve3D_drrmr"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0584035, 0, -0.0378609, 0, 0, 0, 0, 0, 0, 2.58478, -3.13744e-05, 0.503796, -0.324059, -0.0229492, -0.269306, 0.324059, 0.0229492, 0.269306, 7.16585, -3.13744e-05, -0.433952, -0.0846033, 0, -0.615902, 0.0846033, 0, 0.615902, 6.2142, -3.13744e-05, 2.30968, -0.787594, 0, 0.144131, 0.787594, 0, -0.144131, 8.48434, -3.13744e-05, 3.92527, 0, 0, 0, 0, 0, 0, 11.3284, -3.13744e-05, 1.90776),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2npq3"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+disable_receive_shadows = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_t2gjt"]
+material = SubResource("StandardMaterial3D_2npq3")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uxh1s"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
@@ -162,9 +171,10 @@ navigation_mesh = SubResource("NavigationMesh_k1wgm")
 [node name="Node3D" parent="NavigationRegion3D" instance=ExtResource("23_d3gpx")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -44.9341)
 
-[node name="Lever" parent="." node_paths=PackedStringArray("economyManager") instance=ExtResource("14_kj1b7")]
+[node name="Lever" parent="." node_paths=PackedStringArray("economyManager", "gameStatsManager") instance=ExtResource("14_kj1b7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827048, 1.93883, -46.1525)
 economyManager = NodePath("../economyManager")
+gameStatsManager = NodePath("../GameStatsManager")
 
 [node name="Player" parent="." instance=ExtResource("1_1rdeo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46622, 2.49509, -35.2776)
@@ -196,47 +206,52 @@ transform = Transform3D(1, 0, 0, 0, 2.30351, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_qfwxu")
 
 [node name="SpawnerController" parent="." instance=ExtResource("7_r214j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.1853, 0, 3.27015)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.1698, 0, 3.18386)
 waveArray = ExtResource("6_nroaw")
 
 [node name="Path3D" parent="SpawnerController" instance=ExtResource("2_763cq")]
 transform = Transform3D(0.942706, 0, 0.333626, 0, 1, 0, -0.333626, 0, 0.942706, -10.4071, 0.0533761, 0.739658)
-curve = SubResource("Curve3D_g3yr8")
+curve = SubResource("Curve3D_wk4ub")
 
 [node name="Path3D2" parent="SpawnerController" instance=ExtResource("2_763cq")]
 transform = Transform3D(0.361478, 0, -0.932381, 0, 1, 0, 0.932381, 0, 0.361478, -2.58821, -0.0398999, -8.92949)
-curve = SubResource("Curve3D_h4uqk")
+curve = SubResource("Curve3D_4mv3x")
 
 [node name="Path3D3" parent="SpawnerController" instance=ExtResource("2_763cq")]
 transform = Transform3D(-0.250194, 0, -0.968196, 0, 1, 0, 0.968196, 0, -0.250194, 4.45021, 0.0533761, -9.88188)
-curve = SubResource("Curve3D_lf265")
+curve = SubResource("Curve3D_olu2f")
 
 [node name="Path3D4" parent="SpawnerController" instance=ExtResource("2_763cq")]
-transform = Transform3D(0.875591, 0, 0.483053, 0, 1, 0, -0.483053, 0, 0.875591, -7.90533, 0.0533761, 4.13497)
-curve = SubResource("Curve3D_hrk07")
+transform = Transform3D(0.875591, 0, 0.483053, 0, 1, 0, -0.483053, 0, 0.875591, -11.1477, 0.0533761, 4.13497)
+curve = SubResource("Curve3D_4vtvu")
 
 [node name="Path3D5" parent="SpawnerController" instance=ExtResource("2_763cq")]
 transform = Transform3D(-0.999068, 0, 0.043166, 0, 1, 0, -0.043166, 0, -0.999068, 11.9689, 0.0533761, -0.627827)
-curve = SubResource("Curve3D_dg8nu")
+curve = SubResource("Curve3D_gspyy")
 
 [node name="Path3D6" parent="SpawnerController" instance=ExtResource("2_763cq")]
-transform = Transform3D(0.0488846, 0, 0.998804, 0, 1, 0, -0.998804, 0, 0.0488846, -0.412624, 0.0533761, 8.35091)
-curve = SubResource("Curve3D_ufv4y")
+transform = Transform3D(0.0488846, 0, 0.998804, 0, 1, 0, -0.998804, 0, 0.0488846, -2.38424, 0.0533761, 9.52088)
+curve = SubResource("Curve3D_nr56h")
 
 [node name="Path3D7" parent="SpawnerController" instance=ExtResource("2_763cq")]
-transform = Transform3D(0.684738, 0, 0.728789, 0, 1, 0, -0.728789, 0, 0.684738, -5.91198, 0.0533761, 7.06523)
-curve = SubResource("Curve3D_svhep")
+transform = Transform3D(0.684738, 0, 0.728789, 0, 1, 0, -0.728789, 0, 0.684738, -9.08111, 0.0533761, 10.3458)
+curve = SubResource("Curve3D_y6rv2")
 
 [node name="Path3D8" parent="SpawnerController" instance=ExtResource("2_763cq")]
 transform = Transform3D(-0.695236, 0, 0.718782, 0, 1, 0, -0.718782, 0, -0.695236, 10.0965, 0.0533761, 4.25623)
-curve = SubResource("Curve3D_s2y73")
+curve = SubResource("Curve3D_j716d")
 
 [node name="Path3D9" parent="SpawnerController" instance=ExtResource("2_763cq")]
-transform = Transform3D(-0.342725, 0, 0.939436, 0, 1, 0, -0.939436, 0, -0.342725, 7.82241, 0.0533761, 7.78443)
-curve = SubResource("Curve3D_sff76")
+transform = Transform3D(0.210506, 0, 0.977593, 0, 1, 0, -0.977593, 0, 0.210506, 4.63749, 0.0533761, 9.56105)
+curve = SubResource("Curve3D_45uwr")
+
+[node name="Path3D10" parent="SpawnerController" instance=ExtResource("2_763cq")]
+transform = Transform3D(-0.306476, 0, 0.951878, 0, 1, 0, -0.951878, 0, -0.306476, 1.8605, 0.0533761, 11.3102)
+curve = SubResource("Curve3D_drrmr")
 
 [node name="WeaponStand" parent="." node_paths=PackedStringArray("playerScene") instance=ExtResource("19_0hws2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.400287, 0.935643, -37.9369)
+visible = false
 playerScene = NodePath("../Player")
 
 [node name="PC" parent="." node_paths=PackedStringArray("playerCharacter") instance=ExtResource("8_ort1y")]
@@ -260,7 +275,7 @@ target_position = Vector3(1, 0, 0)
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="BuildManager" parent="." node_paths=PackedStringArray("economyManager") instance=ExtResource("10_rwo60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6587, 0, 7.18349)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.4074, 0, 4.32641)
 turretToBuildFirst = ExtResource("7_u7ipe")
 turretResourceFirst = ExtResource("11_d8ee8")
 turretToBuildSecond = ExtResource("7_u7ipe")
@@ -268,59 +283,106 @@ turretResourceSecond = ExtResource("11_qbu1q")
 economyManager = NodePath("../economyManager")
 
 [node name="BuildPlatform" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.67821, 0, -7.38002)
-
-[node name="BuildPlatform2" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31213, 4.76837e-07, -5.8372)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.96114, 0, -7.98653)
 
 [node name="BuildPlatform3" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38267, 4.76837e-07, -4.45186)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.56627, 0, -7.98653)
 
 [node name="BuildPlatform4" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.63744, 1.43051e-06, -2.15885)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55923, 0, -7.98653)
 
 [node name="BuildPlatform6" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80979, 1.43051e-06, -0.844728)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.96114, 0, -5.21327)
 
 [node name="BuildPlatform7" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6788, 1.43051e-06, -2.77352)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.56627, 0, -5.21327)
 
 [node name="BuildPlatform8" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22989, 1.43051e-06, -4.7023)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55923, 0, -5.21327)
 
-[node name="BuildPlatform9" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34349, 1.43051e-06, -6.16479)
-
-[node name="BuildPlatform10" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.521711, 1.43051e-06, -6.16479)
-
-[node name="BuildPlatform11" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84837, 1.43051e-06, -7.73325)
-
-[node name="BuildPlatform12" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.60759, 1.43051e-06, -6.46152)
-
-[node name="BuildPlatform13" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.22226, 1.43051e-06, -3.7909)
-
-[node name="BuildPlatform14" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39564, 1.43051e-06, -1.94689)
-
-[node name="BuildPlatform15" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25108, 1.43051e-06, 0.511783)
-
-[node name="BuildPlatform16" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.648882, 1.43051e-06, 0.744931)
-
-[node name="BuildPlatform17" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.95537, 1.43051e-06, 0.00309086)
+[node name="BuildPlatform2" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.881985, 0, -7.98653)
 
 [node name="BuildPlatform5" parent="BuildManager" instance=ExtResource("9_r4v6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05102, 1.90735e-06, -1.05851)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.27685, 0, -7.98653)
 
-[node name="MeshInstance3D" parent="BuildManager/BuildPlatform5" index="2"]
-transform = Transform3D(1, 0, 0, 0, 0.302063, 0, 0, 0, 1, 0.0039959, 0.00862217, -0.011291)
-mesh = SubResource("BoxMesh_ba5uo")
+[node name="BuildPlatform9" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28389, 0, -7.98653)
+
+[node name="BuildPlatform10" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.881985, 0, -5.21327)
+
+[node name="BuildPlatform11" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.27685, 0, -5.21327)
+
+[node name="BuildPlatform12" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28389, 0, -5.21327)
+
+[node name="BuildPlatform13" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.96114, 0, 2.23642)
+
+[node name="BuildPlatform14" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.56627, 0, 2.23642)
+
+[node name="BuildPlatform15" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55923, 0, 2.23642)
+
+[node name="BuildPlatform16" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.96114, 0, 5.00968)
+
+[node name="BuildPlatform17" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.56627, 0, 5.00968)
+
+[node name="BuildPlatform18" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55923, 0, 5.00968)
+
+[node name="BuildPlatform19" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.881985, 0, 2.23642)
+
+[node name="BuildPlatform20" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.27685, 0, 2.23642)
+
+[node name="BuildPlatform21" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28389, 0, 2.23642)
+
+[node name="BuildPlatform22" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.881985, 0, 5.00968)
+
+[node name="BuildPlatform23" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.27685, 0, 5.00968)
+
+[node name="BuildPlatform24" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28389, 0, 5.00968)
+
+[node name="BuildPlatform25" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.999, 0, -1.35724)
+
+[node name="BuildPlatform29" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.56345, 0, -1.35724)
+
+[node name="BuildPlatform30" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.15738, 0, -1.35724)
+
+[node name="BuildPlatform26" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96512, 0, -3.33216)
+
+[node name="BuildPlatform33" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.965118, 0, -10.1412)
+
+[node name="BuildPlatform34" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.965118, 0, 7.16147)
+
+[node name="BuildPlatform27" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24561, 0, -1.32776)
+
+[node name="BuildPlatform31" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.92797, 0, -1.32776)
+
+[node name="BuildPlatform32" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.58086, 0, -1.32776)
+
+[node name="BuildPlatform28" parent="BuildManager" instance=ExtResource("9_r4v6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.817743, 0, 0.882976)
 
 [node name="economyManager" parent="." node_paths=PackedStringArray("buildManager") instance=ExtResource("12_cktyo")]
 buildManager = NodePath("../BuildManager")
@@ -349,8 +411,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3635, 0.278851, -4.17843)
 [node name="spawnPoint5" parent="SpawnInsideManager" instance=ExtResource("22_e3tls")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6358, -0.539641, 6.70306)
 
+[node name="spawnPoint6" parent="SpawnInsideManager" instance=ExtResource("22_e3tls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.86986, -0.94431, 19.0867)
+
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.4386, -0.0211143, 9.91339)
+transform = Transform3D(3.27759, 0, 0, 0, 1, 0, 0, 0, 3.66154, -23.7832, -0.0211143, 24.2397)
 collision_layer = 8
 collision_mask = 0
 
@@ -361,6 +426,11 @@ mesh = SubResource("PlaneMesh_t2gjt")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(6.49816, 0, 0, 0, 1.02088, 0, 0, 0, 6.0981, -3.03182, -0.799723, -5.90798)
 shape = SubResource("ConcavePolygonShape3D_uxh1s")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00324635, 0.999995, 0, -0.999995, -0.00324635, -30.7447, 17.257, 2.93944)
+light_energy = 6.632
+spot_range = 24.4949
 
 [connection signal="focused" from="InteractTest/Interactable" to="InteractTest" method="_on_interactable_focused"]
 [connection signal="interacted" from="InteractTest/Interactable" to="InteractTest" method="_on_interactable_interacted"]
@@ -377,5 +447,4 @@ shape = SubResource("ConcavePolygonShape3D_uxh1s")
 [editable path="PC"]
 [editable path="PC/Interactable"]
 [editable path="PC/TowerDefencePerspective"]
-[editable path="BuildManager/BuildPlatform5"]
 [editable path="economyManager"]

@@ -59,13 +59,23 @@ func stopAllPath():
 		stopWave(i)
 
 func phaseOne():
-	startWave(0, waveArray.waveArray[0], 3)
-	startWave(1, waveArray.waveArray[0], 3)
+	startWaveAfterSec(3, 2, waveArray.waveArray[0], 5)
+	startWaveAfterSec(43, 5, waveArray.waveArray[0], 5)
+	#startWave(0, waveArray.waveArray[0], 3)
+	#startWave(1, waveArray.waveArray[0], 3)
+	#startWaveAfterSec(3, 2, waveArray.waveArray[0], 5)
 	wavesToSpawn = 2
 
 func phaseTwo():
 	startWaveAfterSec(8, 1, waveArray.waveArray[0], 3)
-	wavesToSpawn = 1
+	startWaveAfterSec(15, 7, waveArray.waveArray[2], 1)
+	wavesToSpawn = 2
+
+func phaseThree():
+	startWaveAfterSec(8, 8, waveArray.waveArray[0], 2)
+	startWaveAfterSec(15, 9, waveArray.waveArray[2], 1)
+	startWaveAfterSec(20, 3, waveArray.waveArray[2], 1)
+	wavesToSpawn = 3
 
 
 func countWaveSpawns():

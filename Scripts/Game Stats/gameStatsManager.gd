@@ -17,7 +17,7 @@ func _ready():
 	Events.connect("enemyDugDown", printInfo)
 	Events.connect("PhaseEnded", changePhase)
 	await get_tree().create_timer(4).timeout
-	changePhase()
+	#changePhase()
 	#spawningEnded
 
 func changePhase():
@@ -31,7 +31,11 @@ func changePhase():
 			#currentPhase += 1
 		2:
 			Events.emit_signal("phaseTwoEnded")
+			startPhaseThree()
 			print("PHASE TWO ENDED")
+		3:
+			Events.emit_signal("phaseThreeEnded")
+			
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -54,3 +58,8 @@ func startPhaseTwo():
 	Events.emit_signal("phaseTwoStarted")
 	spawnController.phaseTwo() 
 	currentPhase = 2
+
+func startPhaseThree():
+	Events.emit_signal("phaseThreeStarted")
+	spawnController.phaseThree() 
+	currentPhase = 3

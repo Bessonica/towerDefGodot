@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqpihtqrwpmxd"]
+
+[ext_resource type="PackedScene" uid="uid://rocfhc8x6hf5" path="res://Models/wallLamp.blend" id="1_ktvty"]
+
+[node name="WallLamp" type="Node3D"]
+
+[node name="wallLamp" parent="." instance=ExtResource("1_ktvty")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)

@@ -12,6 +12,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var head = $CameraPivot
 @onready var camera = $CameraPivot/Camera3D
 @onready var weapon = $CameraPivot/hand/flameThrow
+@onready var playerInterface = $CanvasLayer/PlayerInterface
 
 var mouse_sense = 0.1
 
@@ -110,7 +111,26 @@ func givePlayerMovement():
 	
 func setPlayerCameraAsCurrent():
 	camera.make_current()
+
+func playerEnteredPC():
+	takeAwayPlayerMovement()
+	deactivateInterface()
+func playerLeftPC():
+	setPlayerCameraAsCurrent()
+	givePlayerMovement()
+	activateInterface()
 	
+func deactivateInterface():
+	playerInterface.hide()
+func activateInterface():
+	playerInterface.show()
 
 func returnCamera():
 	return camera
+
+
+func _on_player_interactor_focuse_on():
+	playerInterface.changeCenterTextureToFocused()
+func _on_player_interactor_focuse_off():
+	playerInterface.changeCenterTextureToDefault()
+
