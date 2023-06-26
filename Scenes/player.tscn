@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cbu12ermeprmd"]
+[gd_scene load_steps=11 format=3 uid="uid://cbu12ermeprmd"]
 
 [ext_resource type="Script" path="res://Scripts/Player/movement.gd" id="1_vb2kb"]
+[ext_resource type="Script" path="res://Scripts/Player/playerCameraComponent.gd" id="2_csx6x"]
 [ext_resource type="Shader" path="res://Scripts/playerShader/player.gdshader" id="2_mrysk"]
 [ext_resource type="PackedScene" uid="uid://ce8uyseg8gccl" path="res://Interaction/Interactor/player/player_interactor.tscn" id="2_xwn7w"]
 [ext_resource type="PackedScene" uid="uid://clxg6bm3kouef" path="res://Scenes/Weapons/flameThrow.tscn" id="3_xmpto"]
@@ -26,6 +27,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.515838, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 current = true
+script = ExtResource("2_csx6x")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CameraPivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.465971)

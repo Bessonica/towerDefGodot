@@ -79,6 +79,7 @@ func spawnEnemyAndSetUpValues(enemyToSpawn):
 	
 	enemyToAdd.setSpeed(waveArrayResource.enemySpeed)
 	enemyToAdd.setHealth(waveArrayResource.enemyHP)
+	enemyToAdd.setType(waveArrayResource.enemyTypeFat)
 	
 	add_child(enemyToAdd)
 

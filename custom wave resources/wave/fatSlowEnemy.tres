@@ -10,3 +10,4 @@ timeToSpawn = 1.0
 enemyPathFollow = ExtResource("1_jufok")
 enemyHP = 15
 enemySpeed = 0.7
+enemyTypeFat = false

@@ -6,9 +6,6 @@
 light
 
 
-dot in middle of screen
-dot changes when there is interactable
-
 ---
 
 sounds

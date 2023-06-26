@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cynt8jh005xe"]
+
+[ext_resource type="Script" path="res://Scripts/Audo/SoundPath/insideWallsSoundPath.gd" id="1_mvq4c"]
+
+[sub_resource type="Curve3D" id="Curve3D_k1c08"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.349354, 0, 0.291962, 0, 0, 0, 0, 0, 0, -1.71164, 0, 2.25459, 0, 0, 0, 0, 0, 0, -0.0260983, 0, 3.96322, 0, 0, 0, 0, 0, 0, 3.5528, 0, 3.84777, 0, 0, 0, 0, 0, 0, 4.47639, 0, 1.26173, 0, 0, 0, 0, 0, 0, 3.1141, 0, 0.476681, 0, 0, 0, 0, 0, 0, 1.63636, 0, -2.017),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[node name="InsideWallsSoundPath" type="Path3D"]
+curve = SubResource("Curve3D_k1c08")
+script = ExtResource("1_mvq4c")

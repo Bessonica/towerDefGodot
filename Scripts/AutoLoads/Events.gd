@@ -27,3 +27,7 @@ signal turnOffPauseMenu
 signal playerGotKilled
 
 signal bombingHappened
+
+signal fatEnemyMovedHalfWay
+signal fatEnemyMovedWholeWay
+signal fatEnemyStartedDigging

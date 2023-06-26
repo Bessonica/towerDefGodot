@@ -7,6 +7,9 @@ extends PathFollow3D
 @export var health: int
 @onready var enemyState = enemyChild.enemyCurrentState
 
+
+var enemyTypeFat: bool
+
 var progressRatio = 0
 var stopPoint = randf_range(0.8, 1)
 
@@ -23,14 +26,18 @@ func _init():
 #		cant setUp health in function setHealth. says that enemychild is nil
 func _ready():
 	enemyChild.setHealth(health)
-
+	enemyChild.setType(enemyTypeFat) 
 
 func _process(delta):
 	progressRatio = get_progress_ratio()
 	if (progressRatio >= stopPoint):
+		if enemyTypeFat:
+			Events.emit_signal("fatEnemyMovedWholeWay")
 		enemyState = enemyChild.moveState.stop
 		reachedEnd()
-
+	if(progressRatio >= 0.5):
+		Events.emit_signal("fatEnemyMovedHalfWay")
+	
 	match enemyState:
 		enemyChild.moveState.moving:
 			progress += movementSpeed * delta
@@ -52,4 +59,5 @@ func setSpeed(amount):
 func setHealth(amount):
 	health = amount
 	
-
+func setType(boolValue):
+	enemyTypeFat = boolValue

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfabq1lwvnwmm"]
+
+[ext_resource type="Script" path="res://Scripts/Audo/SoundPath/insideWallsPathFollow.gd" id="1_5aa3r"]
+[ext_resource type="PackedScene" uid="uid://b54x6ypsv7fl3" path="res://Scenes/Audio/(insideWalls)positionalAudioComponent.tscn" id="2_t5srt"]
+
+[node name="InsideWallsPathFollow" type="PathFollow3D"]
+loop = false
+script = ExtResource("1_5aa3r")
+movementSpeed = 3.0
+
+[node name="PositionalAudioComponent" parent="." instance=ExtResource("2_t5srt")]
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.379086)
+text = "PATHFOLLOW"
+
+[editable path="PositionalAudioComponent"]

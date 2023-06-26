@@ -10,3 +10,4 @@ timeToSpawn = 2.0
 enemyPathFollow = ExtResource("1_y5e83")
 enemyHP = 15
 enemySpeed = 0.4
+enemyTypeFat = false

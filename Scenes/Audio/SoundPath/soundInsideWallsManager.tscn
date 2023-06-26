@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlikq36atj77n"]
+
+[ext_resource type="Script" path="res://Scripts/Audo/SoundPath/soundInsideWallsManager.gd" id="1_axlg4"]
+
+[node name="SoundInsideWallsManager" type="Node3D"]
+script = ExtResource("1_axlg4")

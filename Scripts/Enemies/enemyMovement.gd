@@ -12,6 +12,8 @@ signal sendSignalToSetSpeed
 
 signal enemyDugDown
 
+var enemyTypeFat: bool
+
 @onready var enemyHealthComponent = $Health
 @onready var diggingTimer = $DiggingTimer
 
@@ -39,7 +41,8 @@ func _process(delta):
 
 func setHealth(amount):
 	enemyHealthComponent.setHealth(amount)
-
+func setType(fatTypeBool):
+	enemyTypeFat = fatTypeBool
 #			TODO this function shouldnt be here, but in theory if it was in Enemy status it wouldnt delete Enemy node
 func killItself():
 	get_parent().killEnemy()
@@ -50,6 +53,8 @@ func enemyGotKilled():
 	Events.emit_signal("enemyKilled")
 
 func startDigging():
+	if enemyTypeFat:
+		Events.emit("fatEnemyStartedDigging")
 	diggingTimer.start()
 	startShake()
 	
@@ -72,7 +77,12 @@ func _on_health_enemy_lost_all_hp():
 #	enemyLostAllHP.emit()
 
 func _on_digging_timer_timeout():
-	enemyDugDown.emit()
-	Events.emit_signal("enemyDugDown")
+	if enemyTypeFat:
+		Events.emit_signal("playerGotKilled")
+	else:
+		enemyDugDown.emit()
+		print("enemy dug down = ", enemyTypeFat)
+		Events.emit_signal("enemyDugDown")
+	
 	killItself()
 

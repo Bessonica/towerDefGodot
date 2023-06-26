@@ -65,7 +65,7 @@ func _physics_process(delta):
 			var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 			
 			#		RUN DOESNT WORK
-			if Input.is_action_pressed("Run"):
+			if Input.is_action_pressed("Run") and is_on_floor():
 				actualSpeed = SPEED*1.5
 			else:
 				actualSpeed = SPEED

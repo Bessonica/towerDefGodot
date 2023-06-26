@@ -9,7 +9,7 @@ class_name wave
 @export var enemyHP: int
 @export var enemySpeed: float
 
-
+@export var enemyTypeFat: bool
 # function to change speed
 
 #func _init():

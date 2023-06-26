@@ -37,7 +37,7 @@ active = true
 [node name="slimeNew" parent="." instance=ExtResource("2_2un3s")]
 
 [node name="Skeleton3D" parent="slimeNew/Root" index="0"]
-bones/0/scale = Vector3(1.005, 0.988258, 1.01395)
+bones/0/scale = Vector3(1.03415, 0.919155, 1.09887)
 
 [connection signal="timeout" from="StopTimer" to="." method="_on_stop_timer_timeout"]
 
