@@ -24,6 +24,10 @@ enum playerState{
 
 var currentPlayerState = playerState.canMove
 
+func testSignleton():	
+	print("PLAYER HERE ")
+
+
 func _ready():
 	#hides the cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

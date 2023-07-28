@@ -60,11 +60,8 @@ KISS
 keep data and logic together
 composition over inheritance
 think about using interfaces (interaction system for exmpl)
+  be a never nester
 
-signals
-@onread, @export etc
-resources
-.tres files
 
 mesh instance/rigidbody3d/primitiveMesh/csgMesh/
 	what is the difference?
@@ -140,6 +137,10 @@ DONE	he can stop at any point				TODO NEXT
 	
 =====
 gameplay ideas
+
+
+обычный враг останавливается, когда его бьет турель. но особенные враги получают урон, но продолжют двигаться.
+
 
 перезагрузка истсемы
 и игроку нужно пережить некоторое время, прячась от врагов или обжигая их

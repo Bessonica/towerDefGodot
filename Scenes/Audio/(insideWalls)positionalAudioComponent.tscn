@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://b54x6ypsv7fl3"]
+[gd_scene load_steps=5 format=3 uid="uid://b54x6ypsv7fl3"]
 
 [ext_resource type="PackedScene" uid="uid://j5ujjbkg4sed" path="res://Scenes/Audio/positionalAudioComponent.tscn" id="1_qbuju"]
 [ext_resource type="Script" path="res://Scripts/Audo/(insideWalls)positionalAudioComponent.gd" id="2_e2yj4"]
+[ext_resource type="AudioStream" uid="uid://6tlhcy7x1d51" path="res://Audio/gameSoundCountDown.wav" id="3_xqnsb"]
+[ext_resource type="AudioStream" uid="uid://cuf4r7mfiak5i" path="res://Audio/gameSoundCountDownReverse.wav" id="4_u148t"]
 
 [node name="PositionalAudioComponent" instance=ExtResource("1_qbuju")]
 script = ExtResource("2_e2yj4")
 
 [node name="SoundOne" type="AudioStreamPlayer3D" parent="." index="0"]
+stream = ExtResource("3_xqnsb")
 bus = &"soundInWalls"
+
+[node name="SoundTwo" type="AudioStreamPlayer3D" parent="." index="1"]
+stream = ExtResource("4_u148t")

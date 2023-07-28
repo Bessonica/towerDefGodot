@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dchd2lcj453fo"]
+
+[ext_resource type="Texture2D" uid="uid://beqe6iunpftqq" path="res://Textures/Tile/Tile_15-256x256.png" id="1_fl8w4"]
+[ext_resource type="PackedScene" uid="uid://cbu12ermeprmd" path="res://Scenes/player.tscn" id="1_kensb"]
+[ext_resource type="PackedScene" uid="uid://bdlvmndxnpbsw" path="res://Scenes/Viewports/firstTest.tscn" id="3_vmdix"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5pdu"]
+albedo_texture = ExtResource("1_fl8w4")
+uv1_triplanar = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+size = Vector3(27.865, 0.265767, 29.732)
+material = SubResource("StandardMaterial3D_q5pdu")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_kensb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.86529, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.404392, 0.914586, 0, -0.914586, 0.404392, 0, 22.0883, 15.158)
+
+[node name="Node3D" parent="." instance=ExtResource("3_vmdix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50684, -8.40175)

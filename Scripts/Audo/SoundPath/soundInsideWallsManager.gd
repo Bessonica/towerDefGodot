@@ -3,7 +3,7 @@ extends Node3D
 #await get_tree().create_timer(10).timeout
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	await get_tree().create_timer(6).timeout
+	await get_tree().create_timer(4).timeout
 	startRandomPath()
 
 
@@ -14,7 +14,7 @@ func _process(delta):
 
 
 func startRandomPath():
-	var randomNumber = randi_range(0, get_child_count())
+	var randomNumber = randi_range(0, get_child_count() - 1)
 	startSpecificPath(randomNumber)
 
 func startSpecificPath(index):
