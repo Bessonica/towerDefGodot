@@ -12,17 +12,19 @@ var is_mouse_inside = false
 var lastMousePoistion2D = null
 var lastMousePosition3D = null
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	#panelArea.connect("mouse_entered", mouseEnteredPanelArea)
-	#panelArea.input_ray_pickable = true
 	panelArea.mouse_entered.connect(mouseEnteredPanelArea)
-	panelArea.input_event.connect(testInputEvent)
-	
-	
-	
-	viewport.set_process_input(true)
-	#subViewportContainer.set_process_input(true)
+
+
+func testMouse():
+	print("HEEEEY MOUSE ENTERED")
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+
+func mouseEnteredPanelArea():
+	is_mouse_inside = true
+	print("mouse entered area")
+
 
 
 
@@ -37,9 +39,6 @@ func _on_interactable_interacted(interactor):
 	Player.toggleMouse()
 	#pass # Replace with function body.
 
-func mouseEnteredPanelArea():
-	is_mouse_inside = true
-	print("mouse entered area")
 
 
 func _input(event):			#	_unhandled_input(event):		_input(event)
@@ -159,5 +158,3 @@ func find_further_distance_to(origin):
 			far_dist = temp_dist
 
 	return far_dist
-
-

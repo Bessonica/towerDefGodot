@@ -86,3 +86,4 @@ Fire={
 3d_physics/layer_5="enemyInside"
 3d_physics/layer_6="enemyInsideSpawnPoint"
 3d_physics/layer_7="player"
+3d_physics/layer_8="ControlPanel"

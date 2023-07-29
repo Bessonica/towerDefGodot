@@ -57,6 +57,7 @@ shape = SubResource("CapsuleShape3D_5r7ea")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PlayerInterface" parent="CanvasLayer" instance=ExtResource("5_6lmfm")]
+mouse_filter = 1
 
 [connection signal="focuseOff" from="CameraPivot/PlayerInteractor" to="." method="_on_player_interactor_focuse_off"]
 [connection signal="focuseOn" from="CameraPivot/PlayerInteractor" to="." method="_on_player_interactor_focuse_on"]
