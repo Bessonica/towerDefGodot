@@ -5,6 +5,7 @@ var panelMeshSize
 @onready var subViewportContainer = $SubViewportContainer
 @onready var panelMesh = $MeshInstance3D
 @onready var panelArea = $MeshInstance3D/Area3D
+@onready var panelCamera = $Camera3D
 
 @export var playerNode: Node3D
 
@@ -41,8 +42,10 @@ func testInputEvent():
 	print("input event")
 
 func _on_interactable_interacted(interactor):
+	enterPanel()
 	#playerNode.toggleMouse()
-	GReference.playerNode.toggleMouse()
+	#GReference.playerNode.toggleMouse()
+	
 	#pass # Replace with function body.
 
 func mouseEnteredPanelArea():
@@ -52,6 +55,7 @@ func mouseEnteredPanelArea():
 
 func _input(event):			#	_unhandled_input(event):		_input(event)
 	var is_mouse_event = false
+	
 	
 	#print("there is input bro")
 	#print(event.as_text())
@@ -79,6 +83,9 @@ func _input(event):			#	_unhandled_input(event):		_input(event)
 #		viewport.push_input(event)
 #		#subViewportContainer.input(event)	#	subViewportContainer
 
+func _physics_process(delta):
+	if Input.is_action_just_pressed("Menu"):
+		exitPanel()
 
 func handle_mouse(event):
 	panelMeshSize = panelMesh.mesh.size
@@ -138,12 +145,9 @@ func handle_mouse(event):
 
 
 func find_mouse(global_position):
-	# Player.returnCamera()
-	#var camera = Player.returnCamera()
 	#var camera = get_viewport().get_camera_3d()
-	#var camera = playerNode.returnCamera()
-	var camera = GReference.playerNode.returnCamera()
-	#		camera doesnt work with player autoload method
+	#var camera = GReference.playerNode.returnCamera()
+	var camera = panelCamera
 	
 	var from = camera.project_ray_origin(global_position)
 	var dist = find_further_distance_to(camera.transform.origin)
@@ -183,4 +187,15 @@ func find_further_distance_to(origin):
 
 	return far_dist
 
+
+func enterPanel():
+	GReference.playerNode.playerEnteredPC()
+	GReference.playerNode.toggleMouse()
+	GReference.playerNode.deActivateWeapon()
+	panelCamera.make_current()
+
+func exitPanel():
+	GReference.playerNode.playerLeftPC()
+	GReference.playerNode.toggleMouse()
+	GReference.playerNode.activateWeapon()
 

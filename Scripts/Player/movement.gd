@@ -38,7 +38,7 @@ func _input(event):
 	#get mouse input for camera rotation
 	match currentPlayerState:
 		playerState.canMove:
-			if event is InputEventMouseMotion:
+			if event is InputEventMouseMotion and (currentPlayerState == playerState.canMove):
 				rotate_y(deg_to_rad(-event.relative.x * mouse_sense))
 				head.rotate_x(deg_to_rad(-event.relative.y * mouse_sense))
 				head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
