@@ -1,8 +1,11 @@
-extends Control
+extends Node
+
+var playerNode: Node3D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	findPlayer()
 	pass # Replace with function body.
 
 
@@ -11,9 +14,6 @@ func _process(delta):
 	pass
 
 
-func _on_button_pressed():
-	print("PRESSED BUTTON 1")
-
-
-func _on_button_2_pressed():
-	print("PRESSED BUTTON 2")
+func findPlayer():
+	var playerNodeArray = get_tree().get_nodes_in_group("Player")
+	playerNode = playerNodeArray[0]

@@ -41,7 +41,8 @@ func testInputEvent():
 	print("input event")
 
 func _on_interactable_interacted(interactor):
-	playerNode.toggleMouse()
+	#playerNode.toggleMouse()
+	GReference.playerNode.toggleMouse()
 	#pass # Replace with function body.
 
 func mouseEnteredPanelArea():
@@ -84,12 +85,12 @@ func handle_mouse(event):
 	
 	if event is InputEventMouseButton:
 		is_mouse_held = event.pressed
-		print("mouse detected")
+		#print("mouse detected")
 	
-	print("event = global position",event.global_position)
+	#print("event = global position",event.global_position)
 	var mouse_pos3D = find_mouse(event.global_position)
-	if mouse_pos3D != null:
-		print("mouse_pos3D x = ", mouse_pos3D.x, "y = ", mouse_pos3D.y)
+	#if mouse_pos3D != null:
+		#print("mouse_pos3D x = ", mouse_pos3D.x, "y = ", mouse_pos3D.y)
 
 	is_mouse_inside = mouse_pos3D != null
 	if is_mouse_inside:
@@ -139,8 +140,9 @@ func handle_mouse(event):
 func find_mouse(global_position):
 	# Player.returnCamera()
 	#var camera = Player.returnCamera()
-	var camera = get_viewport().get_camera_3d()
+	#var camera = get_viewport().get_camera_3d()
 	#var camera = playerNode.returnCamera()
+	var camera = GReference.playerNode.returnCamera()
 	#		camera doesnt work with player autoload method
 	
 	var from = camera.project_ray_origin(global_position)
@@ -154,7 +156,7 @@ func find_mouse(global_position):
 	query.collide_with_areas = true
 	query.collide_with_bodies = false
 	var result = get_world_3d().direct_space_state.intersect_ray(query) #for 3.1 changes
-	print("result = ", result)
+	#print("result = ", result)
 
 	if result.size() > 0:
 		return result.position

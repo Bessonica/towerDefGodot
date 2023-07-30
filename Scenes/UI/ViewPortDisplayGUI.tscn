@@ -44,4 +44,11 @@ grow_vertical = 2
 mouse_filter = 1
 icon = ExtResource("1_gndg7")
 
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+icon = ExtResource("1_gndg7")
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

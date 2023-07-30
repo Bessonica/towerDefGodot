@@ -18,7 +18,7 @@ material = SubResource("ShaderMaterial_wnmyq")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5r7ea"]
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[node name="CharacterBody3D" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 65
 script = ExtResource("1_vb2kb")
 
