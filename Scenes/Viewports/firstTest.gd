@@ -6,6 +6,8 @@ var panelMeshSize
 @onready var panelMesh = $MeshInstance3D
 @onready var panelArea = $MeshInstance3D/Area3D
 
+@export var playerNode: Node3D
+
 var is_mouse_held = false
 var is_mouse_inside = false
 
@@ -16,8 +18,13 @@ var lastMousePosition3D = null
 func _ready():
 	#panelArea.connect("mouse_entered", mouseEnteredPanelArea)
 	#panelArea.input_ray_pickable = true
+	
+	
+	#panelArea.input_event.connect(testInputEvent)
+	
 	panelArea.mouse_entered.connect(mouseEnteredPanelArea)
-	panelArea.input_event.connect(testInputEvent)
+	#panelArea.connect("mouse_entered", Callable(self, "mouseEnteredPanelArea"))
+
 	
 	
 	
@@ -34,12 +41,12 @@ func testInputEvent():
 	print("input event")
 
 func _on_interactable_interacted(interactor):
-	Player.toggleMouse()
+	playerNode.toggleMouse()
 	#pass # Replace with function body.
 
 func mouseEnteredPanelArea():
 	is_mouse_inside = true
-	print("mouse entered area")
+	#print("mouse entered area")
 
 
 func _input(event):			#	_unhandled_input(event):		_input(event)
@@ -48,9 +55,9 @@ func _input(event):			#	_unhandled_input(event):		_input(event)
 	#print("there is input bro")
 	#print(event.as_text())
 	#		WHY COMPARING event ONLY WORKS WITH "is" AND NOT WITH "=="?
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseButton:
 		is_mouse_event = true
-	elif event is InputEventMouseButton:
+	elif event is InputEventMouseMotion:
 		is_mouse_event = true
 	
 	#	WHY THIS FOR LOOP DOESNT WORK?
@@ -62,9 +69,10 @@ func _input(event):			#	_unhandled_input(event):		_input(event)
 #			print("there is input bro")
 	
 	if is_mouse_event and (is_mouse_inside):   #	and (is_mouse_inside or is_mouse_held)
+		#print("hey there bucko")
 		handle_mouse(event)
-	
-	#	this part is probably unnecesary
+
+
 #	elif not is_mouse_event:
 #		#viewport.input(event)  #	or .input(event)
 #		viewport.push_input(event)
@@ -76,14 +84,19 @@ func handle_mouse(event):
 	
 	if event is InputEventMouseButton:
 		is_mouse_held = event.pressed
-
+		print("mouse detected")
+	
+	print("event = global position",event.global_position)
 	var mouse_pos3D = find_mouse(event.global_position)
+	if mouse_pos3D != null:
+		print("mouse_pos3D x = ", mouse_pos3D.x, "y = ", mouse_pos3D.y)
 
 	is_mouse_inside = mouse_pos3D != null
 	if is_mouse_inside:
 		mouse_pos3D = panelArea.global_transform.affine_inverse() * mouse_pos3D
+		lastMousePosition3D = mouse_pos3D
 	else:
-		mouse_pos3D = lastMousePoistion2D
+		mouse_pos3D = lastMousePosition3D
 		if mouse_pos3D == null:
 			mouse_pos3D = Vector3.ZERO
 
@@ -97,7 +110,10 @@ func handle_mouse(event):
 
 	mouse_pos2D.x = mouse_pos2D.x * viewport.size.x
 	mouse_pos2D.y = mouse_pos2D.y * viewport.size.y
-
+#	print("event position in 2d")
+#	print("x = ", mouse_pos2D.x)
+#	print("y = ", mouse_pos2D.y)
+	
 	event.position = mouse_pos2D
 	event.global_position = mouse_pos2D
 
@@ -122,7 +138,11 @@ func handle_mouse(event):
 
 func find_mouse(global_position):
 	# Player.returnCamera()
-	var camera = Player.returnCamera()
+	#var camera = Player.returnCamera()
+	var camera = get_viewport().get_camera_3d()
+	#var camera = playerNode.returnCamera()
+	#		camera doesnt work with player autoload method
+	
 	var from = camera.project_ray_origin(global_position)
 	var dist = find_further_distance_to(camera.transform.origin)
 	var to = from + camera.project_ray_normal(global_position) * dist
@@ -134,6 +154,7 @@ func find_mouse(global_position):
 	query.collide_with_areas = true
 	query.collide_with_bodies = false
 	var result = get_world_3d().direct_space_state.intersect_ray(query) #for 3.1 changes
+	print("result = ", result)
 
 	if result.size() > 0:
 		return result.position

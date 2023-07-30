@@ -31,6 +31,7 @@ func testSignleton():
 func _ready():
 	#hides the cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	actualSpeed = SPEED
 
 func _input(event):
@@ -44,6 +45,7 @@ func _input(event):
 		playerState.cannotMove:
 			pass
 		
+
 
 func _physics_process(delta):
 	match currentPlayerState:
@@ -72,8 +74,7 @@ func _physics_process(delta):
 			if Input.is_action_pressed("Run") and is_on_floor():
 				actualSpeed = SPEED*1.5
 			else:
-				actualSpeed = SPEED
-				
+				actualSpeed = SPEED	
 				
 			if direction:
 				velocity.x = direction.x * actualSpeed

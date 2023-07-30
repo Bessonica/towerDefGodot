@@ -21,8 +21,9 @@ material = SubResource("StandardMaterial3D_q5pdu")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.404392, 0.914586, 0, -0.914586, 0.404392, 0, 22.0883, 15.158)
 
-[node name="Node3D" parent="." instance=ExtResource("3_vmdix")]
+[node name="Node3D" parent="." node_paths=PackedStringArray("playerNode") instance=ExtResource("3_vmdix")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50684, -8.40175)
+playerNode = NodePath("../CharacterBody3D")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_kensb")]
 transform = Transform3D(0.999473, 0, 0.0324574, 0, 1, 0, -0.0324574, 0, 0.999473, 0, 3.98504, -0.703219)
@@ -31,4 +32,4 @@ transform = Transform3D(0.999473, 0, 0.0324574, 0, 1, 0, -0.0324574, 0, 0.999473
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.27411, 1.15665, -5.07691)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.0377251, 0, -0.999288, 0, 1, 0, 0.999288, 0, -0.0377251, -4.63489, 1.3888, -5.01433)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15278, 1.3888, -7.08911)
