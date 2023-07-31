@@ -33,11 +33,14 @@ func _ready():
 
 	
 	
-	currentViewport = viewport
-	currentViewport.set_process_input(true)
+	#currentViewport = viewport
+	#currentViewport.set_process_input(true)
+	setCurrentViewport(viewport)
 	#subViewportContainer.set_process_input(true)
 
-
+func setCurrentViewport(viewport : Viewport):
+	currentViewport = viewport
+	currentViewport.set_process_input(true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -211,7 +214,8 @@ func enterViewport(viewportToChange : Viewport):
 	#currentViewport = viewportTexture
 	# change albedo/texture
 	#	panelMesh
-	currentViewport = viewportToChange
+	#currentViewport = viewportToChange
+	setCurrentViewport(viewportToChange)
 	var panelMaterial = panelMesh.get_surface_override_material(0)
 	var path = viewportToChange.get_path()
 	panelMaterial.albedo_texture.viewport_path = path

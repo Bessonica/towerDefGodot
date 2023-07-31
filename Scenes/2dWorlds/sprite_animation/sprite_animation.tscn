@@ -12,6 +12,42 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_ykfj6")
 script = ExtResource("2_cxyy8")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(918, 524)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ykfj6")
+script = ExtResource("2_cxyy8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(801, 298)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ykfj6")
+script = ExtResource("2_cxyy8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(394, 565)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ykfj6")
+script = ExtResource("2_cxyy8")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(437, 235)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ykfj6")
+script = ExtResource("2_cxyy8")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(668, 474)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ykfj6")
+script = ExtResource("2_cxyy8")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(142, 545)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ykfj6")
+script = ExtResource("2_cxyy8")
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -33,3 +69,10 @@ offset_top = 12.0
 offset_right = 602.0
 offset_bottom = 148.0
 icon = ExtResource("3_uud6q")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 385.0
+offset_top = 337.0
+offset_right = 625.0
+offset_bottom = 363.0
+text = "lmao of course you are a clown"
