@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdlvmndxnpbsw"]
+[gd_scene load_steps=11 format=3 uid="uid://bdlvmndxnpbsw"]
 
 [ext_resource type="Script" path="res://Scenes/Viewports/firstTest.gd" id="1_5lgto"]
 [ext_resource type="PackedScene" uid="uid://cfuloncgtxtsq" path="res://Scenes/UI/ViewPortDisplayGUI.tscn" id="1_27hn8"]
+[ext_resource type="PackedScene" uid="uid://chpe832smydau" path="res://Scenes/2dWorlds/sprite_animation/sprite_animation.tscn" id="4_5uutn"]
 [ext_resource type="PackedScene" uid="uid://cjhdmy58jfbo1" path="res://Interaction/Interactable/Interactable.tscn" id="4_cl6i6"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_1360v"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_voumd"]
-viewport_path = NodePath("SubViewport")
+viewport_path = NodePath("ViewportCollection/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxijl"]
 resource_local_to_scene = true
@@ -43,13 +44,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26265, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22985, 0, 0)
 shape = SubResource("BoxShape3D_x2xw3")
 
-[node name="SubViewport" type="SubViewport" parent="."]
-handle_input_locally = false
-size = Vector2i(1080, 720)
-render_target_update_mode = 4
-
-[node name="Control" parent="SubViewport" instance=ExtResource("1_27hn8")]
-
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.3813, 0, 0, 0, 0.337692, 0, 0, 0, 0.435097, 1.03233, 0, 0)
 mesh = SubResource("BoxMesh_rli0x")
@@ -57,6 +51,24 @@ mesh = SubResource("BoxMesh_rli0x")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10176, 0, 0.755624)
 
+[node name="ViewportCollection" type="Node3D" parent="."]
+
+[node name="SubViewport" type="SubViewport" parent="ViewportCollection"]
+handle_input_locally = false
+size = Vector2i(1080, 720)
+render_target_update_mode = 4
+
+[node name="Control" parent="ViewportCollection/SubViewport" instance=ExtResource("1_27hn8")]
+
+[node name="SubViewport2" type="SubViewport" parent="ViewportCollection"]
+size = Vector2i(1080, 720)
+
+[node name="Node2D" parent="ViewportCollection/SubViewport2" instance=ExtResource("4_5uutn")]
+
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="pressed" from="ViewportCollection/SubViewport/Control/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="ViewportCollection/SubViewport2/Node2D/Control/Button" to="." method="_on_button_pressed"]
 
 [editable path="Interactable"]
+[editable path="ViewportCollection/SubViewport/Control"]
+[editable path="ViewportCollection/SubViewport2/Node2D"]

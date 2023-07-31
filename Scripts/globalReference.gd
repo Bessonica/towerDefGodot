@@ -16,4 +16,5 @@ func _process(delta):
 
 func findPlayer():
 	var playerNodeArray = get_tree().get_nodes_in_group("Player")
-	playerNode = playerNodeArray[0]
+	if playerNodeArray.size() >= 1:
+		playerNode = playerNodeArray[0]

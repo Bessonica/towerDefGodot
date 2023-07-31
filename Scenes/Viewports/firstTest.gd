@@ -1,13 +1,18 @@
 extends Node3D
 
 var panelMeshSize
-@onready var viewport = $SubViewport
+var currentViewport
+
+
+
 @onready var subViewportContainer = $SubViewportContainer
 @onready var panelMesh = $MeshInstance3D
 @onready var panelArea = $MeshInstance3D/Area3D
 @onready var panelCamera = $Camera3D
 
-@export var playerNode: Node3D
+@onready var ViewportCollection  = $ViewportCollection
+@onready var viewport = $ViewportCollection/SubViewport
+@onready var viewportTwo = $ViewportCollection/SubViewport2
 
 var is_mouse_held = false
 var is_mouse_inside = false
@@ -28,8 +33,8 @@ func _ready():
 
 	
 	
-	
-	viewport.set_process_input(true)
+	currentViewport = viewport
+	currentViewport.set_process_input(true)
 	#subViewportContainer.set_process_input(true)
 
 
@@ -40,6 +45,7 @@ func _process(delta):
 
 func testInputEvent():
 	print("input event")
+
 
 func _on_interactable_interacted(interactor):
 	enterPanel()
@@ -116,8 +122,8 @@ func handle_mouse(event):
 	mouse_pos2D.x = mouse_pos2D.x / panelMeshSize.x
 	mouse_pos2D.y = mouse_pos2D.y / panelMeshSize.y
 
-	mouse_pos2D.x = mouse_pos2D.x * viewport.size.x
-	mouse_pos2D.y = mouse_pos2D.y * viewport.size.y
+	mouse_pos2D.x = mouse_pos2D.x * currentViewport.size.x
+	mouse_pos2D.y = mouse_pos2D.y * currentViewport.size.y
 #	print("event position in 2d")
 #	print("x = ", mouse_pos2D.x)
 #	print("y = ", mouse_pos2D.y)
@@ -139,7 +145,7 @@ func handle_mouse(event):
 
 	# Finally, send the processed input event to the viewport.
 	#viewport.input(event)
-	viewport.push_input(event)
+	currentViewport.push_input(event)
 	#subViewportContainer.input(event)
 
 
@@ -193,9 +199,30 @@ func enterPanel():
 	GReference.playerNode.toggleMouse()
 	GReference.playerNode.deActivateWeapon()
 	panelCamera.make_current()
+	#	TODO when add cursor inside 2d panel scene
+	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func exitPanel():
 	GReference.playerNode.playerLeftPC()
 	GReference.playerNode.toggleMouse()
 	GReference.playerNode.activateWeapon()
+
+func enterViewport(viewportToChange : Viewport):
+	#currentViewport = viewportTexture
+	# change albedo/texture
+	#	panelMesh
+	currentViewport = viewportToChange
+	var panelMaterial = panelMesh.get_surface_override_material(0)
+	var path = viewportToChange.get_path()
+	panelMaterial.albedo_texture.viewport_path = path
+	#pass
+	
+
+func _on_button_2_pressed():
+	enterViewport(viewportTwo)
+	#pass # Replace with function body.
+
+
+func _on_button_pressed():
+	enterViewport(viewport)
 
